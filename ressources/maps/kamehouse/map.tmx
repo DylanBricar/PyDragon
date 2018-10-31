@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.2" tiledversion="1.2.0" orientation="orthogonal" renderorder="right-down" width="50" height="50" tilewidth="32" tileheight="32" infinite="0" nextlayerid="4" nextobjectid="65">
+ <tileset firstgid="1" source="/Users/Naruhiko/PycharmProjects/PyDragon/ressources/maps/kamehouse/tiles.tsx"/>
+ <tileset firstgid="2" source="/Users/Naruhiko/PycharmProjects/PyDragon/ressources/maps/kamehouse/triggers.tsx"/>
+ <tileset firstgid="8" source="/Users/Naruhiko/PycharmProjects/PyDragon/ressources/maps/kamehouse/Kamehouse.tsx"/>
+ <layer id="1" name="background" width="50" height="50">
+  <data encoding="base64" compression="zlib">
+   eJzt1jsOgCAQRVEWRW3N/ldkawjgyDAvYG5xE6OCnBg/JaVUiIiIiIgWl6vtXO2zzjE71rPu3tpXFrl2dTjmHNejt+Ot83rjIjxWhyeFJXL9FkvkPcGB4wQDDt87V2n5gyPyGT/V0fLg2Muh+oYoHIr/RIVBYVHdj5HJYs6DcyMMXyyrwuF3eOas90U6eh7FNYmIiIhI0w2IT5az
+  </data>
+ </layer>
+ <layer id="3" name="tiles" width="50" height="50">
+  <data encoding="base64" compression="zlib">
+   eJzt07cKAkEYReEtzYKxMRfGRt3O0Bk6Q2d4//fwlDIwIKvOMOz94DT/NLeZKBIRCd/A9wARERERSaU8Fajoe8gHSlS2vNWpQU13c/6iSz3qe97xrQlNaeZ7yJsMZSln3Oe0oCXFrkclUKEq1Yz7ita0oa3rUQm0qE0d476jPR3o6HpUAkMa0di4n+hMF7q6HvVDN7rTg57Gm+1Phcb2p0Jj+1Ohsf0pERERERERkbR5AZeDCTI=
+  </data>
+ </layer>
+ <objectgroup color="#a40b00" id="2" name="evenements" visible="0" offsetx="0" offsety="-38.7924">
+  <properties>
+   <property name="platform" value=""/>
+  </properties>
+  <object id="1" name="bord_gauche" x="0" y="32" width="32" height="1536">
+   <properties>
+    <property name="bord_gauche" value="tlrb"/>
+   </properties>
+  </object>
+  <object id="2" name="bord_droit" x="1568" y="32" width="32" height="1536">
+   <properties>
+    <property name="bord_droit" value="tlrb"/>
+   </properties>
+  </object>
+  <object id="3" name="bord_haut" x="32" y="0" width="1536" height="32">
+   <properties>
+    <property name="bord_haut" value="tlrb"/>
+   </properties>
+  </object>
+  <object id="4" name="bord_bas" x="32" y="1568" width="1536" height="32">
+   <properties>
+    <property name="bord_bas" value="tlrb"/>
+   </properties>
+  </object>
+  <object id="19" name="collision" x="771.708" y="736.786" width="102.247" height="157.214">
+   <properties>
+    <property name="collision" value="t"/>
+   </properties>
+  </object>
+  <object id="22" name="player" gid="2" x="813.303" y="1025.33" width="32" height="32"/>
+ </objectgroup>
+</map>
