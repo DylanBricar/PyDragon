@@ -60,4 +60,5 @@ Création d'un jeu au design du manga Dragon Ball avec Python (PyGame). Le conce
 - [11/10/18] : Création de l'objectif du projet
 - [18/10/18] : Tester le module TMX + test des collisions + renseignements sur PyGame (tutoriels)
 - [25/10/18] : Exercices sur PyGame et fin des tutoriels basiques
-- [31/10/18] : Première carte, gestion des collisions + squelette d'une MAP (player (sprites) + événements) **Refactoring à faire**
+- [31/10/18] : Première carte, gestion des collisions + squelette d'une MAP (player (sprites) + événements)
+- [08/11/18] : Verification des fonctionnalités sur Windows + adaptations
