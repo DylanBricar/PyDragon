@@ -1,19 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.0" orientation="orthogonal" renderorder="right-down" width="50" height="50" tilewidth="32" tileheight="32" infinite="0" nextlayerid="4" nextobjectid="65">
+<map version="1.2" tiledversion="1.2.0" orientation="orthogonal" renderorder="right-down" width="50" height="50" tilewidth="32" tileheight="32" infinite="0" nextlayerid="16" nextobjectid="148">
  <tileset firstgid="1" source="/Users/Naruhiko/PycharmProjects/PyDragon/ressources/maps/kamehouse/tiles.tsx"/>
  <tileset firstgid="2" source="/Users/Naruhiko/PycharmProjects/PyDragon/ressources/maps/kamehouse/triggers.tsx"/>
  <tileset firstgid="8" source="/Users/Naruhiko/PycharmProjects/PyDragon/ressources/maps/kamehouse/Kamehouse.tsx"/>
- <layer id="1" name="background" width="50" height="50">
+ <layer id="1" name="herbe" width="50" height="50">
   <data encoding="base64" compression="zlib">
-   eJzt1jsOgCAQRVEWRW3N/ldkawjgyDAvYG5xE6OCnBg/JaVUiIiIiIgWl6vtXO2zzjE71rPu3tpXFrl2dTjmHNejt+Ot83rjIjxWhyeFJXL9FkvkPcGB4wQDDt87V2n5gyPyGT/V0fLg2Muh+oYoHIr/RIVBYVHdj5HJYs6DcyMMXyyrwuF3eOas90U6eh7FNYmIiIhI0w2IT5az
+   eJzt0sENgDAIQNG6iUN1/1kcwMSDgWLxHd6RhB+YY4wJAADAFs7jrnqniIbqlqed3tLx34aMlqqGyJbqhsib6PhOQ2VHZEOXji4/1eUeVS0ZDTpyWrJnV7SsmgUAAPZyAX9m9q0=
   </data>
  </layer>
- <layer id="3" name="tiles" width="50" height="50">
+ <layer id="12" name="sable" width="50" height="50">
   <data encoding="base64" compression="zlib">
-   eJzt07cKAkEYReEtzYKxMRfGRt3O0Bk6Q2d4//fwlDIwIKvOMOz94DT/NLeZKBIRCd/A9wARERERSaU8Fajoe8gHSlS2vNWpQU13c/6iSz3qe97xrQlNaeZ7yJsMZSln3Oe0oCXFrkclUKEq1Yz7ita0oa3rUQm0qE0d476jPR3o6HpUAkMa0di4n+hMF7q6HvVDN7rTg57Gm+1Phcb2p0Jj+1Ohsf0pERERERERkbR5AZeDCTI=
+   eJztl00KwjAQRpObeBHdaangwmqXWrz/JcyAgTDEdIozqSnfg2+Zn0cy6dQ5AAAAAAAAgCZH79xpJp2338ed7YXWHIWhcfuQy0xuIS9jF/K4JmsehC5Sh3TOmh5x3bm7wh1y1HTJeSxNCX6/anlYAA85qYcF0eEcMjVyHjs2Pq2N6fPOWZF7PzXg9T0aenz7BmhQyyPep2GjHlqs6aHJFj14z6aJtQfB665r1INIPQav3ytyDyu4h3ZvQh6PMGffuEdE0pP80ruv4ZHbD98v9Xt0lpT+jz1KSR1ilvxvkYdFzxtr5CkMd8il5NAKEk8AAAAAAFCfN0hVbR4=
   </data>
  </layer>
- <objectgroup color="#a40b00" id="2" name="evenements" visible="0" offsetx="0" offsety="-38.7924">
+ <layer id="14" name="bord_sable" width="50" height="50">
+  <data encoding="base64" compression="zlib">
+   eJzt1jsKgDAUBEBzPO38tJr730JFwSCIWIgxzMA2qXZ5TaoKAAAAoHxN+LoBAABvm8KWp/qM/oox6dI+7JXLjnTDsGQMx23W1Bc9u/09lx13zrvOiT/ZAQBQmhm36Qjb
+  </data>
+ </layer>
+ <layer id="11" name="bord_herbe" width="50" height="50">
+  <data encoding="base64" compression="zlib">
+   eJztl8EOgjAMhrdnEG8kbGf0rPGqj8D7P4s0oYlZ1gWz0Sr8X9Jjab+F0eIcAAD8P711AwAAAAD4aU7euS4TZ2/d2XrI4Sb0ezdykc61FOQwCWHlMjSs9+kSFT1y78dUWd/CY/D1fafQ815zXBU9xrnWs7JeSPK1HQj6z2rhwlg4EP0Sre56TL5bmpRmwbfEHTgQVh6tv1d78bDaSbaYH9oufDe2mIMWs/zoHlKetgfPccmFZvOlENIOoO1BpC4cvF88CkG5IZMbjHaTMXPWa/uoyQUAAAAAAOBIvAG7lh5m
+  </data>
+ </layer>
+ <objectgroup color="#a40b00" id="2" name="evenements" visible="0">
   <properties>
    <property name="platform" value=""/>
   </properties>
@@ -37,11 +47,312 @@
     <property name="bord_bas" value="tlrb"/>
    </properties>
   </object>
-  <object id="19" name="collision" x="771.708" y="736.786" width="102.247" height="157.214">
+  <object id="22" name="player" gid="2" x="831" y="1023" width="32" height="32"/>
+  <object id="76" name="bot" gid="3" x="895" y="959" width="32" height="32"/>
+  <object id="81" name="collision_objet" x="773" y="641" width="40" height="30">
    <properties>
-    <property name="collision" value="t"/>
+    <property name="collision" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="22" name="player" gid="2" x="813.303" y="1025.33" width="32" height="32"/>
+  <object id="82" name="collision_house" x="773.766" y="769.082" width="100" height="124">
+   <properties>
+    <property name="collision" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="85" name="collision_house" x="784.162" y="761.098" width="5" height="6">
+   <properties>
+    <property name="collision" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="86" name="collision_house" x="774.956" y="768.874" width="5" height="6">
+   <properties>
+    <property name="collision" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="87" name="collision_house" x="780.08" y="763.956" width="5" height="6">
+   <properties>
+    <property name="collision" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="89" name="collision_house" x="787.019" y="758.853" width="5" height="6">
+   <properties>
+    <property name="collision" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="90" name="collision_house" x="794.367" y="754.771" width="5" height="6">
+   <properties>
+    <property name="collision" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="91" name="collision_house" x="790.693" y="757.016" width="5" height="6">
+   <properties>
+    <property name="collision" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="92" name="collision_house" x="797.837" y="752.934" width="5" height="6">
+   <properties>
+    <property name="collision" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="93" name="collision_house" x="800.49" y="750.077" width="5" height="6">
+   <properties>
+    <property name="collision" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="94" name="collision_house" x="807.429" y="746.199" width="5" height="6">
+   <properties>
+    <property name="collision" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="95" name="collision_house" x="804.164" y="748.036" width="5" height="6">
+   <properties>
+    <property name="collision" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="96" name="collision_house" x="809.47" y="744.974" width="5" height="6">
+   <properties>
+    <property name="collision" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="100" name="collision_house" x="822.737" y="738.239" width="5" height="6">
+   <properties>
+    <property name="collision" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="101" name="collision_house" x="816.614" y="739.259" width="5" height="6">
+   <properties>
+    <property name="collision" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="102" name="collision_house" x="821.308" y="736.198" width="5" height="6">
+   <properties>
+    <property name="collision" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="103" name="collision_house" x="827.84" y="740.28" width="5" height="6">
+   <properties>
+    <property name="collision" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="104" name="collision_house" x="832.33" y="743.137" width="5" height="6">
+   <properties>
+    <property name="collision" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="105" name="collision_house" x="836.82" y="746.403" width="5" height="6">
+   <properties>
+    <property name="collision" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="106" name="collision_house" x="840.494" y="749.056" width="5" height="6">
+   <properties>
+    <property name="collision" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="107" name="collision_house" x="843.964" y="751.709" width="5" height="6">
+   <properties>
+    <property name="collision" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="108" name="collision_house" x="848.25" y="754.567" width="5" height="6">
+   <properties>
+    <property name="collision" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="109" name="collision_house" x="851.107" y="756.2" width="5" height="6">
+   <properties>
+    <property name="collision" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="110" name="collision_house" x="855.189" y="758.853" width="5" height="6">
+   <properties>
+    <property name="collision" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="111" name="collision_house" x="858.455" y="761.914" width="5" height="6">
+   <properties>
+    <property name="collision" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="112" name="collision_house" x="861.925" y="763.956" width="5" height="6">
+   <properties>
+    <property name="collision" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="113" name="collision_house" x="865.19" y="766.405" width="5" height="6">
+   <properties>
+    <property name="collision" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="115" name="collision_house" x="866.823" y="768.446" width="5" height="6">
+   <properties>
+    <property name="collision" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="116" name="collision_house" x="812.532" y="742.525" width="5" height="6">
+   <properties>
+    <property name="collision" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="117" name="collision_house" x="778.039" y="765.997" width="5" height="6">
+   <properties>
+    <property name="collision" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="118" name="collision_map" x="600.32" y="520.962" width="272" height="26">
+   <properties>
+    <property name="collision" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="119" name="collision_map" x="569.993" y="484.246" width="35" height="36">
+   <properties>
+    <property name="collision" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="120" name="collision_map" x="858.042" y="491.361" width="45" height="28">
+   <properties>
+    <property name="collision" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="121" name="collision_map" x="890.02" y="457.358" width="45" height="31.6435">
+   <properties>
+    <property name="collision" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="122" name="collision_map" x="935.103" y="427.1" width="311" height="28">
+   <properties>
+    <property name="collision" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="123" name="collision_map" x="1241.3" y="455.262" width="45" height="65">
+   <properties>
+    <property name="collision" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="124" name="collision_map" x="1273.04" y="519.266" width="45" height="33">
+   <properties>
+    <property name="collision" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="125" name="collision_map" x="1303.77" y="552.036" width="45" height="150">
+   <properties>
+    <property name="collision" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="126" name="collision_map" x="1274.58" y="702.062" width="45" height="28">
+   <properties>
+    <property name="collision" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="127" name="collision_map" x="1245.93" y="732.272" width="45" height="173">
+   <properties>
+    <property name="collision" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="128" name="collision_map" x="1273.04" y="906.363" width="45" height="28">
+   <properties>
+    <property name="collision" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="129" name="collision_map" x="1303.77" y="935.037" width="45" height="32">
+   <properties>
+    <property name="collision" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="130" name="collision_map" x="1338.54" y="967.295" width="45" height="185">
+   <properties>
+    <property name="collision" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="131" name="collision_map" x="1309.4" y="1152.7" width="45" height="58">
+   <properties>
+    <property name="collision" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="132" name="collision_map" x="1021.12" y="1212.09" width="294" height="28">
+   <properties>
+    <property name="collision" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="133" name="collision_map" x="894.14" y="1182.37" width="135" height="28">
+   <properties>
+    <property name="collision" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="134" name="collision_map" x="827.064" y="1117.32" width="75" height="64">
+   <properties>
+    <property name="collision" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="135" name="collision_map" x="796.83" y="1154.11" width="30" height="28">
+   <properties>
+    <property name="collision" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="136" name="collision_map" x="416.414" y="1182.35" width="383" height="28">
+   <properties>
+    <property name="collision" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="137" name="collision_map" x="375.451" y="1053.83" width="45" height="127">
+   <properties>
+    <property name="collision" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="138" name="collision_map" x="344.217" y="778.355" width="45" height="274">
+   <properties>
+    <property name="collision" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="139" name="collision_map" x="378.011" y="747.633" width="45" height="28">
+   <properties>
+    <property name="collision" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="140" name="collision_map" x="404.637" y="485.984" width="45" height="258">
+   <properties>
+    <property name="collision" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="141" name="collision_map" x="443.039" y="456.798" width="127" height="28">
+   <properties>
+    <property name="collision" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="142" name="collision_objet" x="591.963" y="754.496" width="44" height="29">
+   <properties>
+    <property name="collision" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="143" name="collision_objet" x="619.381" y="769.001" width="10" height="61">
+   <properties>
+    <property name="collision" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="144" name="collision_objet" x="1025.88" y="638.81" width="10" height="61">
+   <properties>
+    <property name="collision" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="145" name="collision_objet" x="1016.32" y="620.767" width="52" height="38">
+   <properties>
+    <property name="collision" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="146" name="collision_objet" x="1003.23" y="879.204" width="52" height="38">
+   <properties>
+    <property name="collision" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="147" name="collision_objet" x="1034.37" y="892.648" width="12" height="71">
+   <properties>
+    <property name="collision" type="bool" value="true"/>
+   </properties>
+  </object>
  </objectgroup>
+ <layer id="3" name="tiles" width="50" height="50">
+  <data encoding="base64" compression="zlib">
+   eJzt0ycPAkEUReHB0THUBLE0RwmOYimWJimW8v89J0GwmbCIDVl2svdLjnlj3ohnjIiI+5r/XkBEREREEilHeSrQIfUujopUCnirUZ0avllc//FNh7rU881c/MfIvPYe/3sRnzRlKGvNJzSlGc2jXiqEMlWoas0XtKQVraNeKgSPWtS25hva0o72Ee8URp8GNLTmRzrRmS5RL/VDV7rRnR7WW9BNuSboplzjmc835ZqgmxIRERERERFJmicLTgxW
+  </data>
+ </layer>
 </map>
