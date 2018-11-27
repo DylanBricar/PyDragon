@@ -1,15 +1,6 @@
-# "Tiled" TMX loader/renderer and more
-# Copyright 2012 Richard Jones <richard@mechanicalcat.net>
-# This code is placed in the Public Domain.
-# 
-# Changes (July 2013 by Renfred Harper):
-# Ported to Python 3
-# Added selective area support SpriteLayer.draw
-
 import sys
 import struct
 import pygame
-from pygame.locals import *
 from pygame import Rect
 from xml.etree import ElementTree
 from base64 import b64decode

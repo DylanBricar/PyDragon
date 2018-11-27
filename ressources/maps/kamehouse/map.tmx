@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.2" tiledversion="1.2.0" orientation="orthogonal" renderorder="right-down" width="50" height="50" tilewidth="32" tileheight="32" infinite="0" nextlayerid="16" nextobjectid="148">
- <tileset firstgid="1" source="/Users/Naruhiko/PycharmProjects/PyDragon/ressources/maps/kamehouse/tiles.tsx"/>
- <tileset firstgid="2" source="/Users/Naruhiko/PycharmProjects/PyDragon/ressources/maps/kamehouse/triggers.tsx"/>
- <tileset firstgid="8" source="/Users/Naruhiko/PycharmProjects/PyDragon/ressources/maps/kamehouse/Kamehouse.tsx"/>
+ <tileset firstgid="1" source="ressources/maps/kamehouse/tiles.tsx"/>
+ <tileset firstgid="2" source="ressources/maps/kamehouse/triggers.tsx"/>
+ <tileset firstgid="8" source="ressources/maps/kamehouse/Kamehouse.tsx"/>
  <layer id="1" name="herbe" width="50" height="50">
   <data encoding="base64" compression="zlib">
    eJzt0sENgDAIQNG6iUN1/1kcwMSDgWLxHd6RhB+YY4wJAADAFs7jrnqniIbqlqed3tLx34aMlqqGyJbqhsib6PhOQ2VHZEOXji4/1eUeVS0ZDTpyWrJnV7SsmgUAAPZyAX9m9q0=
@@ -23,7 +23,7 @@
    eJztl8EOgjAMhrdnEG8kbGf0rPGqj8D7P4s0oYlZ1gWz0Sr8X9Jjab+F0eIcAAD8P711AwAAAAD4aU7euS4TZ2/d2XrI4Sb0ezdykc61FOQwCWHlMjSs9+kSFT1y78dUWd/CY/D1fafQ815zXBU9xrnWs7JeSPK1HQj6z2rhwlg4EP0Sre56TL5bmpRmwbfEHTgQVh6tv1d78bDaSbaYH9oufDe2mIMWs/zoHlKetgfPccmFZvOlENIOoO1BpC4cvF88CkG5IZMbjHaTMXPWa/uoyQUAAAAAAOBIvAG7lh5m
   </data>
  </layer>
- <objectgroup color="#a40b00" id="2" name="evenements" visible="0">
+ <objectgroup color="#a40b00" id="2" name="evenements" visible="1">
   <properties>
    <property name="platform" value=""/>
   </properties>
