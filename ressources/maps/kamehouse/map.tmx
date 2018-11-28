@@ -23,28 +23,28 @@
    eJztl8EOgjAMhrdnEG8kbGf0rPGqj8D7P4s0oYlZ1gWz0Sr8X9Jjab+F0eIcAAD8P711AwAAAAD4aU7euS4TZ2/d2XrI4Sb0ezdykc61FOQwCWHlMjSs9+kSFT1y78dUWd/CY/D1fafQ815zXBU9xrnWs7JeSPK1HQj6z2rhwlg4EP0Sre56TL5bmpRmwbfEHTgQVh6tv1d78bDaSbaYH9oufDe2mIMWs/zoHlKetgfPccmFZvOlENIOoO1BpC4cvF88CkG5IZMbjHaTMXPWa/uoyQUAAAAAAOBIvAG7lh5m
   </data>
  </layer>
- <objectgroup color="#a40b00" id="2" name="evenements" visible="1">
+ <objectgroup color="#a40b00" id="2" name="evenements" visible="0">
   <properties>
    <property name="platform" value=""/>
   </properties>
   <object id="1" name="bord_gauche" x="0" y="32" width="32" height="1536">
    <properties>
-    <property name="bord_gauche" value="tlrb"/>
+    <property name="collision" type="bool" value="true"/>
    </properties>
   </object>
   <object id="2" name="bord_droit" x="1568" y="32" width="32" height="1536">
    <properties>
-    <property name="bord_droit" value="tlrb"/>
+    <property name="collision" type="bool" value="true"/>
    </properties>
   </object>
   <object id="3" name="bord_haut" x="32" y="0" width="1536" height="32">
    <properties>
-    <property name="bord_haut" value="tlrb"/>
+    <property name="collision" type="bool" value="true"/>
    </properties>
   </object>
   <object id="4" name="bord_bas" x="32" y="1568" width="1536" height="32">
    <properties>
-    <property name="bord_bas" value="tlrb"/>
+    <property name="collision" type="bool" value="true"/>
    </properties>
   </object>
   <object id="22" name="player" gid="2" x="831" y="1023" width="32" height="32"/>
@@ -54,7 +54,7 @@
     <property name="collision" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="82" name="collision_house" x="773.766" y="769.082" width="100" height="124">
+  <object id="82" name="collision_house" x="764" y="769" width="118.005" height="124">
    <properties>
     <property name="collision" type="bool" value="true"/>
    </properties>
@@ -199,152 +199,152 @@
     <property name="collision" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="118" name="collision_map" x="600.32" y="520.962" width="272" height="26">
+  <object id="118" name="collision_map" x="600" y="520" width="272" height="26">
    <properties>
     <property name="collision" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="119" name="collision_map" x="569.993" y="484.246" width="35" height="36">
+  <object id="119" name="collision_map" x="569" y="484" width="35" height="36">
    <properties>
     <property name="collision" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="120" name="collision_map" x="858.042" y="491.361" width="45" height="28">
+  <object id="120" name="collision_map" x="858" y="491" width="45" height="28">
    <properties>
     <property name="collision" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="121" name="collision_map" x="890.02" y="457.358" width="45" height="31.6435">
+  <object id="121" name="collision_map" x="890" y="457" width="45" height="31.6435">
    <properties>
     <property name="collision" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="122" name="collision_map" x="935.103" y="427.1" width="311" height="28">
+  <object id="122" name="collision_map" x="934" y="427" width="311" height="28">
    <properties>
     <property name="collision" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="123" name="collision_map" x="1241.3" y="455.262" width="45" height="65">
+  <object id="123" name="collision_map" x="1238" y="455" width="45" height="65">
    <properties>
     <property name="collision" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="124" name="collision_map" x="1273.04" y="519.266" width="45" height="33">
+  <object id="124" name="collision_map" x="1273" y="519" width="45" height="33">
    <properties>
     <property name="collision" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="125" name="collision_map" x="1303.77" y="552.036" width="45" height="150">
+  <object id="125" name="collision_map" x="1303" y="552" width="45" height="150">
    <properties>
     <property name="collision" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="126" name="collision_map" x="1274.58" y="702.062" width="45" height="28">
+  <object id="126" name="collision_map" x="1274" y="702" width="45" height="28">
    <properties>
     <property name="collision" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="127" name="collision_map" x="1245.93" y="732.272" width="45" height="173">
+  <object id="127" name="collision_map" x="1240" y="732" width="45" height="173">
    <properties>
     <property name="collision" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="128" name="collision_map" x="1273.04" y="906.363" width="45" height="28">
+  <object id="128" name="collision_map" x="1273" y="906" width="45" height="28">
    <properties>
     <property name="collision" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="129" name="collision_map" x="1303.77" y="935.037" width="45" height="32">
+  <object id="129" name="collision_map" x="1303" y="935" width="45" height="32">
    <properties>
     <property name="collision" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="130" name="collision_map" x="1338.54" y="967.295" width="45" height="185">
+  <object id="130" name="collision_map" x="1338" y="967" width="45" height="185">
    <properties>
     <property name="collision" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="131" name="collision_map" x="1309.4" y="1152.7" width="45" height="58">
+  <object id="131" name="collision_map" x="1309" y="1152" width="45" height="58">
    <properties>
     <property name="collision" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="132" name="collision_map" x="1021.12" y="1212.09" width="294" height="28">
+  <object id="132" name="collision_map" x="1021" y="1198" width="294" height="28">
    <properties>
     <property name="collision" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="133" name="collision_map" x="894.14" y="1182.37" width="135" height="28">
+  <object id="133" name="collision_map" x="894" y="1175" width="135" height="28">
    <properties>
     <property name="collision" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="134" name="collision_map" x="827.064" y="1117.32" width="75" height="64">
+  <object id="134" name="collision_map" x="827" y="1108" width="75" height="64">
    <properties>
     <property name="collision" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="135" name="collision_map" x="796.83" y="1154.11" width="30" height="28">
+  <object id="135" name="collision_map" x="787" y="1144" width="37.7861" height="30.0186">
    <properties>
     <property name="collision" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="136" name="collision_map" x="416.414" y="1182.35" width="383" height="28">
+  <object id="136" name="collision_map" x="416" y="1166" width="426.054" height="32">
    <properties>
     <property name="collision" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="137" name="collision_map" x="375.451" y="1053.83" width="45" height="127">
+  <object id="137" name="collision_map" x="384" y="1053" width="32" height="127">
    <properties>
     <property name="collision" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="138" name="collision_map" x="344.217" y="778.355" width="45" height="274">
+  <object id="138" name="collision_map" x="344" y="778" width="45" height="274">
    <properties>
     <property name="collision" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="139" name="collision_map" x="378.011" y="747.633" width="45" height="28">
+  <object id="139" name="collision_map" x="378" y="747" width="45" height="28">
    <properties>
     <property name="collision" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="140" name="collision_map" x="404.637" y="485.984" width="45" height="258">
+  <object id="140" name="collision_map" x="404" y="485" width="45" height="258">
    <properties>
     <property name="collision" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="141" name="collision_map" x="443.039" y="456.798" width="127" height="28">
+  <object id="141" name="collision_map" x="443" y="456" width="127" height="28">
    <properties>
     <property name="collision" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="142" name="collision_objet" x="591.963" y="754.496" width="44" height="29">
+  <object id="142" name="collision_objet" x="591" y="754" width="44" height="29">
    <properties>
     <property name="collision" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="143" name="collision_objet" x="619.381" y="769.001" width="10" height="61">
+  <object id="143" name="collision_objet" x="619" y="769.001" width="10" height="61">
    <properties>
     <property name="collision" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="144" name="collision_objet" x="1025.88" y="638.81" width="10" height="61">
+  <object id="144" name="collision_objet" x="1026" y="639" width="10" height="61">
    <properties>
     <property name="collision" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="145" name="collision_objet" x="1016.32" y="620.767" width="52" height="38">
+  <object id="145" name="collision_objet" x="1016" y="620" width="52" height="38">
    <properties>
     <property name="collision" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="146" name="collision_objet" x="1003.23" y="879.204" width="52" height="38">
+  <object id="146" name="collision_objet" x="1003" y="879" width="52" height="38">
    <properties>
     <property name="collision" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="147" name="collision_objet" x="1034.37" y="892.648" width="12" height="71">
+  <object id="147" name="collision_objet" x="1034" y="892" width="12" height="71">
    <properties>
     <property name="collision" type="bool" value="true"/>
    </properties>
