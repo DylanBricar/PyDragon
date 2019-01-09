@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.0" orientation="orthogonal" renderorder="right-down" width="50" height="50" tilewidth="32" tileheight="32" infinite="0" nextlayerid="16" nextobjectid="148">
+<map version="1.2" tiledversion="1.2.0" orientation="orthogonal" renderorder="right-down" width="50" height="50" tilewidth="32" tileheight="32" infinite="0" nextlayerid="16" nextobjectid="150">
  <tileset firstgid="1" source="ressources/maps/kamehouse/tiles.tsx"/>
  <tileset firstgid="2" source="ressources/maps/kamehouse/triggers.tsx"/>
  <tileset firstgid="8" source="ressources/maps/kamehouse/Kamehouse.tsx"/>
@@ -54,147 +54,12 @@
     <property name="collision" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="82" name="collision_house" x="764" y="769" width="118.005" height="124">
+  <object id="82" name="collision_house" x="769" y="770" width="108" height="124">
    <properties>
     <property name="collision" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="85" name="collision_house" x="784.162" y="761.098" width="5" height="6">
-   <properties>
-    <property name="collision" type="bool" value="true"/>
-   </properties>
-  </object>
-  <object id="86" name="collision_house" x="774.956" y="768.874" width="5" height="6">
-   <properties>
-    <property name="collision" type="bool" value="true"/>
-   </properties>
-  </object>
-  <object id="87" name="collision_house" x="780.08" y="763.956" width="5" height="6">
-   <properties>
-    <property name="collision" type="bool" value="true"/>
-   </properties>
-  </object>
-  <object id="89" name="collision_house" x="787.019" y="758.853" width="5" height="6">
-   <properties>
-    <property name="collision" type="bool" value="true"/>
-   </properties>
-  </object>
-  <object id="90" name="collision_house" x="794.367" y="754.771" width="5" height="6">
-   <properties>
-    <property name="collision" type="bool" value="true"/>
-   </properties>
-  </object>
-  <object id="91" name="collision_house" x="790.693" y="757.016" width="5" height="6">
-   <properties>
-    <property name="collision" type="bool" value="true"/>
-   </properties>
-  </object>
-  <object id="92" name="collision_house" x="797.837" y="752.934" width="5" height="6">
-   <properties>
-    <property name="collision" type="bool" value="true"/>
-   </properties>
-  </object>
-  <object id="93" name="collision_house" x="800.49" y="750.077" width="5" height="6">
-   <properties>
-    <property name="collision" type="bool" value="true"/>
-   </properties>
-  </object>
-  <object id="94" name="collision_house" x="807.429" y="746.199" width="5" height="6">
-   <properties>
-    <property name="collision" type="bool" value="true"/>
-   </properties>
-  </object>
-  <object id="95" name="collision_house" x="804.164" y="748.036" width="5" height="6">
-   <properties>
-    <property name="collision" type="bool" value="true"/>
-   </properties>
-  </object>
-  <object id="96" name="collision_house" x="809.47" y="744.974" width="5" height="6">
-   <properties>
-    <property name="collision" type="bool" value="true"/>
-   </properties>
-  </object>
-  <object id="100" name="collision_house" x="822.737" y="738.239" width="5" height="6">
-   <properties>
-    <property name="collision" type="bool" value="true"/>
-   </properties>
-  </object>
-  <object id="101" name="collision_house" x="816.614" y="739.259" width="5" height="6">
-   <properties>
-    <property name="collision" type="bool" value="true"/>
-   </properties>
-  </object>
-  <object id="102" name="collision_house" x="821.308" y="736.198" width="5" height="6">
-   <properties>
-    <property name="collision" type="bool" value="true"/>
-   </properties>
-  </object>
-  <object id="103" name="collision_house" x="827.84" y="740.28" width="5" height="6">
-   <properties>
-    <property name="collision" type="bool" value="true"/>
-   </properties>
-  </object>
-  <object id="104" name="collision_house" x="832.33" y="743.137" width="5" height="6">
-   <properties>
-    <property name="collision" type="bool" value="true"/>
-   </properties>
-  </object>
-  <object id="105" name="collision_house" x="836.82" y="746.403" width="5" height="6">
-   <properties>
-    <property name="collision" type="bool" value="true"/>
-   </properties>
-  </object>
-  <object id="106" name="collision_house" x="840.494" y="749.056" width="5" height="6">
-   <properties>
-    <property name="collision" type="bool" value="true"/>
-   </properties>
-  </object>
-  <object id="107" name="collision_house" x="843.964" y="751.709" width="5" height="6">
-   <properties>
-    <property name="collision" type="bool" value="true"/>
-   </properties>
-  </object>
-  <object id="108" name="collision_house" x="848.25" y="754.567" width="5" height="6">
-   <properties>
-    <property name="collision" type="bool" value="true"/>
-   </properties>
-  </object>
-  <object id="109" name="collision_house" x="851.107" y="756.2" width="5" height="6">
-   <properties>
-    <property name="collision" type="bool" value="true"/>
-   </properties>
-  </object>
-  <object id="110" name="collision_house" x="855.189" y="758.853" width="5" height="6">
-   <properties>
-    <property name="collision" type="bool" value="true"/>
-   </properties>
-  </object>
-  <object id="111" name="collision_house" x="858.455" y="761.914" width="5" height="6">
-   <properties>
-    <property name="collision" type="bool" value="true"/>
-   </properties>
-  </object>
-  <object id="112" name="collision_house" x="861.925" y="763.956" width="5" height="6">
-   <properties>
-    <property name="collision" type="bool" value="true"/>
-   </properties>
-  </object>
-  <object id="113" name="collision_house" x="865.19" y="766.405" width="5" height="6">
-   <properties>
-    <property name="collision" type="bool" value="true"/>
-   </properties>
-  </object>
-  <object id="115" name="collision_house" x="866.823" y="768.446" width="5" height="6">
-   <properties>
-    <property name="collision" type="bool" value="true"/>
-   </properties>
-  </object>
-  <object id="116" name="collision_house" x="812.532" y="742.525" width="5" height="6">
-   <properties>
-    <property name="collision" type="bool" value="true"/>
-   </properties>
-  </object>
-  <object id="117" name="collision_house" x="778.039" y="765.997" width="5" height="6">
+  <object id="86" name="collision_house" x="808" y="736" width="31" height="30">
    <properties>
     <property name="collision" type="bool" value="true"/>
    </properties>
@@ -345,6 +210,16 @@
    </properties>
   </object>
   <object id="147" name="collision_objet" x="1034" y="892" width="12" height="71">
+   <properties>
+    <property name="collision" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="148" name="collision_house" x="841.624" y="749.155" width="30.4791" height="18.565">
+   <properties>
+    <property name="collision" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="149" name="collision_house" x="773" y="748" width="34" height="18">
    <properties>
     <property name="collision" type="bool" value="true"/>
    </properties>
