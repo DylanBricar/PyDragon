@@ -68,3 +68,10 @@ Création d'un jeu au design du manga Dragon Ball avec Python (PyGame). Le conce
 - [27/11/18] : Refonte du système de collision, librairie TMX modifiée, chemins des fichiers adaptés
 - [28/11/18] : Refactoring (class), gestion des collisions, optimisation des images, mise en place de fonctions, commentaires ajoutés, favicon + titre du jeu et gestion des FPS en fonction du CPU
 - [09/01/19] : Collisions totalement fonctionnelles + totalité du code modifié et optimisé
+- [16/01/19] : Nouvelles conditions d'importation des librairies sous Windows
+- [23/01/19] : Corrections liées aux FPS sous Windows qui se traitaient différemment
+- [30/01/19] : Renseignements sur le passage d'une map à l'autre
+- [06/02/19] : Demande d'aide auprès de développeurs Python pour adopter la nouvelle logique nécessaire
+- [13/02/19] : Conception schématique des nouvelles informations à prendre en compte pour le transfert d'entités
+- [20/02/19] : Rédéveloppement des traitements mis en place sur le disque public (inaccessible)
+- [27/02/19] : Fin du développement des informations mises en place sur le disque public (toujours inaccessible)

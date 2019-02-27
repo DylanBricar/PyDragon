@@ -23,7 +23,7 @@
    eJztl8EOgjAMhrdnEG8kbGf0rPGqj8D7P4s0oYlZ1gWz0Sr8X9Jjab+F0eIcAAD8P711AwAAAAD4aU7euS4TZ2/d2XrI4Sb0ezdykc61FOQwCWHlMjSs9+kSFT1y78dUWd/CY/D1fafQ815zXBU9xrnWs7JeSPK1HQj6z2rhwlg4EP0Sre56TL5bmpRmwbfEHTgQVh6tv1d78bDaSbaYH9oufDe2mIMWs/zoHlKetgfPccmFZvOlENIOoO1BpC4cvF88CkG5IZMbjHaTMXPWa/uoyQUAAAAAAOBIvAG7lh5m
   </data>
  </layer>
- <objectgroup color="#a40b00" id="2" name="evenements" visible="0">
+ <objectgroup color="#a40b00" id="2" name="evenements" visible="1">
   <properties>
    <property name="platform" value=""/>
   </properties>

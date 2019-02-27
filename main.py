@@ -1,6 +1,9 @@
-import pygame           # Import PyGame
-from libs import tmx    # Libraire TMX (bypass pour Python 2)
-# import cProfile, pstats
+import pygame  # Import PyGame
+import sys     # Import SYS
+import os      # Import OS
+sys.path.append(os.getcwd() + "/libs") # Ajout du chemin pour Windows
+import tmx     # Libraire TMX (bypass pour Python 2)
+
 
 class Sprite:
     def __init__(self):
@@ -113,8 +116,6 @@ class Game:
         deplacer = Move(player, self.avancer, collision_total)  # Appelle la class de déplacement
         clock = pygame.time.Clock()  # Calcule le temps de départ pour les FPS
 
-        # pr = cProfile.Profile()
-        # pr.enable()
         running = True
         while running:  # Boucle infinie du jeu
             for event in pygame.event.get():    # Vérifie toutes les actions du joueur
@@ -138,21 +139,12 @@ class Game:
                 player.sprite_player = img_perso.select_sprite(1, 2)
 
             clock.tick(self.fps)  # Restreint les FPS
-            # print(clock.get_fps())
             tilemap.set_focus(player.player.x, player.player.y)  # Coordonnées du joueur par rapport aux bords
             tilemap.draw(screen)  # Affiche le fond
             screen.blit(player.sprite_player, (player.x, player.y))  # Affiche le joueur sur le fond
             pygame.display.flip()  # Met à jour l'écran
 
-            # pr.disable()
-            # with open("profile_stats.txt", "w") as f:
-            #     sortby = 'tottime'
-            #     ps = pstats.Stats(pr, stream=f).sort_stats(sortby)
-            #     ps.print_stats()
-            # print("Report written")
-
         pygame.quit()
 
-
 if __name__ == '__main__':
-    Game(850, 550).main()  # Lance la boucle du jeu avec la taille choisie
+    Game(750, 450).main()  # Lance la boucle du jeu avec la taille choisie
