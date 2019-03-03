@@ -1,17 +1,40 @@
-import pygame  # Import PyGame
-import sys     # Import SYS
 import os      # Import OS
-sys.path.append(os.getcwd() + "/libs") # Ajout du chemin pour Windows
+import sys     # Import SYS
+
+import pygame  # Import PyGame
+
+sys.path.append(os.getcwd() + "/libs")  # Ajout du chemin pour Windows
 import tmx     # Libraire TMX (bypass pour Python 2)
 
 
 class Sprite:
     def __init__(self):
         self.sprite_selected = pygame.image.load('ressources/sprites/characters/vegeta.png').convert_alpha()
+        # Direction => Marche 1 | Marche 2 | Arret
+        self.direction = {'Down': [[0, 0], [2, 0], [1, 0]], 'Up': [[0, 3], [2, 3], [1, 3]], 'Left': [[0, 1], [2, 1], [1, 1]], 'Right': [[0, 2], [2, 2], [1, 2]]}
+        self.current_position = 1 # Direction de marche par défaut
 
     def select_sprite(self, ligne, colonne, pixel_ligne=32, pixel_colonne=35):
         """ Selectionne une case du sprite """
         return self.sprite_selected.subsurface(pixel_ligne * ligne, pixel_colonne * colonne, pixel_ligne, pixel_colonne)
+
+    def animateSprite(self, move, old_pos_sprite):
+        """ Animation de marche du personnage """
+        # Sprite par défaut
+        new_img_sprite = self.select_sprite(self.direction[old_pos_sprite][2][0], self.direction[old_pos_sprite][2][1])
+
+        # Cas où le déplacement n'est pas demandé
+        if move is not None:
+            for i in {'Down', 'Up', 'Left', 'Right'}:  # Liste des possibilités de déplacement
+                if move == i:
+                    if self.current_position == 1:  # Premier Sprite de marche
+                        new_img_sprite = self.select_sprite(self.direction[i][0][0], self.direction[i][0][1])
+                        self.current_position = 2  # Met à jour la valeur de marche
+                    elif self.current_position == 2:  # Deuxième Sprite de marche
+                        self.current_position = 1  # Met à jour la valeur de marche
+                        new_img_sprite = self.select_sprite(self.direction[i][1][0], self.direction[i][1][1])
+
+        return new_img_sprite # Retourne le nouveau Sprite
 
 
 class Player:
@@ -23,11 +46,10 @@ class Player:
         joueur_pos = self.tilemap.layers['evenements'].find('player')[0]  # Trouve le joueur depuis la map
         self.player = pygame.rect.Rect((joueur_pos.px, joueur_pos.py), self.sprite_player.get_size())  # Crée son rectangle
 
-        self.div_x_map = width/2    # Taille de la map en longeur divisée en deux
-        self.div_y_map = height/2   # Taille de la map en largeur divisée en deux
-
-        self.y = self.div_y_map     # Utilisé pour positionner le joueur (au centre vertical par défaut)
-        self.x = self.div_x_map     # Utilisé pour positionner le joueur (au centre horizontal par défaut)
+        self.div_x_map = width/2   # Taille de la map en longueur divisée en deux
+        self.div_y_map = height/2  # Taille de la map en largeur divisée en deux
+        self.y = self.div_y_map    # Utilisé pour positionner le joueur (au centre vertical par défaut)
+        self.x = self.div_x_map    # Utilisé pour positionner le joueur (au centre horizontal par défaut)
 
 
 class CollisionController:
@@ -68,24 +90,24 @@ class Move:
             # Si collision, on restaure la position de départ
             self.player.player = old_position
         else:
-            # Aucune collison de trouvée : on ajuste le rendu de l'écran
-            if touche == 'gauche':
+            # Aucune collision de trouvée : on ajuste le rendu de l'écran
+            if touche == 'Left':
                 if self.bord_droit >= self.player.player.x >= self.bord_gauche:
                     self.player.x = self.player.div_x_map  # Le joueur est centré sur la map
                 # Le joueur se trouve proche d'une des deux extrémités de la map
                 elif self.player.player.x <= self.bord_gauche or self.player.player.x >= self.bord_droit:
                     self.player.x -= self.pas  # Le joueur se rapproche du bord
-            elif touche == 'droit':
+            elif touche == 'Right':
                 if self.player.player.x < self.bord_gauche or self.player.player.x > self.bord_droit:
                     self.player.x += self.pas
                 elif self.bord_gauche > self.player.player.x > self.bord_droit:
                     self.player.x = self.player.div_x_map
-            elif touche == 'haut':
+            elif touche == 'Up':
                 if self.player.player.y <= self.bord_haut or self.player.player.y >= self.bord_bas:
                     self.player.y -= self.pas
                 elif self.bord_bas > self.player.player.y > self.bord_haut:
                     self.player.y = self.player.div_y_map
-            elif touche == 'bas':
+            elif touche == 'Down':
                 if self.bord_haut > self.player.player.y > self.bord_bas:
                     self.player.y = self.player.div_y_map
                 elif self.player.player.y <= self.bord_haut or self.player.player.y >= self.bord_bas:
@@ -111,32 +133,57 @@ class Game:
         tilemap = tmx.load(self.map, screen.get_size())  # Import de la map
         collision_total = tilemap.layers['evenements'].find('collision')  # Récupère toutes les collisions
 
+        running = True  # Variable de lancement du jeu
+        move = None  # Aucun déplacement n'est demandé par défaut
+        old_pos_sprite = 'Down' # Position par défaut du personnage (vers le bas)
         img_perso = Sprite()  # Défini la classe s'occupant des images des personnages
         player = Player(tilemap, self.width, self.height, img_perso)  # Appelle la class du joueur
         deplacer = Move(player, self.avancer, collision_total)  # Appelle la class de déplacement
         clock = pygame.time.Clock()  # Calcule le temps de départ pour les FPS
+        pygame.time.set_timer(pygame.USEREVENT, 300)  # Temps de mise à jour des Sprites (300 ms)
 
-        running = True
         while running:  # Boucle infinie du jeu
-            for event in pygame.event.get():    # Vérifie toutes les actions du joueur
-                if event.type == pygame.QUIT:   # Clique pour quitter le jeu
-                    running = False             # Quitte le processus python
+
+            for event in pygame.event.get():          # Vérifie toutes les actions du joueur
+                if event.type == pygame.QUIT:         # Clique pour quitter le jeu
+                    running = False                   # Quitte le processus python
+                elif event.type == pygame.USEREVENT:  # Déplacement du joueur
+                    player.sprite_player = img_perso.animateSprite(move, old_pos_sprite)
 
             if pygame.key.get_pressed()[pygame.K_DOWN]:
-                deplacer.move_player(player.player.copy(), [0, self.avancer], 'bas')
-                player.sprite_player = img_perso.select_sprite(1, 0)
+                # Premier déplacement du personnage : il n'y a pas encore de mouvement ou la touche ne correspond pas
+                direction_deplacement = 'Down'  # Variable de modification rapide
+                if move is None or move != direction_deplacement:
+                    player.sprite_player = img_perso.select_sprite(1, 0)  # Mise à jour première du Sprite
+                    move = direction_deplacement  # Actualisation de la variable déplacement
+                old_pos_sprite = direction_deplacement  # Ancienne position du joueur pour quand il s'arrêtera
+                deplacer.move_player(player.player.copy(), [0, self.avancer], direction_deplacement)  # Déplacement
 
             elif pygame.key.get_pressed()[pygame.K_UP]:
-                deplacer.move_player(player.player.copy(), [0, -self.avancer], 'haut')
-                player.sprite_player = img_perso.select_sprite(1, 3)
+                direction_deplacement = 'Up'
+                if move is None or move != direction_deplacement:
+                    player.sprite_player = img_perso.select_sprite(1, 3)
+                    move = direction_deplacement
+                old_pos_sprite = direction_deplacement
+                deplacer.move_player(player.player.copy(), [0, -self.avancer], direction_deplacement)
 
             elif pygame.key.get_pressed()[pygame.K_LEFT]:
-                deplacer.move_player(player.player.copy(), [-self.avancer, 0], 'gauche')
-                player.sprite_player = img_perso.select_sprite(1, 1)
+                direction_deplacement = 'Left'
+                if move is None or move != direction_deplacement:
+                    player.sprite_player = img_perso.select_sprite(1, 1)
+                    move = direction_deplacement
+                old_pos_sprite = direction_deplacement
+                deplacer.move_player(player.player.copy(), [-self.avancer, 0], direction_deplacement)
 
             elif pygame.key.get_pressed()[pygame.K_RIGHT]:
-                deplacer.move_player(player.player.copy(), [self.avancer, 0], 'droit')
-                player.sprite_player = img_perso.select_sprite(1, 2)
+                direction_deplacement = 'Right'
+                if move is None or move != direction_deplacement:
+                    player.sprite_player = img_perso.select_sprite(1, 2)
+                    move = direction_deplacement
+                old_pos_sprite = direction_deplacement
+                deplacer.move_player(player.player.copy(), [self.avancer, 0], direction_deplacement)
+            else:
+                move = None  # Arrêt de déplacement du personnage
 
             clock.tick(self.fps)  # Restreint les FPS
             tilemap.set_focus(player.player.x, player.player.y)  # Coordonnées du joueur par rapport aux bords
@@ -145,6 +192,7 @@ class Game:
             pygame.display.flip()  # Met à jour l'écran
 
         pygame.quit()
+
 
 if __name__ == '__main__':
     Game(750, 450).main()  # Lance la boucle du jeu avec la taille choisie
