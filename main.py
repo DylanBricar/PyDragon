@@ -9,10 +9,11 @@ import tmx     # Libraire TMX (bypass pour Python 2)
 
 class Sprite:
     def __init__(self):
-        self.sprite_selected = pygame.image.load('ressources/sprites/characters/vegeta.png').convert_alpha()
+        self.sprite_selected = pygame.image.load('ressources/sprites/characters/goku.png').convert_alpha()
         # Direction => Marche 1 | Marche 2 | Arret
-        self.direction = {'Down': [[0, 0], [2, 0], [1, 0]], 'Up': [[0, 3], [2, 3], [1, 3]], 'Left': [[0, 1], [2, 1], [1, 1]], 'Right': [[0, 2], [2, 2], [1, 2]]}
-        self.current_position = 1 # Direction de marche par défaut
+        self.direction = {'Down': [[0, 0], [2, 0], [1, 0]], 'Up': [[0, 3], [2, 3], [1, 3]],
+                          'Left': [[0, 1], [2, 1], [1, 1]], 'Right': [[0, 2], [2, 2], [1, 2]]}
+        self.current_position = 1  # Direction de marche par défaut
 
     def select_sprite(self, ligne, colonne, pixel_ligne=32, pixel_colonne=35):
         """ Selectionne une case du sprite """
@@ -67,7 +68,6 @@ class CollisionController:
                     and (self.player.player.y + self.player.player.h > collision_selected.py))      # Trop en haut
                    for collision_selected in self.total_collision)  # Boucle les collisions
 
-
 class Move:
     """ Déplacement du joueur """
     def __init__(self, player, pas, collision):
@@ -119,19 +119,19 @@ class Game:
     def __init__(self, width, height):
         self.width = width      # Largeur de la fenêtre de jeu
         self.height = height    # Hauteur de la fenêtre du jeu
-        self.map = 'ressources/maps/kamehouse/map.tmx'  # Chemin de la map
         self.favicon = 'ressources/favicon.png'  # Chemin du favicon
         self.fps = 24  # FPS demandés
         self.avancer = 8.0  # Échelle de déplacement
 
-    def main(self):
+    def main(self, map = 'ressources/maps/kamehouse/island/map.tmx'):
         """ Lancement du jeu """
         pygame.init()  # Lance de Pygame
         screen = pygame.display.set_mode((self.width, self.height))  # Crée la fenêtre
         pygame.display.set_caption('PyDragon v0.1')  # Donne un nom à la fenêtre
         pygame.display.set_icon(pygame.image.load(self.favicon))  # Favicon du jeu
-        tilemap = tmx.load(self.map, screen.get_size())  # Import de la map
+        tilemap = tmx.load(map, screen.get_size())  # Import de la map
         collision_total = tilemap.layers['evenements'].find('collision')  # Récupère toutes les collisions
+        exit_lvl = tilemap.layers['evenements'].find('exit')  # Récupère toutes les collisions
 
         running = True  # Variable de lancement du jeu
         move = None  # Aucun déplacement n'est demandé par défaut
@@ -144,12 +144,17 @@ class Game:
 
         while running:  # Boucle infinie du jeu
 
+            collide_exit = CollisionController(player, exit_lvl)  # Appelle la class de collision pour quitter le niveau
+            if collide_exit.collision():
+                self.main('ressources/maps/kamehouse/house/map.tmx')
+                pass
+
             for event in pygame.event.get():          # Vérifie toutes les actions du joueur
                 if event.type == pygame.QUIT:         # Clique pour quitter le jeu
                     running = False                   # Quitte le processus python
                 elif event.type == pygame.USEREVENT:  # Déplacement du joueur
                     player.sprite_player = img_perso.animateSprite(move, old_pos_sprite)
-
+                    
             if pygame.key.get_pressed()[pygame.K_DOWN]:
                 # Premier déplacement du personnage : il n'y a pas encore de mouvement ou la touche ne correspond pas
                 direction_deplacement = 'Down'  # Variable de modification rapide

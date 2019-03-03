@@ -75,4 +75,4 @@ Création d'un jeu au design du manga Dragon Ball avec Python (PyGame). Le conce
 - [13/02/19] : Conception schématique des nouvelles informations à prendre en compte pour le transfert d'entités
 - [20/02/19] : Re-développement des traitements mis en place sur le disque public (inaccessible)
 - [27/02/19] : Fin du développement des informations mises en place sur le disque public (toujours inaccessible)
-- [03/03/19] : Mise en place des Sprites animés lors de la marche
+- [03/03/19] : Mise en place des Sprites animés lors de la marche, intérieur de la maison + collisions pour changer de map

@@ -1,29 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.0" orientation="orthogonal" renderorder="right-down" width="50" height="50" tilewidth="32" tileheight="32" infinite="0" nextlayerid="16" nextobjectid="150">
- <tileset firstgid="1" source="ressources/maps/kamehouse/tiles.tsx"/>
- <tileset firstgid="2" source="ressources/maps/kamehouse/triggers.tsx"/>
- <tileset firstgid="8" source="ressources/maps/kamehouse/Kamehouse.tsx"/>
- <layer id="1" name="herbe" width="50" height="50">
+<map version="1.2" tiledversion="1.2.0" orientation="orthogonal" renderorder="right-down" width="50" height="50" tilewidth="32" tileheight="32" infinite="0" nextlayerid="18" nextobjectid="166">
+ <tileset firstgid="1" source="ressources/maps/kamehouse/island/tiles.tsx"/>
+ <tileset firstgid="2" source="ressources/maps/kamehouse/island/triggers.tsx"/>
+ <tileset firstgid="8" source="ressources/maps/kamehouse/island/Kamehouse.tsx"/>
+ <layer id="1" name="herbe" width="50" height="50" locked="1">
   <data encoding="base64" compression="zlib">
    eJzt0sENgDAIQNG6iUN1/1kcwMSDgWLxHd6RhB+YY4wJAADAFs7jrnqniIbqlqed3tLx34aMlqqGyJbqhsib6PhOQ2VHZEOXji4/1eUeVS0ZDTpyWrJnV7SsmgUAAPZyAX9m9q0=
   </data>
  </layer>
- <layer id="12" name="sable" width="50" height="50">
+ <layer id="12" name="sable" width="50" height="50" locked="1">
   <data encoding="base64" compression="zlib">
    eJztl00KwjAQRpObeBHdaangwmqXWrz/JcyAgTDEdIozqSnfg2+Zn0cy6dQ5AAAAAAAAgCZH79xpJp2338ed7YXWHIWhcfuQy0xuIS9jF/K4JmsehC5Sh3TOmh5x3bm7wh1y1HTJeSxNCX6/anlYAA85qYcF0eEcMjVyHjs2Pq2N6fPOWZF7PzXg9T0aenz7BmhQyyPep2GjHlqs6aHJFj14z6aJtQfB665r1INIPQav3ytyDyu4h3ZvQh6PMGffuEdE0pP80ruv4ZHbD98v9Xt0lpT+jz1KSR1ilvxvkYdFzxtr5CkMd8il5NAKEk8AAAAAAFCfN0hVbR4=
   </data>
  </layer>
- <layer id="14" name="bord_sable" width="50" height="50">
+ <layer id="14" name="bord_sable" width="50" height="50" locked="1">
   <data encoding="base64" compression="zlib">
    eJzt1jsKgDAUBEBzPO38tJr730JFwSCIWIgxzMA2qXZ5TaoKAAAAoHxN+LoBAABvm8KWp/qM/oox6dI+7JXLjnTDsGQMx23W1Bc9u/09lx13zrvOiT/ZAQBQmhm36Qjb
   </data>
  </layer>
- <layer id="11" name="bord_herbe" width="50" height="50">
+ <layer id="11" name="bord_herbe" width="50" height="50" locked="1">
   <data encoding="base64" compression="zlib">
    eJztl8EOgjAMhrdnEG8kbGf0rPGqj8D7P4s0oYlZ1gWz0Sr8X9Jjab+F0eIcAAD8P711AwAAAAD4aU7euS4TZ2/d2XrI4Sb0ezdykc61FOQwCWHlMjSs9+kSFT1y78dUWd/CY/D1fafQ815zXBU9xrnWs7JeSPK1HQj6z2rhwlg4EP0Sre56TL5bmpRmwbfEHTgQVh6tv1d78bDaSbaYH9oufDe2mIMWs/zoHlKetgfPccmFZvOlENIOoO1BpC4cvF88CkG5IZMbjHaTMXPWa/uoyQUAAAAAAOBIvAG7lh5m
   </data>
  </layer>
- <objectgroup color="#a40b00" id="2" name="evenements" visible="1">
+ <objectgroup color="#a40b00" id="2" name="evenements" visible="0">
   <properties>
    <property name="platform" value=""/>
   </properties>
@@ -48,13 +48,12 @@
    </properties>
   </object>
   <object id="22" name="player" gid="2" x="831" y="1023" width="32" height="32"/>
-  <object id="76" name="bot" gid="3" x="895" y="959" width="32" height="32"/>
   <object id="81" name="collision_objet" x="773" y="641" width="40" height="30">
    <properties>
     <property name="collision" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="82" name="collision_house" x="769" y="770" width="108" height="124">
+  <object id="82" name="collision_house" x="769" y="770" width="108" height="93.6616">
    <properties>
     <property name="collision" type="bool" value="true"/>
    </properties>
@@ -224,6 +223,18 @@
     <property name="collision" type="bool" value="true"/>
    </properties>
   </object>
+  <object id="150" name="collision_house" x="865" y="849" width="11" height="40">
+   <properties>
+    <property name="collision" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="151" name="collision_house" x="770" y="848" width="51" height="42">
+   <properties>
+    <property name="collision" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="155" name="bot" gid="3" x="894.683" y="958.706" width="32" height="32"/>
+  <object id="165" name="leave_lvl" gid="4" x="830" y="883" width="24" height="41"/>
  </objectgroup>
  <layer id="3" name="tiles" width="50" height="50">
   <data encoding="base64" compression="zlib">
