@@ -79,3 +79,6 @@ Création d'un jeu au design du manga Dragon Ball avec Python (PyGame). Le conce
 - [06/03/19] : Corrections de bugs liés à l'importation des sprites sur Windows.
 - [13/03/19] : Plan de recherche sur la gestion du multimap et les informations qui y sont liées.
 - [20/03/19] : Correction de la deuxième map au niveau des importations (globalisation du path).
+- [27/03/19] : Demande d'aide auprès de développeurs Python pour le transfert de map.
+- [24/04/19] : Relance de la demande d'aide auprès de développeurs.
+- [08/05/19] : Projet de révision du jeu.
