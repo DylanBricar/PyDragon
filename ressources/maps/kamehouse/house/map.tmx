@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.0" orientation="orthogonal" renderorder="right-down" width="50" height="50" tilewidth="32" tileheight="32" infinite="0" nextlayerid="20" nextobjectid="185">
+<map version="1.2" tiledversion="1.2.0" orientation="orthogonal" renderorder="right-down" width="50" height="50" tilewidth="32" tileheight="32" infinite="0" nextlayerid="20" nextobjectid="187">
  <tileset firstgid="1" source="ressources/maps/kamehouse/house/tiles.tsx"/>
  <tileset firstgid="2" source="ressources/maps/kamehouse/house/triggers.tsx"/>
  <tileset firstgid="8" source="ressources/maps/kamehouse/house/Kamehouse.tsx"/>
+ <tileset firstgid="143" source="ressources/maps/kamehouse/house/triggers.tsx"/>
  <layer id="18" name="background" width="50" height="50">
   <data encoding="base64" compression="zlib">
    eJztwwEJAAAMBKGL/fGXY6DgqqmqqqqqqqqqqurzB7u6lB0=
@@ -104,5 +105,6 @@
    </properties>
   </object>
   <object id="184" name="bot" gid="3" x="813" y="758" width="32" height="32"/>
+  <object id="185" name="leave_lvl" gid="4" x="844" y="872" width="63" height="43"/>
  </objectgroup>
 </map>

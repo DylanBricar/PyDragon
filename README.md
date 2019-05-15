@@ -73,7 +73,7 @@ Création d'un jeu au design du manga Dragon Ball avec Python (PyGame). Le conce
 - [30/01/19] : Renseignements sur le passage d'une map à l'autre.
 - [06/02/19] : Demande d'aide auprès de développeurs Python pour adopter une nouvelle logique de code.
 - [13/02/19] : Conception schématique des nouvelles informations à prendre en compte pour le transfert d'entités.
-- [20/02/19] : Re-développement des traitements mis en place sur le disque public (inaccessible).
+- [20/02/19] : Redéveloppement des traitements mis en place sur le disque public (inaccessible).
 - [27/02/19] : Fin du développement des informations mises en place sur le disque public (toujours inaccessible).
 - [03/03/19] : Mise en place des Sprites animés lors de la marche, intérieur de la maison + collisions pour changer de map.
 - [06/03/19] : Corrections de bugs liés à l'importation des sprites sur Windows.
@@ -82,3 +82,4 @@ Création d'un jeu au design du manga Dragon Ball avec Python (PyGame). Le conce
 - [27/03/19] : Demande d'aide auprès de développeurs Python pour le transfert de map.
 - [24/04/19] : Relance de la demande d'aide auprès de développeurs.
 - [08/05/19] : Projet de révision du jeu.
+- [15/05/19] : Gestion des interfaces (menu), division en plusieurs Class et ajout de la collision dans la map Kamehouse_in.
