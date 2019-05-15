@@ -1,4 +1,6 @@
-# TFA
+# PyDragon
+
+![Image de jeu](https://nsa40.casimages.com/img/2019/05/09/190509070048676730.png "image de jeu")
 
 ### **Concept du jeu :**
 
@@ -7,7 +9,7 @@ Création d'un jeu au design du manga Dragon Ball avec Python (PyGame). Le conce
 ### **Fonctionnalités :**
 - Système de map 2D
 - Interaction avec d'autres entités
-- Système de combat 2D (personnage VS personnage IA, coups, temps, vie, ki)
+- Système de combat (personnage VS personnage, coups, temps, vie, ki)
 - Création d'une IA
 - Menu de démarrage
 - Animation des personnages
@@ -20,9 +22,8 @@ Création d'un jeu au design du manga Dragon Ball avec Python (PyGame). Le conce
 ### **Problèmes :**
 - Manque de connaissance sur PyGame
 - Collision dans la carte
-- IA du second personnage dans un combat
 - Sauvegarde de l'avancement du personnage
-- Animation du personnage (tomber, sauter, frapper)
+- Animation du personnage (sauter, frapper)
 - Changement d'une map à une autre map.
 - Meilleure possibilité de maintenir un code PyGame
 - Interaction avec les personnages
@@ -42,19 +43,16 @@ Création d'un jeu au design du manga Dragon Ball avec Python (PyGame). Le conce
 - Création de la map :
     - Monde général
     - Kamé House
-    - Tour de Karin
     - Capitale de l'Ouest
 - Ajout des collisions
 - Importation des maps + personnages
 - Ajout du moyen de discussions
 - Création de l'espace de combat (map + intégration des deux personnages et animations + barre de vie)
 - Création du système de combat (vie, Ki, arrêt du jeu, temps de jeu + coups et animations)
-- Création de l'IA
 - Menu de démarrage
 - Ajout des musiques
 - Sauvegarde de l'évolution du jeu en base de données
 - (Trouver des objets dans la carte + système de monnaie + boutique pour achat de cartes)
-- (Sytème de socket multijoueur)
 
 ### **Avancement :**
 - [11/10/18] : Création de l'objectif du projet.
@@ -75,11 +73,14 @@ Création d'un jeu au design du manga Dragon Ball avec Python (PyGame). Le conce
 - [13/02/19] : Conception schématique des nouvelles informations à prendre en compte pour le transfert d'entités.
 - [20/02/19] : Redéveloppement des traitements mis en place sur le disque public (inaccessible).
 - [27/02/19] : Fin du développement des informations mises en place sur le disque public (toujours inaccessible).
-- [03/03/19] : Mise en place des Sprites animés lors de la marche, intérieur de la maison + collisions pour changer de map.
+- [03/03/19] : Mise en place des Sprites animés lors de la marche, intérieur de la maison + collisions.
 - [06/03/19] : Corrections de bugs liés à l'importation des sprites sur Windows.
 - [13/03/19] : Plan de recherche sur la gestion du multimap et les informations qui y sont liées.
 - [20/03/19] : Correction de la deuxième map au niveau des importations (globalisation du path).
 - [27/03/19] : Demande d'aide auprès de développeurs Python pour le transfert de map.
 - [24/04/19] : Relance de la demande d'aide auprès de développeurs.
-- [08/05/19] : Projet de révision du jeu.
+- [08/05/19] : Projet de révision du jeu et nouvelle direction adoptée.
 - [15/05/19] : Gestion des interfaces (menu), division en plusieurs Class et ajout de la collision dans la map Kamehouse_in.
+
+### **Informations :**
+Ce projet a été développé en sixième année secondaire dans le cadre du cours d'informatique de monsieur Bertocchi (http://explore-photo.com/) du Collège Roi Baudouin.
