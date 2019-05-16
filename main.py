@@ -40,10 +40,18 @@ class Sprite:
 
 class Player:
     """ Gestion du joueur """
-    def __init__(self, tilemap, width, height, img_perso):
+    def __init__(self, tilemap, width, height, img_perso, old_pos_sprite):
         self.tilemap = tilemap  # Récupère la map
 
-        self.sprite_player = img_perso.select_sprite(1, 0)  # Génère le sprite de base
+        if old_pos_sprite == 'up':
+            self.sprite_player = img_perso.select_sprite(1, 3)  # Génère le sprite de base
+        elif old_pos_sprite == 'left':
+            self.sprite_player = img_perso.select_sprite(1, 1)  # Génère le sprite de base
+        elif old_pos_sprite == 'right':
+            self.sprite_player = img_perso.select_sprite(1, 2)  # Génère le sprite de base
+        else:
+            self.sprite_player = img_perso.select_sprite(1, 0)  # Génère le sprite de base
+
         joueur_pos = self.tilemap.layers['evenements'].find('player')[0]  # Trouve le joueur depuis la map
         self.player = pygame.rect.Rect((joueur_pos.px, joueur_pos.py), self.sprite_player.get_size())  # Crée son rectangle
 
@@ -117,6 +125,11 @@ class Move:
 
 class Game:
     """ Gestion des imports du jeu """
+
+    LVL = 'while_main_menu'
+    WHILE_GAME = True
+    COORDONNEE = []
+
     def __init__(self, width, height):
         self.width = width      # Largeur de la fenêtre de jeu
         self.height = height    # Hauteur de la fenêtre du jeu
@@ -132,21 +145,16 @@ class Game:
         pygame.display.set_icon(pygame.image.load(self.favicon))  # Favicon du jeu
         clock = pygame.time.Clock()  # Calcule le temps de départ pour les FPS
 
-        main_menu = MainMenu(screen, clock, self.fps)  # Instancie la class qui affiche récupère le menu
-        main_menu.while_menu()  # Boucle sur le menu via la fonction dans la class
-        map_got = main_menu.get_running('while_map_kamehouse')  # Récupère la valeur de get_running afin de savoir comment réagir
-        if map_got == 'while_map_kamehouse':  # Le joueur a choisi de jouer sur la map kamehouse
-            map_kamehouse = Kamehouse(self.width, self.height, screen, clock, self.fps, self.avancer)  # Instancie
-            map_kamehouse.while_kamehouse()  # Boucle sur la map
-            map_got = map_kamehouse.get_running('while_map_kamehouse_in')  # Récupère la nouvelle direction
-            if map_got == 'while_map_kamehouse_in':  # Le joueur a choisi de jouer sur la map kamehouse_in
+        while Game.WHILE_GAME:
+            if Game.LVL == 'while_main_menu':
+                main_menu = MainMenu(screen, clock, self.fps)  # Instancie la class qui affiche rÃ©cupÃ¨re le menu
+                main_menu.while_menu()  # Boucle sur le menu via la fonction dans la class
+            elif Game.LVL == 'while_map_kamehouse':
+                map_kamehouse = Kamehouse(self.width, self.height, screen, clock, self.fps, self.avancer)  # Instancie
+                map_kamehouse.while_kamehouse()  # Boucle sur la map
+            elif Game.LVL == 'while_map_kamehouse_in':
                 map_kamehouse_in = KamehouseIn(self.width, self.height, screen, clock, self.fps, self.avancer)  # Instancie
                 map_kamehouse_in.while_kamehouse_in()  # Boucle sur la map
-                map_got = map_kamehouse_in.get_running('while_map_kamehouse')  # Récupère la nouvelle direction
-                if map_got == 'while_map_kamehouse':  # Le joueur a choisi de jouer sur la map kamehouse
-                    map_kamehouse = Kamehouse(self.width, self.height, screen, clock, self.fps, self.avancer)  # Instancie
-                    map_kamehouse.while_kamehouse()  # Boucle sur la map
-                    map_got = map_kamehouse.get_running('while_map_kamehouse_in')  # Récupère la nouvelle direction
 
         pygame.quit()
 
@@ -166,11 +174,6 @@ class Kamehouse:
 
         self.while_map_kamehouse = True  # Boucle sur le menu affiché à l'utilisateur
 
-    def get_running(self, var_name):
-        """ Retourne la variable de la map appelée pour boucler sur cette dernière """
-        if var_name == 'while_map_kamehouse_in' and self.while_map_kamehouse_in:
-            return var_name
-
     def while_kamehouse(self):
         """ Boucle sur la map Kamehouse """
         tilemap = tmx.load('ressources/maps/kamehouse/island/map.tmx', self.screen.get_size())  # Import de la map
@@ -180,9 +183,13 @@ class Kamehouse:
         move = None  # Aucun déplacement n'est demandé par défaut
         old_pos_sprite = 'Down' # Position par défaut du personnage (vers le bas)
         img_perso = Sprite()  # Défini la classe s'occupant des images des personnages
-        player = Player(tilemap, self.width, self.height, img_perso)  # Appelle la class du joueur
+        player = Player(tilemap, self.width, self.height, img_perso, old_pos_sprite)  # Appelle la class du joueur
         deplacer = Move(player, self.avancer, collision_total)  # Appelle la class de déplacement
         pygame.time.set_timer(pygame.USEREVENT, 300)  # Temps de mise à jour des Sprites (300 ms)
+
+        if Game.COORDONNEE:
+            player.player.x = Game.COORDONNEE[0]
+            player.player.y = Game.COORDONNEE[1]
 
         while self.while_map_kamehouse:  # Boucle infinie du jeu
 
@@ -190,10 +197,14 @@ class Kamehouse:
             if collide_exit.collision():  # Si la collision avec la porte a lieu
                 self.while_map_kamehouse = False  # Arrête la boucle de la map Kamehouse
                 self.while_map_kamehouse_in = True  # Permet de lancer la boucle de la map Kamehouse_in
+                Game.LVL = 'while_map_kamehouse_in'
+                Game.COORDONNEE.append(player.player.x)
+                Game.COORDONNEE.append(player.player.y+10)
 
             for event in pygame.event.get():  # Vérifie toutes les actions du joueur
                 if event.type == pygame.QUIT:  # Clique pour quitter le jeu
                     self.while_map_kamehouse = False  # Quitte le processus python
+                    Game.WHILE_GAME = False  # Ferme la boucle d'importation
                 elif event.type == pygame.USEREVENT:  # Déplacement du joueur
                     player.sprite_player = img_perso.animateSprite(move, old_pos_sprite)
 
@@ -254,11 +265,6 @@ class KamehouseIn:
 
         self.while_map_kamehouse_in = True  # Boucle sur le menu affiché à l'utilisateur
 
-    def get_running(self, var_name):
-        """ Retourne la variable de la map appelée pour boucler sur cette dernière """
-        if var_name == 'while_map_kamehouse' and self.while_map_kamehouse:
-            return var_name
-
     def while_kamehouse_in(self):
         """ Boucle sur la map Kamehouse """
         tilemap = tmx.load('ressources/maps/kamehouse/house/map.tmx', self.screen.get_size())  # Import de la map
@@ -266,9 +272,9 @@ class KamehouseIn:
         exit_lvl = tilemap.layers['evenements'].find('exit')  # Récupère toutes les collisions pour quitter le niveau
 
         move = None  # Aucun déplacement n'est demandé par défaut
-        old_pos_sprite = 'Down' # Position par défaut du personnage (vers le bas)
+        old_pos_sprite = 'Up' # Position par défaut du personnage (vers le bas)
         img_perso = Sprite()  # Défini la classe s'occupant des images des personnages
-        player = Player(tilemap, self.width, self.height, img_perso)  # Appelle la class du joueur
+        player = Player(tilemap, self.width, self.height, img_perso, old_pos_sprite)  # Appelle la class du joueur
         deplacer = Move(player, self.avancer, collision_total)  # Appelle la class de déplacement
         pygame.time.set_timer(pygame.USEREVENT, 300)  # Temps de mise à jour des Sprites (300 ms)
 
@@ -278,10 +284,12 @@ class KamehouseIn:
             if collide_exit.collision():  # Si la collision avec la porte a lieu
                 self.while_map_kamehouse_in = False  # Arrête la boucle de la map Kamehouse
                 self.while_map_kamehouse = True  # Permet de lancer la boucle de la map Kamehouse
+                Game.LVL = 'while_map_kamehouse'
 
             for event in pygame.event.get():  # Vérifie toutes les actions du joueur
                 if event.type == pygame.QUIT:  # Clique pour quitter le jeu
                     self.while_map_kamehouse_in = False  # Quitte le processus python
+                    Game.WHILE_GAME = False  # Ferme la boucle d'importation
                 elif event.type == pygame.USEREVENT:  # Déplacement du joueur
                     player.sprite_player = img_perso.animateSprite(move, old_pos_sprite)
 
@@ -341,10 +349,6 @@ class MainMenu:
 
         self.while_main_menu = True  # Boucle sur le menu affiché à l'utilisateur
 
-    def get_running(self, var_name):
-        """ Retourne la variable de la map appelée pour boucler sur cette dernière """
-        if var_name == 'while_map_kamehouse' and self.while_map_kamehouse:
-            return var_name
 
     def while_menu(self):
         """ Boucle sur le menu """
@@ -356,11 +360,13 @@ class MainMenu:
             for event in pygame.event.get():  # Vérifie toutes les actions du joueur
                 if event.type == pygame.QUIT:  # Clique pour quitter le jeu
                     self.while_main_menu = False  # Quitte le processus python
+                    Game.WHILE_GAME = False  # Ferme la boucle d'importation
 
             if pygame.key.get_pressed()[pygame.K_DOWN]:
                 # La touche du bas est préssée pour changer de fenêtre
                 self.while_main_menu = False  # Arrête la boucle du menu
                 self.while_map_kamehouse = True  # Permet de lancer la boucle du jeu
+                Game.LVL = 'while_map_kamehouse'
 
             self.clock.tick(self.fps)  # Restreint les FPS
             tilemap.draw(self.screen)  # Affiche le fond

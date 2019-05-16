@@ -80,7 +80,9 @@ Création d'un jeu au design du manga Dragon Ball avec Python (PyGame). Le conce
 - [27/03/19] : Demande d'aide auprès de développeurs Python pour le transfert de map.
 - [24/04/19] : Relance de la demande d'aide auprès de développeurs.
 - [08/05/19] : Projet de révision du jeu et nouvelle direction adoptée.
-- [15/05/19] : Gestion des interfaces (menu), division en plusieurs Class et ajout de la collision dans la map Kamehouse_in.
+- [15/05/19] : Gestion des interfaces (menu), division en plusieurs class et ajout de collisions.
+- [16/05/19] : Boucle sur les interfaces, sauvegarde des coordonnées et ajustement du personnage.
+
 
 ### **Informations :**
 Ce projet a été développé en sixième année secondaire dans le cadre du cours d'informatique de monsieur Bertocchi (http://explore-photo.com/) du Collège Roi Baudouin.
