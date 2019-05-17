@@ -27,6 +27,10 @@ class Game:
         screen = pygame.display.set_mode((self.width, self.height))  # Crée la fenêtre
         pygame.display.set_caption('PyDragon v0.3')  # Donne un nom à la fenêtre
         pygame.display.set_icon(pygame.image.load(self.favicon))  # Favicon du jeu
+        son = pygame.mixer.Sound("ressources/DBZFighter.wav")
+        son.play(loops=-1, maxtime=0, fade_ms=0)
+        son.set_volume(0.3)
+
         clock = pygame.time.Clock()  # Calcule le temps de départ pour les FPS
 
         while Niveau.WHILE_GAME:  # Boucle principale qui sert aux importations de maps

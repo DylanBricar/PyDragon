@@ -31,6 +31,7 @@ class Kamehouse:
         """ Boucle sur la map Kamehouse """
         tilemap = tmx.load('ressources/maps/kamehouse/island/map.tmx', self.screen.get_size())  # Import de la map
         collision_total = tilemap.layers['evenements'].find('collision')  # Récupère toutes les collisions
+
         exit_lvl = tilemap.layers['evenements'].find('exit')  # Récupère toutes les collisions pour quitter le niveau
 
         move = None  # Aucun déplacement n'est demandé par défaut
@@ -96,7 +97,10 @@ class Kamehouse:
                 move = None  # Arrêt de déplacement du personnage
 
             self.clock.tick(self.fps)  # Restreint les FPS
+
             tilemap.set_focus(player.player.x, player.player.y)  # Coordonnées du joueur par rapport aux bords
             tilemap.draw(self.screen)  # Affiche le fond
             self.screen.blit(player.sprite_player, (player.x, player.y))  # Affiche le joueur sur le fond
+
+
             pygame.display.flip()  # Met à jour l'écran

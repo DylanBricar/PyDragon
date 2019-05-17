@@ -9,7 +9,7 @@ from player import *  # Import de la class Player et des composantes liées
 from sprite import *  # Import de la class Sprite et des composantes liées
 from move import *    # Import de la class Move et des composantes liées
 from niveau import *  # Import de la class Niveau et des composantes liées
-
+from interact import * # Import de la class Interact et des composantes liées
 
 class KamehouseIn:
     """ Gestion liée à l'intérieur de la map Kamehouse """
@@ -32,6 +32,7 @@ class KamehouseIn:
         tilemap = tmx.load('ressources/maps/kamehouse/house/map.tmx', self.screen.get_size())  # Import de la map
         collision_total = tilemap.layers['evenements'].find('collision')  # Récupère toutes les collisions
         exit_lvl = tilemap.layers['evenements'].find('exit')  # Récupère toutes les collisions pour quitter le niveau
+        collision_action = tilemap.layers['evenements'].find('collision_tortue')  # Récupère toutes les collisions
 
         move = None  # Aucun déplacement n'est demandé par défaut
         old_pos_sprite = 'Up'  # Position par défaut du personnage (vers le haut)
@@ -53,39 +54,46 @@ class KamehouseIn:
                     Niveau.WHILE_GAME = False  # Ferme la boucle d'importation
                 elif event.type == pygame.USEREVENT:  # Déplacement du joueur
                     player.sprite_player = img_perso.animateSprite(move, old_pos_sprite)  # Anime le joueur
+                elif event.type == pygame.KEYDOWN and event.key == pygame.K_SPACE:
+                    collide_exit = CollisionController(player, collision_action)  # Appelle la class de collision pour parler avec le personnage
+                    if collide_exit.collision():  # Si la collision avec le personnage a lieu
+                        Niveau.DIALOGUE = True
 
-            if pygame.key.get_pressed()[pygame.K_DOWN]:
-                # Premier déplacement du personnage : il n'y a pas encore de mouvement ou la touche ne correspond pas
-                direction_deplacement = 'Down'  # Variable de modification rapide
-                if move is None or move != direction_deplacement:
-                    player.sprite_player = img_perso.select_sprite(1, 0)  # Mise à jour première du Sprite
-                    move = direction_deplacement  # Actualisation de la variable déplacement
-                old_pos_sprite = direction_deplacement  # Ancienne position du joueur pour quand il s'arrêtera
-                deplacer.move_player(player.player.copy(), [0, self.avancer], direction_deplacement)  # Déplacement
+            if not Niveau.DIALOGUE:
+                if pygame.key.get_pressed()[pygame.K_DOWN]:
+                    # Premier déplacement du personnage : il n'y a pas encore de mouvement ou la touche ne correspond pas
+                    direction_deplacement = 'Down'  # Variable de modification rapide
+                    if move is None or move != direction_deplacement:
+                        player.sprite_player = img_perso.select_sprite(1, 0)  # Mise à jour première du Sprite
+                        move = direction_deplacement  # Actualisation de la variable déplacement
+                    old_pos_sprite = direction_deplacement  # Ancienne position du joueur pour quand il s'arrêtera
+                    deplacer.move_player(player.player.copy(), [0, self.avancer], direction_deplacement)  # Déplacement
 
-            elif pygame.key.get_pressed()[pygame.K_UP]:
-                direction_deplacement = 'Up'
-                if move is None or move != direction_deplacement:
-                    player.sprite_player = img_perso.select_sprite(1, 3)
-                    move = direction_deplacement
-                old_pos_sprite = direction_deplacement
-                deplacer.move_player(player.player.copy(), [0, -self.avancer], direction_deplacement)
+                elif pygame.key.get_pressed()[pygame.K_UP]:
+                    direction_deplacement = 'Up'
+                    if move is None or move != direction_deplacement:
+                        player.sprite_player = img_perso.select_sprite(1, 3)
+                        move = direction_deplacement
+                    old_pos_sprite = direction_deplacement
+                    deplacer.move_player(player.player.copy(), [0, -self.avancer], direction_deplacement)
 
-            elif pygame.key.get_pressed()[pygame.K_LEFT]:
-                direction_deplacement = 'Left'
-                if move is None or move != direction_deplacement:
-                    player.sprite_player = img_perso.select_sprite(1, 1)
-                    move = direction_deplacement
-                old_pos_sprite = direction_deplacement
-                deplacer.move_player(player.player.copy(), [-self.avancer, 0], direction_deplacement)
+                elif pygame.key.get_pressed()[pygame.K_LEFT]:
+                    direction_deplacement = 'Left'
+                    if move is None or move != direction_deplacement:
+                        player.sprite_player = img_perso.select_sprite(1, 1)
+                        move = direction_deplacement
+                    old_pos_sprite = direction_deplacement
+                    deplacer.move_player(player.player.copy(), [-self.avancer, 0], direction_deplacement)
 
-            elif pygame.key.get_pressed()[pygame.K_RIGHT]:
-                direction_deplacement = 'Right'
-                if move is None or move != direction_deplacement:
-                    player.sprite_player = img_perso.select_sprite(1, 2)
-                    move = direction_deplacement
-                old_pos_sprite = direction_deplacement
-                deplacer.move_player(player.player.copy(), [self.avancer, 0], direction_deplacement)
+                elif pygame.key.get_pressed()[pygame.K_RIGHT]:
+                    direction_deplacement = 'Right'
+                    if move is None or move != direction_deplacement:
+                        player.sprite_player = img_perso.select_sprite(1, 2)
+                        move = direction_deplacement
+                    old_pos_sprite = direction_deplacement
+                    deplacer.move_player(player.player.copy(), [self.avancer, 0], direction_deplacement)
+                else:
+                    move = None  # Arrêt de déplacement du personnage
             else:
                 move = None  # Arrêt de déplacement du personnage
 
@@ -93,4 +101,13 @@ class KamehouseIn:
             tilemap.set_focus(player.player.x, player.player.y)  # Coordonnées du joueur par rapport aux bords
             tilemap.draw(self.screen)  # Affiche le fond
             self.screen.blit(player.sprite_player, (player.x, player.y))  # Affiche le joueur sur le fond
+
+            if Niveau.DIALOGUE:
+                text = ["Hey Son Goku, j'espère que tu vas bien ça faisait longtemps !",
+                        "Ça tombe bien que tu sois là, j'aurais un petit service à te demander.",
+                        "J'ai oublié une boule de crystal dans une maison en ville, pourrais-tu la récupérer ?", "",
+                        "Vas-y vite avant qu'elle ne soit volée !"]
+
+                Interact(self.screen, text)
+
             pygame.display.flip()  # Met à jour l'écran

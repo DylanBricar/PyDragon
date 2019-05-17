@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.0" orientation="orthogonal" renderorder="right-down" width="50" height="50" tilewidth="32" tileheight="32" infinite="0" nextlayerid="20" nextobjectid="187">
+<map version="1.2" tiledversion="1.2.0" orientation="orthogonal" renderorder="right-down" width="50" height="50" tilewidth="32" tileheight="32" infinite="0" nextlayerid="22" nextobjectid="189">
  <tileset firstgid="1" source="ressources/maps/kamehouse/house/tiles.tsx"/>
  <tileset firstgid="2" source="ressources/maps/kamehouse/house/triggers.tsx"/>
  <tileset firstgid="8" source="ressources/maps/kamehouse/house/Kamehouse.tsx"/>
- <tileset firstgid="143" source="ressources/maps/kamehouse/house/triggers.tsx"/>
  <layer id="18" name="background" width="50" height="50">
   <data encoding="base64" compression="zlib">
    eJztwwEJAAAMBKGL/fGXY6DgqqmqqqqqqqqqqurzB7u6lB0=
@@ -12,6 +11,11 @@
  <layer id="19" name="house" width="50" height="50">
   <data encoding="base64" compression="zlib">
    eJztzrdOAmAYRmHuAEFlpDtKdZQijBSBkc6ISBmlCCMIyDVzbuFPSL6QvCd59uPxKKWUUkoppZRSt8mLB/jgxyOe8IyA4ZdrQYQQRgRRxBDHi92Wc69IIIkU0sggizfDL9fekUMeBRTxgRLKdlvOVVBFDXV8ooEmWoZfrrXRQRc99DHAECO7LefG+MIE35hihjkWhl+u/WCJFdbY4Bdb7Ay/XNvjgD8cccIZ/7gYfimllFJKKaWUUkqp++sKxHwWFQ==
+  </data>
+ </layer>
+ <layer id="21" name="user" width="50" height="50">
+  <data encoding="base64" compression="zlib">
+   eJztzjENAAAIA7Bd+JeMioWDVkETAAAA4JO5DgAAAAAAQMkCsSgABw==
   </data>
  </layer>
  <objectgroup color="#a40b00" id="2" name="evenements" visible="0">
@@ -54,9 +58,9 @@
     <property name="collision" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="169" name="collision" x="707.094" y="597.394" width="40.7915" height="54.3368">
+  <object id="169" name="collision_tortue" x="866.118" y="641.278" width="35.5807" height="17.6157">
    <properties>
-    <property name="collision" type="bool" value="true"/>
+    <property name="collision_tortue" type="bool" value="true"/>
    </properties>
   </object>
   <object id="171" name="collision" x="669.189" y="836.489" width="179" height="66">
@@ -106,5 +110,15 @@
   </object>
   <object id="184" name="bot" gid="3" x="813" y="758" width="32" height="32"/>
   <object id="185" name="leave_lvl" gid="4" x="844" y="872" width="63" height="43"/>
+  <object id="187" name="collision" x="706.776" y="597.135" width="40.7915" height="54.3368">
+   <properties>
+    <property name="collision" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="188" name="collision" x="868.467" y="640.146" width="44.3387" height="22.0588">
+   <properties>
+    <property name="collision" type="bool" value="true"/>
+   </properties>
+  </object>
  </objectgroup>
 </map>
