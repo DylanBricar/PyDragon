@@ -15,7 +15,7 @@ class Sprite:
         """ Selectionne une case du sprite """
         return self.sprite_selected.subsurface(pixel_ligne * ligne, pixel_colonne * colonne, pixel_ligne, pixel_colonne)
 
-    def animateSprite(self, move, old_pos_sprite):
+    def animate_sprite(self, move, old_pos_sprite):
         """ Animation de marche du personnage """
         # Sprite par défaut
         new_img_sprite = self.select_sprite(self.direction[old_pos_sprite][2][0], self.direction[old_pos_sprite][2][1])

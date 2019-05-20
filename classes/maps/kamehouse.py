@@ -59,7 +59,7 @@ class Kamehouse:
                     self.while_map_kamehouse = False  # Quitte le processus python
                     Niveau.WHILE_GAME = False  # Ferme la boucle d'importation
                 elif event.type == pygame.USEREVENT:  # Déplacement du joueur
-                    player.sprite_player = img_perso.animateSprite(move, old_pos_sprite)
+                    player.sprite_player = img_perso.animate_sprite(move, old_pos_sprite)
 
             if pygame.key.get_pressed()[pygame.K_DOWN]:
                 # Premier déplacement du personnage : il n'y a pas encore de mouvement ou la touche ne correspond pas
@@ -67,6 +67,7 @@ class Kamehouse:
                 if move is None or move != direction_deplacement:
                     player.sprite_player = img_perso.select_sprite(1, 0)  # Mise à jour première du Sprite
                     move = direction_deplacement  # Actualisation de la variable déplacement
+                if Move.COLLIDED: move = None  # Empêche le déplacement du Sprite s'il y a une collision
                 old_pos_sprite = direction_deplacement  # Ancienne position du joueur pour quand il s'arrêtera
                 deplacer.move_player(player.player.copy(), [0, self.avancer], direction_deplacement)  # Déplacement
 
@@ -75,6 +76,7 @@ class Kamehouse:
                 if move is None or move != direction_deplacement:
                     player.sprite_player = img_perso.select_sprite(1, 3)
                     move = direction_deplacement
+                if Move.COLLIDED: move = None  # Empêche le déplacement du Sprite s'il y a une collision
                 old_pos_sprite = direction_deplacement
                 deplacer.move_player(player.player.copy(), [0, -self.avancer], direction_deplacement)
 
@@ -83,6 +85,7 @@ class Kamehouse:
                 if move is None or move != direction_deplacement:
                     player.sprite_player = img_perso.select_sprite(1, 1)
                     move = direction_deplacement
+                if Move.COLLIDED: move = None  # Empêche le déplacement du Sprite s'il y a une collision
                 old_pos_sprite = direction_deplacement
                 deplacer.move_player(player.player.copy(), [-self.avancer, 0], direction_deplacement)
 
@@ -91,6 +94,7 @@ class Kamehouse:
                 if move is None or move != direction_deplacement:
                     player.sprite_player = img_perso.select_sprite(1, 2)
                     move = direction_deplacement
+                if Move.COLLIDED: move = None  # Empêche le déplacement du Sprite s'il y a une collision
                 old_pos_sprite = direction_deplacement
                 deplacer.move_player(player.player.copy(), [self.avancer, 0], direction_deplacement)
             else:
@@ -101,6 +105,5 @@ class Kamehouse:
             tilemap.set_focus(player.player.x, player.player.y)  # Coordonnées du joueur par rapport aux bords
             tilemap.draw(self.screen)  # Affiche le fond
             self.screen.blit(player.sprite_player, (player.x, player.y))  # Affiche le joueur sur le fond
-
 
             pygame.display.flip()  # Met à jour l'écran

@@ -1,6 +1,6 @@
 # PyDragon
 
-![Image de jeu](https://nsa40.casimages.com/img/2019/05/09/190509070048676730.png "image de jeu")
+![Image de jeu](https://nsa40.casimages.com/img/2019/05/20/190520064246960457.png "image de jeu")
 
 ### **Concept du jeu :**
 
@@ -9,33 +9,31 @@ Création d'un jeu au design du manga Dragon Ball avec Python (PyGame). Le conce
 ### **Fonctionnalités :**
 - Système de map 2D
 - Interaction avec d'autres entités
-- Système de combat (personnage VS personnage, coups, temps, vie, ki)
-- Création d'une IA
 - Menu de démarrage
 - Animation des personnages
 - Histoire basique
 - Son de fond lors du jeu
-- (Trouver des objets dans la carte + système de monnaie + boutique pour achat de cartes)
+- Trouver des objets dans la carte
 - (Sauvegarde via base de données)
-- (Sytème de socket multijoueur)
 
 ### **Problèmes :**
 - Manque de connaissance sur PyGame
 - Collision dans la carte
 - Sauvegarde de l'avancement du personnage
-- Animation du personnage (sauter, frapper)
+- Animation du personnage.
 - Changement d'une map à une autre map.
 - Meilleure possibilité de maintenir un code PyGame
 - Interaction avec les personnages
+- Placement des interfaces
 
 ### **Acquis :**
 - Image des animations (sprites) récupérée
-- Sons récupérés
+- Musique récupérée
 - Logiciel de création de la map 2D
 
 ### **Technologies :**
 - PyGame
-- Mysql
+- MySQL
 
 ### **Par où commencer :**
 - Idée de l'histoire
@@ -46,13 +44,12 @@ Création d'un jeu au design du manga Dragon Ball avec Python (PyGame). Le conce
     - Capitale de l'Ouest
 - Ajout des collisions
 - Importation des maps + personnages
-- Ajout du moyen de discussions
-- Création de l'espace de combat (map + intégration des deux personnages et animations + barre de vie)
-- Création du système de combat (vie, Ki, arrêt du jeu, temps de jeu + coups et animations)
-- Menu de démarrage
+- Ajout du moyen de discussion
 - Ajout des musiques
+- Création de l'histoire
+- Recherche d'objet dans la carte
+- Menu de démarrage
 - Sauvegarde de l'évolution du jeu en base de données
-- (Trouver des objets dans la carte + système de monnaie + boutique pour achat de cartes)
 
 ### **Avancement :**
 - [11/10/18] : Création de l'objectif du projet.
@@ -83,6 +80,7 @@ Création d'un jeu au design du manga Dragon Ball avec Python (PyGame). Le conce
 - [15/05/19] : Gestion des interfaces (menu), division en plusieurs class et ajout de collisions.
 - [16/05/19] : Boucle sur les interfaces, sauvegarde des coordonnées, ajustement du personnage au niveau des sprites, division du code en plusieurs fichiers et ajout de commentaires.
 - [17/05/19] : Ajout de la musique, d'un personnage, système d'interaction et première mission.
+- [20/05/19] : Optimisation du code, ajout du personnage qui parle, transparence de la map et arrêt du sprite.
 
 
 ### **Informations :**

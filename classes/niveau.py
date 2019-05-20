@@ -4,4 +4,4 @@ class Niveau:
     LVL = 'while_main_menu'  # Niveau par défaut
     WHILE_GAME = True        # Boucle de jeu
     COORDONNEE = []          # Sauvegarde de la position du joueur
-    DIALOGUE = False
+    DIALOGUE = False         # Boolen en cas de dialogue

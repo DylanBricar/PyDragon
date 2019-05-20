@@ -8,6 +8,8 @@ from collisioncontroller import CollisionController  # Import de la class Collis
 class Move:
     """ Déplacement du joueur """
 
+    COLLIDED = False  # Entre en collision (permet de stopper le sprite)
+
     def __init__(self, player, pas, collision):
         self.player = player  # Toutes les informations de la class player
         self.pas = pas  # Déplacement qui doit être fait
@@ -24,10 +26,11 @@ class Move:
         self.player.player.move_ip(direction)  # Déplace le joueur en y ajoutant la direction donnée
         collide = CollisionController(self.player, self.collision)  # Appelle la class de collision
 
-        if collide.collision():
-            # Si collision, on restaure la position de départ
+        if collide.collision():  # Si collision, on restaure la position de départ
             self.player.player = old_position
+            Move.COLLIDED = True  # Change la variable permettant de stopper le sprite
         else:
+            Move.COLLIDED = False  # Change la variable permettant d'animer le sprite
             # Aucune collision de trouvée : on ajuste le rendu de l'écran
             if touche == 'Left':
                 if self.bord_droit >= self.player.player.x >= self.bord_gauche:

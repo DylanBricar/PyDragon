@@ -1,28 +1,23 @@
 import pygame
-from niveau import *
+
 
 class Interact:
-    """ Gestion des interactions """
+    """ Gestion des interactions entre les personnages """
 
-    def __init__(self, screen, text):
-        self.screen = screen
-        self.text = text
+    def __init__(self, screen, font_police="ressources/fonts/BebasNeue.ttf", font_size=24):
+        self.screen = screen  # Récupère l'écran sur lequel il faut dessiner
+        self.font = pygame.font.Font(font_police, font_size)
 
-        for event in pygame.event.get():  # Vérifie toutes les actions du joueur
-            if event.type == pygame.QUIT:  # Clique pour quitter le jeu
-                self.while_map_kamehouse_in = False  # Quitte le processus python
-                Niveau.WHILE_GAME = False  # Ferme la boucle d'importation
-            elif event.type == pygame.KEYDOWN and event.key == pygame.K_SPACE:
-                Niveau.DIALOGUE = False
+    def show_box(self, text, avatar):
+        """ Affiche la boite de message ainsi que la personne qui dit le message """
+        dialogue_bg = pygame.image.load('ressources/images/dialogue.png').convert_alpha()  # Récupère le canvas
+        self.screen.blit(dialogue_bg, (0, 0))  # Affiche le canvas
 
-        if Niveau.DIALOGUE:
-            font = pygame.font.Font("ressources/BebasNeue.ttf", 24)
+        avatar_img = pygame.image.load('ressources/images/avatars/avatar_' + avatar + '.png').convert_alpha()  # Récupère l'avatar
+        self.screen.blit(avatar_img, (0, 231))  # Affiche l'avatar
 
-            dialogue_bg = pygame.image.load('ressources/dialogue.png').convert_alpha()
-            screen.blit(dialogue_bg, (0, 0))
-
-            y = 390
-            for i in range(len(self.text)):
-                screen.blit(font.render(self.text[i], 1, (0, 0, 0)), (60, y))
-                y = y+25
+        y = 390  # Distance d'écriture
+        for i in range(len(text)):  # Parcours toutes les lignes de texte
+            self.screen.blit(self.font.render(text[i], 1, (0, 0, 0)), (60, y))  # Affiche chacune des lignes
+            y = y+25  # Ajoute 25px comme saut de ligne
 
