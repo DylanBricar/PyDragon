@@ -1,591 +1,611 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.0" orientation="orthogonal" renderorder="right-down" width="50" height="50" tilewidth="32" tileheight="32" infinite="0" nextlayerid="34" nextobjectid="270">
+<map version="1.2" tiledversion="1.2.0" orientation="orthogonal" renderorder="right-down" width="90" height="80" tilewidth="32" tileheight="32" infinite="0" nextlayerid="50" nextobjectid="273">
  <tileset firstgid="1" source="ressources/maps/world/tiles.tsx"/>
  <tileset firstgid="4019" source="ressources/maps/world/triggers.tsx"/>
  <tileset firstgid="4025" source="ressources/maps/world/Kamehouse.tsx"/>
  <tileset firstgid="4409" source="ressources/maps/world/alltiles.tsx"/>
- <layer id="1" name="water" width="50" height="50" locked="1">
+ <layer id="49" name="Tile Layer 16" width="90" height="80">
   <data encoding="base64" compression="zlib">
-   eJzt07ENgDAMAME06dl/KzZiAUSB7JiYK6605JeTeYwxAQAA2MJ5o3qniIbqlqed3tLx34aMlqqGyJbqhsib6PhOQ5c/3qWjy5vqco+qlowGHTkt2bMrWlbNAgAAe7kAUhPELA==
+   eJztw6ENAAAMAjAMfv9fyxsTbdJeUlVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVfX1AY7/Tr8=
   </data>
  </layer>
- <layer id="33" name="Tile Layer 15" width="50" height="50" opacity="0">
+ <layer id="34" name="water" width="90" height="80">
   <data encoding="base64" compression="zlib">
-   eJzt0bsJgDAYhdEsYJPC/RcUBxBBLcT4GMCr58At0v0fKQUAAAAAAOC/5npsf6dqW7aNzZIM9f4viab19q4/NyQ3PXUkt1yXTMf7fKUDABItmIsmBA==
+   eJzt1LsNwzAQREElzt1/V+7IkTMl5ke3J80AGxISHggeBwAAAAAAq7ze91i66j4691q66j4691q66j4691q66j4691q66j4691q66j4691q66j4691q66j4691q6yjafk+m8v/FM63S7m41OZ51H3KHxEzqvbj36D+lWdF7Veub76ZI6u886z0pqrPM1jXXOvss6u88/aZ1HW6dLa6yzzjN2vRu7zz6t81mvq84+rXPC0lX30bnX0lX30bnX0lX30bnX0lX30bnX0lX30bnX0lX30bnX0lX30bnXAAAAAAD43xdU8cQs
   </data>
  </layer>
- <layer id="18" name="sol" width="50" height="50">
+ <layer id="35" name="Tile Layer 15" width="90" height="80" opacity="0">
   <data encoding="base64" compression="zlib">
-   eJzt1jEOgCAMhWGvoIOLF/BWDp7K0ZFbOpkYI1oIhYJ/k5e4EPloinYd1VKtvW5w4MCBAwcOHDhacszDd7QdvvfiwFGDo1Rw2AqO7+wvc1mbI5dF05GzJzkcp+V8lsaS42n/NfajJUeO4LAVHLZSypH63irhuN7BLvDb6Lu/ceDwOaRrLDjue5E6ntZqOiTnet2TizTU6CgxH6GzanHOJf/mMY5l0nVsY1wPUiW1w0IoivpfHYScC1s=
+   eJzt1DEKgDAQRcFcwCaF97+geAAR1EKMUSuzqWbgF2kfS1ICAAAAAAAAAAAAAAAAAAAAgG9rvna+iVG2PjYXo50pP++a9pa97TDeG2se562z1jHqv1rnWDr3oXM/OgMAAAAAAAAA8NcGe7AmBA==
   </data>
  </layer>
- <layer id="22" name="Tile Layer 4" width="50" height="50">
+ <layer id="36" name="sol" width="90" height="80">
   <data encoding="base64" compression="zlib">
-   eJzt1MEJwjAYQOEe7N0KCiI4gRddQI/dwmkcwqMruYATOIEebLClITSaxNSEn/dBKITS5NGQogAAAAAAAK6u8/CREykdIejIi5QOhY685Njhc95zvXdPlYwORUoH4pvOUu8gjrWQjk3bcan60Rma+8T3/dj09bs9DM2ZlqX9OymYe7aNX+ya5rodY3DZe4yOOnGH7Z88J37r0OHGPC+uZ0vvuK2+rzN2hynkf9w9Ov7F9a7SOx6WjqM2r+6rbfl+xnJexPuWj33TcBDQAQDKC9GOfe8=
+   eJzt1zFqwzAAheFcoR269AK9VYecqmPH3LJDMQQStZIiPwX5++BBFhPyY2TndAIAAAAAABjv/LLv+KVzhs4ZOmfonKFzhs4ZOmfonKFzhs4ZOj/u4/X/7d259L0r0TlD5wydM2o6z9pKZrfUef5WMrulzvf3/cdzS+eyns6p1ivp+f06t+vtvLXePtdO577We54jK9E5I3HO6jy/pc7zt5LZLXWev5WM7DL6vWMlIxtvuzT+dym9H65E5wydM/buXHuNzm2NWzrfu/bInWvuy+tml87GOo/v7Hyub1Ka5+CtlsY953Npn+/H7vz11ncPj9rROj/DAAAAAAAAAB7xA1xoC1s=
   </data>
  </layer>
- <layer id="27" name="Tile Layer 9" width="50" height="50">
+ <layer id="37" name="Tile Layer 4" width="90" height="80">
   <data encoding="base64" compression="zlib">
-   eJztz70NgCAURlF6K9TCnwWcwHWMo1m4h5u4gC6gjRBiaSL4CiT3JF8DBVylAAAAAAAAAAAAgP+bK7e/o0PeVriFiKnjSKTDku5Y22//CSXZYRv2BDpsw5lAx1PDYM4XHfbOG1ke3hGTu6MrZTZpvzsptelozPpSZpbP3ajdAPi5AMhHMEs=
+   eJzt1lHqAUEcwHEPvKMoKSfwwgX8H93CaRzCoyu5gBM4AQ+I7b8ty87SoPl86peaNqOvbZpGAwAAAAAAAAAAAAAAoL5Nr/5Qnc7fS+c4dI5D53h0jkPnOHQOF3LeutfVs+zoHIvOkKZ299O/IA0jnaMYXzuvO/+Tubf2SOjzqcn3yRrdWysatMq/h1vFpmXziunpP5lfJ0VV2r6j81znoMkcmmH76KxzDMXzoOrZke+8HT7fJ/XORXXe511AZy6q3jXynfclnRe59fN9Y9K6fKZi1f/MvrNT4z+dAQAAAAAAAH7OEVmOfe8=
   </data>
  </layer>
- <layer id="21" name="Tile Layer 3" width="50" height="50">
+ <layer id="38" name="Tile Layer 9" width="90" height="80">
   <data encoding="base64" compression="zlib">
-   eJzt1llTjnEcx+H7IGtCFCprZN8K2QnZIrJHyb4VKfuepaLs+wEn3hmODV4AxnUfmIwZU6a50/D/zFwHPdPB9zf/g+eJolAoFAqFQqFQKBQKhf6/mtLbpA6Jon6k0Z9Hg9rXXYr3/9iUZXs2OQxnBCMZxWjGkMvYn25MyYmiHvSkF73pQ19S6Uca/RmQk+wdeXaNZwITmcRkpjCVaUxnBjPJp4B0uwYxmAwyGcJQhpFFNjkMZ0TCd8yyaTZzKGQu85jPAhayiMUsYSlF8TvZNZox5DKWceQxnglMZBKTmZLwHR8GR9Fyu1ZQzEpWsZo1rKWEdaynlA3xO9k1nRnMJJ8CZjGbORQyl3nM74I7yuzaxGa2sJVtbGcH5exkFxVUxu9k1yIWs4SlFLGM5aygmJWsYnXCd+y2qYo97GUf+znAQQ5xmCMc5RjV8TvZVcI61lPKBjZSxiY2s4WtbEv4jhqbjnOCWk5SRz2nOM0ZznKO81yI38mucnayiwoq2U0Ve9jLPvZzIOE7Ltp0ictc4SrXaOA6N7jJLRppojl+J7sOc4SjHKOaGo5zglpOUkd9wnfctukOLbRyl3vc5wEP4+8LHvOEpzyL38muM5zlHOe5wEUucZkrXOUaDQnf8dymF7yMv/8y27zy9+tfPou9+eWzW/Y10kQzt7lDC63c5R734+9C/z8qM7l7OlN5xp8J/b6B3ei3Xmca+Q/c8TYlit7xPuVvL+lcH+3/xOd27ujovW/S23RlX+z6yrd29nX03u5eR+8NhUKhUCgUCnW/vgOvR5XW
+   eJzt0LsNwjAARdH0VIYUfBZgAtZBjEbBHmzCArAANMSK6IJwjElhzpFeYxe2btMAAAAAAAAAAAAAAAAAAAAAAPDJadmP39J5Gjqnuy765dA53V3nyZTufNl8959alewcG990HlSyc2z80HlQyc7vGu+783PIe6cGs3l+Z9K9Om/bMjuGcXf/YtV1XnfbtWUWjbk7hH4AAAAAAABQsyeCOzBL
   </data>
  </layer>
- <layer id="24" name="Tile Layer 6" width="50" height="50">
+ <layer id="39" name="Tile Layer 3" width="90" height="80">
   <data encoding="base64" compression="zlib">
-   eJzt12mQj3UAB/C/mw522WR3pcMRUqJbpftSJImKQpSiS6Jyd5/uN5VRFKnpItdUFB2TDrlX7jv3fVuLz3/anaHtTWPH/7fj+c583jy/F8/3O888M88Ti0WJkj8yLTUWm84MZjKL2cwhg7n8xTzms4CFqYlunTuLdFrMEpayjOWsYCWr+JvVrGEt6wLcsV6nDWxkE5vZwla2sZ0d7GQXu9kT4I69Ou0jk/1kcYCD8a5psVgBClKIwhShaFqiW+dOMZ2KU4ITOJGTOJmSlCKJZEpThpQAd5yiU1lOpRyppJFOeU6jAqdzBmdyVoA7KupUicpU4WyqUo3qnEMNzuU8anJ+gDtq6VSbC7iQi7iYS7iUy6jD5VzBldQNcMdVOl3NNVzLdVzPDdzITdzMLdTjVm4LcEd9nRpwOw25g0bcSWPuoglNuZt7uDfAHc10as593E8LWtKKB2hNGx7kIdrycIA7HtGpHe15lMd4nCd4kg48RUeephOdA9zxjE7P8hxd6Eo3utODnvTieV7gRV4KcMfLOr3Cq7zG67zBm7xFb/rQl370Z0CAO6JEiRIlSpT/SlKZRDfIm0Q7fLMk512Po0204/hK02P8zNqmHNv75VU6p/wjnqTSie2SV6mQj3eUOuz9rpGPd/zfZBWOxdqVPfJa33T/svRnAAMZmnykt117h3cZRIcCiemfk7pFcu8YrNd7vM+Q+AY+4EOGMZyPGMHHfBLAjnjiW+Jy8qlen/E5X/AlIxnFV4xmDGMZx/hAdsRz+I6v9fqGb5nARL7jeyYxmR/4kZ/4OXtHKFty8oteU/iV3/idP5jKn0xjOjOYyaxAd8zRK4O5LGEe81nAQhaxOPtsKcsC3bFCr5WsYiOrWcNa1rGeDdlnm9gc6I6tem1jO5nsZBe72cNe9mWf7SeLA+mJbh0lSpQoUf6dQz960u0=
+   eJzt2MdzjHEAxvH3EDWFVJJNj3TSK2lSSZNKeiW9kl6R3vRy4OI/w9ngD8D4vgezJpcsJnbY5zvzOew7e9h93t9h3zUMpZRSSimllFJKKaWUUkoppZRSSimllFJKKaWUUkopw1hzt3L2MQwXuMINjzwOpmzL3PfHZr5s6wcL/BGAQAQhGCEIRdhP98DJYhhHcBTHcBwncBLOcIEr3HDKYu9va7/MncPZLQKRiEI0YhCL87iAOMQjAYlIgju7ecATXvCGD87gLHzhBwv8EeDgOyezWQpSkYZ0ZCATF3EJWchGDnKRZ55zdgtGCEIRhnMIRwQiEYVoxCDWwXf+4GkY+exWgEIUoRgluIKrKEUZylGBSvOcs1sc4pGARCQhGSlIRRrSkYFM7WxUsVs1alCLOtTjOm6gAY1oQjNazHPOblnIRg5ykYfLyEcBClGEYpQ4+M6tbNaGdnSgE13oxk3cQg960Yd+DJjnnN1KUYZyVKAS11CFatSgFnWod/CdB9lsCMMYwSjGMI7buIMJTGIK05gxzzm7NaARTWhGC1rRhnZ0oBNd6HbwnWfZbA7zWMAilrCMu7iH+1jBKtawbp5zdutBL/rQjwEMYgjDGMEoxjDu4DtvsNkmtrCNHexiDw/w0Py9jMd4gqd4Zp5zdpvAJKYwjRnMYg7zWMAilrDs4Ds/Z7MXeGk+n3hbveL1633XTG/2XVthv1WsYR0b2MQWtrGDXeyZzyq8P8jb3t/636zB69codVid1n9Bf6VA7XzovXUyjHd472TvT/J/95F9P+HzATvbej/euFspa1/Y7Su+HbCfrfdD/Vm23g+llFJKKaWUUkoppZRSSimllFJKKaWUUup3+g5T35XW
   </data>
  </layer>
- <layer id="28" name="Copy of Tile Layer 6" width="50" height="50">
+ <layer id="40" name="Tile Layer 6" width="90" height="80">
   <data encoding="base64" compression="zlib">
-   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
+   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
   </data>
  </layer>
- <layer id="29" name="Tile Layer 11" width="50" height="50">
+ <layer id="41" name="Copy of Tile Layer 6" width="90" height="80">
   <data encoding="base64" compression="zlib">
-   eJzt1jEKgDAQRFEbK4uN2HkUT+RdPLCtCAoSCxECMyz/Qfr5hEC6Tmsv7wMAAAAA8LRM6gVtnB0lQQsdXujwQoeXoMMKHUBe26xe0EZcb3vo/x8nd8c65ujIch90eKBDu7tGh3Z3LR5/XOedX4K/OgChA9kQE6k=
+   eJzt1nlQlHUAxvGtoNsC2tZYlMpOE9OyQ7Po0CyzSzqozCKzIrITQq3MILC0g8N/xKNLKztNO6zUtDQrNZVbBREV4haFPEAgvzvBsMDOMi8UK+zznfnMHu/+8Xuf2dlZk0kppZRSSimllFJKKaWUUkp1pTb4mkwbkYwUpCIN6chAJjZhM7YgC9m+rj5152srm+VgG3KxHTuwE3nIx18oQCGKUKydDVfCZqUowy6UYzf2oAKV+Bt7sQ/7cUA7G66KzapxEDWoRR3+sW1pNZmOwJE4Ch7wxNFWV5+683UMmx2L43A8TsCJ6IaTcDK84A0fnAKzdjbcqWxmQXecBl9Y4Yce6Al/nI4zcCZ6aWfDncVmZ+McnIvzcD564wL0QQD64kL0Q3/tbLiL2OxiDMAluBSX4XIMxCBcgcG4ElchUDsb7mo2uwbX4joMwVBcj2G4ATdiOG7CCNysnQ13C5vdittwO0YiCHfgTtyFuxGMe3Av7tPOhhvFZvdjNB7AgwjBQxiDhzEWj+BRPIZQ7Wy4x9ksDE9gHJ7EU3gaz+BZPIdwROB5RGpnw41nswmYiBfwIl7CJLyMyXgFUYjGq4jRzoaLZbMpeA2vYyqm4Q28ibfwNuIQjwQkaufDolAzv0cIM7v6JB1bOPcbYW762B4RrYjEeExws52juN9oc9PH9ohuRQxiMcXNdlZKKaWUUu5drLerT+AeaWflbgXrO686OC8fV5/APfLXzv9bSZbG5wEOdrZa/mVfmKXl55TzktqwmW3nQM/G13F+JlM8EpCI6Xjfu6kZvJeEmZiF2X7/3T10hozubNu3QUNz2OwdvIv3bBvjA8zFPHyIj/Ax5uMTfKqdHVbr0fi8+c6fsdnn+AJfYgG+wkIswtf4Bt/iOyzG99q5RbaN7Xe2Zb/zD2z2I5ZgKZbhJyzHCvyMX7ASq/ArVmvnFjXsbL+3/c6/sdnv+ANrsBbr8CfWYwM2IhkpSEWadm5S840d7ZzOZhnIxDZsxhZkIRtbkVN/LRfbsUM7O83RzjvZLA/5KEMBClGEYpSgtP7aLpRjt3ZuNfuNbe1hswpUIgh7sQ/7cQBVqK6/VoNa1LnpzuOc7G3/X675xs0LcbKfs2tdvbZ8n5VSSimllFJKKaWUUkoppZRS6nDsECxmDNw=
   </data>
  </layer>
- <layer id="23" name="Tile Layer 5" width="50" height="50">
+ <layer id="42" name="Tile Layer 11" width="90" height="80">
   <data encoding="base64" compression="zlib">
-   eJzt1klPFEEYxvE+4E2FwSHxYOAL4FfwO3AjeBQnbhfFuN0cVm/I5k3ZNHFBcIsr4hJxYU0EF9yCG7gFFBRFMf4r3ZNUmp4Re6qajqk3+aUhVdP9PlNTlbYsf9W7Mjg6y+QwOUwOk8PkMDlMDpPD5DA5TA6TI6gccmVl63/GhqhlbcSmqL5n5AaQYwf978QuhTmyVjhXp/9851oesemoMvovR4WGHEGsQ6J0fEeJHPn/SY4gy+RIXu59HkTpzBHkPhele58vdF3keX7WUvf+WOi6yPP8rKWuHInf7FJ6WoblyEzRn3xO+zmzdefwa7FziCrknsV8p+tRxN9rEcu2yWOxJHPc8xLj7nvHNJ8lW7n/NqyLzJdq7G/zvO4tv+tuxhZF71gl3Gc7CpyrLNWYF/c8r8/L77q7sUdBDnFeRhDnXqVR+yrbG00+5sU9z+vz8rtuJarSzCH2tzgv8zCaYVkvEWfdS1Hm7N0KVKIK+yL2HGEkw/9za+i7FnWoR4OCHOK8XI0J+ppENb3uRw1qUYd6NOAA1iyxxdN4diOfbUIzWtCqIIeoX/Q/h984SK+H0IgmNKMFrTiMI06WdKud3jvQpWJvODmO0tsxHMcJtOEk2tGBUziNMziLcwrOfR05ztPXBVzEJVzGFXTiKrpwDddxAzdDmuMWfXXjNu7gLu6hB73oQz8GMBji39V9ehvCMB7gIR7hMUbwBE/xDM/xIqTrMSrOU7zCa7zBW4xhHO/wHh/wEZ9CmmOCvibxGV8whWl8xTfM4Dt+YBY/Q5pjMSrMOTJz/m1MVQ7VtSpFDvdYLv/n5YQzhylTYa8/j3B02w==
+   eJzt2DEKg0AQhlGbVClWSZejeCLv4oHTiqAQsNFifxN9D6YfPhYWpmkAAAAAALiKT7sdAAAAAACAf9e/zt7gHubOrdbV6Zyhc4bOGTpn6Jyhc0bROULnDJ0zdAb4LeP77A3uoSx/3/NxfNhv7Tx0OtfkPWfonKFzhs4ZOmfonKFzRvm60elYT3ELBQAAAAAAAC5iAtPQE6k=
   </data>
  </layer>
- <layer id="31" name="Tile Layer 13" width="50" height="50">
+ <layer id="43" name="Tile Layer 5" width="90" height="80">
   <data encoding="base64" compression="zlib">
-   eJzt1bEJgDAQBVAFLSxsBddwAHEHJ3ErlxQsbAUNGg3hPbjuSO43d0UBAAAAAAAAaWm77/6am6NS1Ndh/TGzbNX93jFw7jNL+fyNp3LJ8YZcckAMwwu7IgXTjznWgBsDcGUH03kFtw==
+   eJztmUdvE0EARn0INyBxcCQOKPkD4S/wH7ghOAIW7UIR7YZTuUEaN0gDiZrQRCcU0UOR6KEp9KqE3hFv5R1pZRyTdeKJ5fme9LSJZtarfdn1jjaRiBBCCCGEEEIIIYQQQoixpneyPV1Gne2gznZQZzuosx3U2Q7qbAd1toM620Gd7aDOdlBnO6izHdTZDupsB3W2gzrbp6Q098eYF4tE5uOCWO6Pla+UW+i8nL4rcKVDnUsm+Vu/b6W/rYkmzQXV9K3BWgc727iODbn8G+YrpnOlOucU09km6mwHlzvbWM8ZXO5s8zno4Wpn8xwc7nUdnJfNveBqZ8Nwr+vgvGzuBVc7m+/M8TSbgBOxOEO/4DowmzWh652zNSyudfaYwTnP4ZqcizP5eRbGS5MGx+JDzEmdZ8ZTPztu+Vmbbyzm/Jfg7Oi/Zhr737x0nx18V7cQFznyjmMp57kMp/vboJnG0pk6L93+wXd1q3C1A5299VgUE5xrVSy5DbomNvRYOlPnpds/+K6uDusLvLP3/PPWYxXYXxSJPMYE93UVVvvPtlqsw3pcG03O8ewryv64DXRtxCZsxhYHOnvrsak4QLdBXEfL9diAjdiEzdiCG3DauKSJEbRpZd82bMcO7HSgs8cv+v7GP7iRlpuwFduwHTuwEzfjFr/1SOmibTf2FHhjD9N5K+224XbcgTtxF3ZhN+7GPbgX9+H+UVj3utj5AN0O4iE8jEfwKB7D49iDJ/AknsLT6hwK0/kM3c7iOTyPF/AiXsJevIxX8Cpe0/dGaEzn67S7gTfxFt7GO3gX+/Ae3scH+BAf6XoOhenc763X8Ak+xWf4HF/gS3yFr/ENvsV36hwK03mAboP4Hj/gR/yEn/ELfsVv+B1/4E91DsVY/F/QoM7ZU1wWbsyVzqPNlAydU8fK+b2iTJ2FEEIIIYQQQgghhBBCCCFE4fMXMz902w==
   </data>
  </layer>
- <layer id="30" name="Tile Layer 12" width="50" height="50">
+ <layer id="44" name="Tile Layer 13" width="90" height="80">
   <data encoding="base64" compression="zlib">
-   eJzt2DEKg1AQBNAp0gd+wEt4yVxYPEAUYiMErERQs7wH28/sdpsAAABwF/3PsFVhL1Xuq8f9VOkBAPB8JUNL3l0ytqvTHPNZ8k/LzH/eYzU/rk4AAOfoU+dXW6ED7PUFrlIJvw==
+   eJzt1kEKQEAUgGGKhYWtcg0HkDs4iVu5pLKwJSaaMN9Xs3u9qX8zk2UAAAAAAAAAAAAAAAAAAAAAAGmpm3h3jdV2CNeWYfMpt16K67N9YNc9U35/x9/p/B06A7xT98BbyrlB50NzwB8bAAAAAAAAIKYVyG0Ftw==
   </data>
  </layer>
- <layer id="25" name="Tile Layer 7" width="50" height="50">
+ <layer id="45" name="Tile Layer 12" width="90" height="80">
   <data encoding="base64" compression="zlib">
-   eJzt1zEKwkAQRuEt3EKstAjBA2gvClYWniAXsPc03sBDeSN3kYDCMm6C0X/j+2CakIR5JEXiHHJcKueu9evEY6nzVMXdcndW7WgbSu+wPDdavaWhQwsdWujQQocWOnSM6bsEOvaLX28AAAAAoASr8C+6DrM0Rtl5nj6+qx6TsvHD7dNX+xy6UOzY9nhf6BgOHVqOI+loQsesw14Hr9kxDTvdJnljXRtZ17271787+c8NgO+5A3DcPlU=
+   eJzt2jEKhEAQRcEfbC6M4CW8pBde9gAqaGgs2LJaBZ03r5lsEgAAAAAAAAAAAAAArjQehv/jbtfzPmroXEPnOjoDAAAAZ3V98m3JNCS/dvc2zzbvfZd9Vp1LrJ+7NwAAAN5sjL9yVTQGAAAAAABgAzLnCb8=
   </data>
  </layer>
- <layer id="26" name="Tile Layer 8" width="50" height="50">
+ <layer id="46" name="Tile Layer 7" width="90" height="80">
   <data encoding="base64" compression="zlib">
-   eJzt2edPE3EAxvHTtuKkLa1I696juBfi3nsr7r33wj1wxQ2OxJf+ScYYRX0JFH2jggsnoN9faCMpd0fvrtdx9Ek+L5rA3fPk4LokSX8cLkmyuRu4UOg1JpNjOEPCxxfMTniHK3Tekmz9RJ565c8Rjx129//HT3Ka9nvhk6SXKMUrvMYbX3LviOxWRt9yVCCISrzFuxTY8Z6OH/ARVajGJ3zGF3zFN9TgO37gp099h9lb5Hb8otNv/EEt6lCPv6KrX5JaoTVssMOBNv7k25FBp7Zoh/bogI7ohEw44YIbWfDAm4Q7OtMpG12QAx/86Ipu6I4e6Ile6I0+SbijL536oT8GYCAGYTCGIIBcDMUwDMcImR3h/vHYILdjJJ1GYTTGYCzGYTzyMAH5mIhJmIwpKjvMjtx5xI6pdJqG6ZiBmZiF2ZiDuZiH+ViAhViU4OsRGbFjMZ2WYCmWYTlWYCVWYTUKsAZrsQ7rm9lhxha1Y4sdG+i0EZuwGVuwFduwHTuwE7uwG3uwN85/V80dV+zYR6f9OICDOITDOIKjOIbjOIFCnMQphfuVGdckmmOJHafpdAZncQ7ncQEXcQlFuIwruIpruB7FfTeW1yaaHcINet3ELdzGHdzFPRSjBPfxAA/xyK+9S66O7vG6d5iZVO8vorQh3xO7c+RlRf+zxTrPq3QdYrlDS56z+ZmG3eEk2w6RlrxDKVbZofXeHcukr0fTpNoOK/yfq70WScUdcknvMB6r7NAaK7zOFbH6DqenQapEbUeZXZLKUWHXftwCh/FuWqK2o4r+1ajTuENsEHwGtjy26XtvHhmxoza0oV7H9UhElHY0jtZrkohY4X4lkt4Rn0TbL70jPmmJO8RzTiD0uCZDkoI2fUp1/l6lTb6blufC8HN6oNEWvQkq9NETI5+1G90Rixj9vCnyuwOrfJeQjnn5B4ZB0Ec=
+   eJzt10FqwkAUgOFZmIW4ahdBPEC7Ly24cuEJvIB7T9Mb9FDeyIQiRAgxM02eRb4P3mbIhPBPCCQlAAAAAACg67tO6Wd9O+1a33WUaduNbapzmWtjnR+newZD58G0dI6hcwydY+gcQ+cYOsfQOYbOMXSOofP8/HcDubavj34CAAAAAAD+m7c6pfdmNgNDudNL//pX/Tt9Pqr5nudZXd/jHDrn+yz4HuicT+cYOsfQOcZe5xCHpvMqo9uu0rnEsml2Xoybob2toX337gV/caymGwAAAAAAAKDfBRLuPlU=
   </data>
  </layer>
- <layer id="32" name="Tile Layer 14" width="50" height="50">
+ <layer id="47" name="Tile Layer 8" width="90" height="80">
   <data encoding="base64" compression="zlib">
-   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
+   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
+  </data>
+ </layer>
+ <layer id="48" name="Tile Layer 14" width="90" height="80">
+  <data encoding="base64" compression="zlib">
+   eJztnD1v00AYx0OIhUCiXJqoEhIvCwOVysLAzMBn4EWiG1DWChDd+BT9JnQHBiZexEjHjh5gS6sCEvfIfujj69mc7VziO/9/0qNE8d3Z/unJ+fzEymAAAAAAAAAAAAAAcJqZGgwOdRypZR9JvJDjHzrOjrOA6+ZwvtqC/cooa3uIvC/FzNdLLeNYj/UTrv+RqCyG4/mPLb8LR/l++opPz8RQzDMjT/sIAXheDOkSPKc9nD985/NKz/OZc8q355nqt2dmmfNz7POHPL9FelbIZ++eyTGvn2PPY3aaiHuGRXgejYv7jJ0yz3zP7eN73WfPqThnuR7wgfRszhexzh9mPsva0S/9OvHgeqVH+ZwqN8c+PO9OinUk3rdZP40ht03HiVEDVWO/nvmesKqWHUP91Oa5S+tZnltCxzZn/O+6d2Navf3OpHlfE8r50D2bc/NM5PITSxC2z80gzy7tbKFWi/uLwTNhOp7HGu5ens/kbLxar+813f61zvmdPO9j8uyrbkbOrtf0vKHb3xJ9Qve8J+75XOvA787V24fprAkhe36v3X4w4ovqZh04ZM+fc6+2+Npirbp9fn7HyMDzad7AcwFfnn0Qqme6/sHzYviuXe4bwddBXzXQpoTsmbHV57pS12BC97wn7reHHcnjK9rpVaM2ErpnQnpuey42R/MAnv0ha3qxerbV0Lam5fW1qm0u7eTnslbHEatnRrWsSzTBVneK2bOaZOf8p6Hr+0mzflx3kvXU2D1v5J65Rncwch+X+1Ef19gX48u8jsFzWjFvkKuLa9n7Bzoe6njkOC71/ai9Xa6R17dFW1lPjcFz1fws54ynOp7p2HIcl/r+rpH/zPaZLCR98vxCx0sdrxzHbeqZiMmz7TnyeZ5L0+snUeY55GdlQvIcMlXXwTbAcxHk82Jw9XzzQvU45vamnvu43pC4eP42ymJHr7nfDusfy90kfs/ms4LrJfXNxxbfm8ZnnyrWc2Zbcxv1pVifnDz3Rb9BdO23hzqYz9aRa3r+dXet3bibyclr3SC3z6dZ0PvQHTPSc2q4XkZwLZT8HueOQ143l8Gu2/6/RtuIIYe7hEuuxpjPAAAAAAAAAAAAAAAAAOLkL5tFJLQ=
   </data>
  </layer>
  <objectgroup color="#a40b00" id="2" name="evenements" visible="0">
   <properties>
    <property name="platform" value=""/>
   </properties>
-  <object id="1" name="bord_gauche" x="0" y="32" width="32" height="1536">
+  <object id="1" name="bord_gauche" x="0.0158064" y="32.8694" width="32" height="2526.37">
    <properties>
     <property name="collision" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="2" name="bord_droit" x="1568" y="32" width="32" height="1536">
+  <object id="2" name="bord_droit" x="2846.11" y="31.215" width="32" height="2495.12">
    <properties>
     <property name="collision" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="3" name="bord_haut" x="32" y="0" width="1536" height="32">
+  <object id="3" name="bord_haut" x="1.9217" y="-0.302213" width="2874.6" height="32">
    <properties>
     <property name="collision" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="4" name="collision" x="349.23" y="1506.81" width="1046.47" height="23.9485">
+  <object id="4" name="collision" x="1085.23" y="1986.81" width="1046.47" height="23.9485">
    <properties>
     <property name="collision" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="166" name="player" gid="4019" x="209.191" y="789.913" width="32" height="32"/>
-  <object id="172" name="bord_bas" x="30.7118" y="1566.93" width="1536" height="32">
+  <object id="166" name="player" gid="4019" x="945.191" y="1269.91" width="32" height="32"/>
+  <object id="172" name="bord_bas" x="35.6673" y="2528.53" width="2844.11" height="32">
    <properties>
     <property name="collision" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="173" name="collision" x="1389.69" y="1477.3" width="57.5002" height="23.9485">
+  <object id="173" name="collision" x="2125.69" y="1957.3" width="57.5002" height="23.9485">
    <properties>
     <property name="collision" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="174" name="collision" x="1443.81" y="1447.8" width="57.5002" height="23.9485">
+  <object id="174" name="collision" x="2179.81" y="1927.8" width="57.5002" height="23.9485">
    <properties>
     <property name="collision" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="175" name="collision" x="1477.46" y="1414.48" width="57.5002" height="23.9485">
+  <object id="175" name="collision" x="2213.46" y="1894.48" width="57.5002" height="23.9485">
    <properties>
     <property name="collision" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="176" name="collision" x="1507.74" y="468.739" width="20.1478" height="936.378">
+  <object id="176" name="collision" x="2243.74" y="948.739" width="20.1478" height="936.378">
    <properties>
     <property name="collision" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="177" name="collision" x="1253.61" y="453.188" width="248.49" height="23.9485">
+  <object id="177" name="collision" x="1989.61" y="933.188" width="248.49" height="23.9485">
    <properties>
     <property name="collision" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="178" name="collision" x="1218.34" y="396.624" width="24.2268" height="57.2219">
+  <object id="178" name="collision" x="1954.34" y="876.624" width="24.2268" height="57.2219">
    <properties>
     <property name="collision" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="179" name="collision" x="1183.73" y="30.6158" width="26.8886" height="369.992">
+  <object id="179" name="collision" x="1919.73" y="510.616" width="26.8886" height="369.992">
    <properties>
     <property name="collision" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="180" name="collision" x="497.636" y="30.6158" width="31.5469" height="307.438">
+  <object id="180" name="collision" x="1233.64" y="510.616" width="31.5469" height="307.438">
    <properties>
     <property name="collision" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="181" name="collision" x="480.334" y="347.379" width="25.5577" height="52.5637">
+  <object id="181" name="collision" x="1216.33" y="827.379" width="25.5577" height="52.5637">
    <properties>
     <property name="collision" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="182" name="collision" x="451.718" y="401.947" width="26.8886" height="54.5601">
+  <object id="182" name="collision" x="1187.72" y="881.947" width="26.8886" height="54.5601">
    <properties>
     <property name="collision" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="183" name="collision" x="383.175" y="450.527" width="57.5002" height="23.9485">
+  <object id="183" name="collision" x="1119.17" y="930.527" width="57.5002" height="23.9485">
    <properties>
     <property name="collision" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="184" name="collision" x="335.927" y="477.811" width="57.5002" height="23.9485">
+  <object id="184" name="collision" x="1071.93" y="957.811" width="57.5002" height="23.9485">
    <properties>
     <property name="collision" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="185" name="collision" x="317.294" y="509.753" width="57.5002" height="41.9162">
+  <object id="185" name="collision" x="1053.29" y="989.753" width="57.5002" height="41.9162">
    <properties>
     <property name="collision" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="186" name="collision" x="296.664" y="563.656" width="43.5254" height="127.762">
+  <object id="186" name="collision" x="1032.66" y="1043.66" width="43.5254" height="127.762">
    <properties>
     <property name="collision" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="187" name="collision" x="109.002" y="668.135" width="178.616" height="23.9485">
+  <object id="187" name="collision" x="845.002" y="1148.13" width="178.616" height="23.9485">
    <properties>
     <property name="collision" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="188" name="collision" x="69.0738" y="696.75" width="57.5002" height="152.384">
+  <object id="188" name="collision" x="805.074" y="1176.75" width="57.5002" height="152.384">
    <properties>
     <property name="collision" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="189" name="collision" x="135.621" y="834.502" width="210.558" height="23.9485">
+  <object id="189" name="collision" x="871.621" y="1314.5" width="210.558" height="23.9485">
    <properties>
     <property name="collision" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="190" name="collision" x="278.031" y="864.448" width="57.5002" height="23.9485">
+  <object id="190" name="collision" x="1014.03" y="1344.45" width="57.5002" height="23.9485">
    <properties>
     <property name="collision" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="191" name="collision" x="261.394" y="899.053" width="24.8922" height="533.032">
+  <object id="191" name="collision" x="997.394" y="1379.05" width="24.8922" height="533.032">
    <properties>
     <property name="collision" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="192" name="collision" x="258.067" y="1440.08" width="57.5002" height="23.9485">
+  <object id="192" name="collision" x="994.067" y="1920.08" width="57.5002" height="23.9485">
    <properties>
     <property name="collision" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="193" name="collision" x="294.002" y="1474.02" width="57.5002" height="23.9485">
+  <object id="193" name="collision" x="1030" y="1954.02" width="57.5002" height="23.9485">
    <properties>
     <property name="collision" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="194" name="collision" x="380.513" y="1025.49" width="27.7464" height="75.3038">
+  <object id="194" name="collision" x="1116.51" y="1505.49" width="27.7464" height="75.3038">
    <properties>
     <property name="collision" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="195" name="collision" x="544.008" y="839.956" width="23.839" height="73.8671">
+  <object id="195" name="collision" x="1280.01" y="1319.96" width="23.839" height="73.8671">
    <properties>
     <property name="collision" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="196" name="collision" x="483.671" y="776.93" width="25.8151" height="75.345">
+  <object id="196" name="collision" x="1219.67" y="1256.93" width="25.8151" height="75.345">
    <properties>
     <property name="collision" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="197" name="collision" x="864.14" y="836.942" width="26.2967" height="83.1612">
+  <object id="197" name="collision" x="1600.14" y="1316.94" width="26.2967" height="83.1612">
    <properties>
     <property name="collision" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="198" name="collision" x="968.657" y="837.483" width="23.3525" height="80.7258">
+  <object id="198" name="collision" x="1704.66" y="1317.48" width="23.3525" height="80.7258">
    <properties>
     <property name="collision" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="199" name="collision" x="925.865" y="577.964" width="39.5325" height="92.4918">
+  <object id="199" name="collision" x="1661.87" y="1057.96" width="39.5325" height="92.4918">
    <properties>
     <property name="collision" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="200" name="collision" x="547.242" y="546.16" width="25.8151" height="91.0221">
+  <object id="200" name="collision" x="1283.24" y="1026.16" width="25.8151" height="91.0221">
    <properties>
     <property name="collision" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="201" name="collision" x="479.752" y="607.244" width="28.7545" height="92.4918">
+  <object id="201" name="collision" x="1215.75" y="1087.24" width="28.7545" height="92.4918">
    <properties>
     <property name="collision" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="202" name="collision" x="640.379" y="129.438" width="436.817" height="225.586">
+  <object id="202" name="collision" x="1376.38" y="609.438" width="436.817" height="225.586">
    <properties>
     <property name="collision" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="203" name="collision" x="775.469" y="64.3911" width="159.982" height="92.3226">
+  <object id="203" name="collision" x="1511.47" y="544.391" width="159.982" height="92.3226">
    <properties>
     <property name="collision" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="204" name="collision" x="778.796" y="325.086" width="150" height="54.279">
+  <object id="204" name="collision" x="1514.8" y="805.086" width="150" height="54.279">
    <properties>
     <property name="collision" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="205" name="collision" x="941.171" y="392.964" width="46.1872" height="35.927">
+  <object id="205" name="collision" x="1677.17" y="872.964" width="46.1872" height="35.927">
    <properties>
     <property name="collision" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="206" name="collision" x="935.182" y="454.187" width="78.7952" height="31.9341">
+  <object id="206" name="collision" x="1671.18" y="934.187" width="78.7952" height="31.9341">
    <properties>
     <property name="collision" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="207" name="collision" x="693.616" y="453.521" width="86.7808" height="31.9341">
+  <object id="207" name="collision" x="1429.62" y="933.521" width="86.7808" height="31.9341">
    <properties>
     <property name="collision" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="208" name="collision" x="786.116" y="382.316" width="25.5577" height="61.2148">
+  <object id="208" name="collision" x="1522.12" y="862.316" width="25.5577" height="61.2148">
    <properties>
     <property name="collision" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="209" name="collision" x="898.913" y="385.311" width="25.5577" height="61.2148">
+  <object id="209" name="collision" x="1634.91" y="865.311" width="25.5577" height="61.2148">
    <properties>
     <property name="collision" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="210" name="collision" x="516.269" y="704.736" width="14.2447" height="61.2148">
+  <object id="210" name="collision" x="1252.27" y="1184.74" width="14.2447" height="61.2148">
    <properties>
     <property name="collision" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="211" name="collision" x="520.927" y="690.43" width="56.1693" height="13.4849">
+  <object id="211" name="collision" x="1256.93" y="1170.43" width="56.1693" height="13.4849">
    <properties>
     <property name="collision" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="212" name="collision" x="775.802" y="641.849" width="80.7916" height="23.2831">
+  <object id="212" name="collision" x="1511.8" y="1121.85" width="80.7916" height="23.2831">
    <properties>
     <property name="collision" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="213" name="collision" x="802.42" y="666.471" width="56.1693" height="53.8947">
+  <object id="213" name="collision" x="1538.42" y="1146.47" width="56.1693" height="53.8947">
    <properties>
     <property name="collision" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="214" name="collision" x="858.985" y="695.086" width="56.1693" height="23.2831">
+  <object id="214" name="collision" x="1594.99" y="1175.09" width="56.1693" height="23.2831">
    <properties>
     <property name="collision" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="215" name="collision" x="902.241" y="717.712" width="14.2448" height="118.445">
+  <object id="215" name="collision" x="1638.24" y="1197.71" width="14.2448" height="118.445">
    <properties>
     <property name="collision" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="216" name="collision" x="568.175" y="644.511" width="20.234" height="54.5601">
+  <object id="216" name="collision" x="1304.17" y="1124.51" width="20.234" height="54.5601">
    <properties>
     <property name="collision" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="217" name="collision" x="581.474" y="646.511" width="273.778" height="141.737">
+  <object id="217" name="collision" x="1317.47" y="1126.51" width="273.778" height="141.737">
    <properties>
     <property name="collision" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="218" name="collision" x="597.042" y="766.63" width="42.4725" height="50.7625">
+  <object id="218" name="collision" x="1333.04" y="1246.63" width="42.4725" height="50.7625">
    <properties>
     <property name="collision" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="219" name="collision" x="792.346" y="774.031" width="50.234" height="39.8914">
+  <object id="219" name="collision" x="1528.35" y="1254.03" width="50.234" height="39.8914">
    <properties>
     <property name="collision" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="220" name="collision" x="580.819" y="874.759" width="102.752" height="23.2831">
+  <object id="220" name="collision" x="1316.82" y="1354.76" width="102.752" height="23.2831">
    <properties>
     <property name="collision" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="221" name="collision" x="750.521" y="870.019" width="110.072" height="18.7938">
+  <object id="221" name="collision" x="1486.52" y="1350.02" width="110.072" height="18.7938">
    <properties>
     <property name="collision" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="222" name="collision" x="747.197" y="861.126" width="11.5829" height="23.2831">
+  <object id="222" name="collision" x="1483.2" y="1341.13" width="11.5829" height="23.2831">
    <properties>
     <property name="collision" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="223" name="collision" x="677.971" y="864.36" width="12.9138" height="18.384">
+  <object id="223" name="collision" x="1413.97" y="1344.36" width="12.9138" height="18.384">
    <properties>
     <property name="collision" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="224" name="collision" x="994.41" y="713.719" width="91.4391" height="79.1825">
+  <object id="224" name="collision" x="1730.41" y="1193.72" width="91.4391" height="79.1825">
    <properties>
     <property name="collision" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="225" name="collision" x="1186.4" y="713.054" width="91.4391" height="79.1825">
+  <object id="225" name="collision" x="1922.4" y="1193.05" width="91.4391" height="79.1825">
    <properties>
     <property name="collision" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="226" name="collision" x="1000.73" y="648.504" width="291.745" height="23.2831">
+  <object id="226" name="collision" x="1736.73" y="1128.5" width="291.745" height="23.2831">
    <properties>
     <property name="collision" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="227" name="collision" x="1272.24" y="648.504" width="20.3811" height="60.5494">
+  <object id="227" name="collision" x="2008.24" y="1128.5" width="20.3811" height="60.5494">
    <properties>
     <property name="collision" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="228" name="collision" x="1283.55" y="700.651" width="55.6794" height="18.384">
+  <object id="228" name="collision" x="2019.55" y="1180.65" width="55.6794" height="18.384">
    <properties>
     <property name="collision" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="229" name="collision" x="940.172" y="694.421" width="56.1693" height="23.2831">
+  <object id="229" name="collision" x="1676.17" y="1174.42" width="56.1693" height="23.2831">
    <properties>
     <property name="collision" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="230" name="collision" x="986.755" y="649.169" width="18.903" height="47.24">
+  <object id="230" name="collision" x="1722.76" y="1129.17" width="18.903" height="47.24">
    <properties>
     <property name="collision" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="231" name="collision" x="938.176" y="705.068" width="21.5649" height="156.377">
+  <object id="231" name="collision" x="1674.18" y="1185.07" width="21.5649" height="156.377">
    <properties>
     <property name="collision" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="232" name="collision" x="963.464" y="896.723" width="51.2702" height="23.2831">
+  <object id="232" name="collision" x="1699.46" y="1376.72" width="51.2702" height="23.2831">
    <properties>
     <property name="collision" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="233" name="collision" x="1069.3" y="900.152" width="131.452" height="18.8739">
+  <object id="233" name="collision" x="1805.3" y="1380.15" width="131.452" height="18.8739">
    <properties>
     <property name="collision" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="234" name="collision" x="1134.49" y="666.471" width="13.5793" height="228.378">
+  <object id="234" name="collision" x="1870.49" y="1146.47" width="13.5793" height="228.378">
    <properties>
     <property name="collision" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="235" name="collision" x="1264.42" y="904.044" width="30.3145" height="15.9345">
+  <object id="235" name="collision" x="2000.42" y="1384.04" width="30.3145" height="15.9345">
    <properties>
     <property name="collision" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="236" name="collision" x="1285.66" y="861.658" width="11.5877" height="45.329">
+  <object id="236" name="collision" x="2021.66" y="1341.66" width="11.5877" height="45.329">
    <properties>
     <property name="collision" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="237" name="collision" x="1331.47" y="712.389" width="8.5414" height="149.057">
+  <object id="237" name="collision" x="2067.47" y="1192.39" width="8.5414" height="149.057">
    <properties>
     <property name="collision" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="238" name="collision" x="1340.12" y="537.37" width="41.529" height="106.467">
+  <object id="238" name="collision" x="2076.12" y="1017.37" width="41.529" height="106.467">
    <properties>
     <property name="collision" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="239" name="collision" x="1325.44" y="898.009" width="20.6954" height="37.838">
+  <object id="239" name="collision" x="2061.44" y="1378.01" width="20.6954" height="37.838">
    <properties>
     <property name="collision" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="240" name="collision" x="1314.91" y="999.362" width="23.7537" height="87.2503">
+  <object id="240" name="collision" x="2050.91" y="1479.36" width="23.7537" height="87.2503">
    <properties>
     <property name="collision" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="241" name="collision" x="1382.25" y="1060.64" width="18.8428" height="77.9197">
+  <object id="241" name="collision" x="2118.25" y="1540.64" width="18.8428" height="77.9197">
    <properties>
     <property name="collision" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="242" name="collision" x="903.904" y="1143.28" width="10.9175" height="245.55">
+  <object id="242" name="collision" x="1639.9" y="1623.28" width="10.9175" height="245.55">
    <properties>
     <property name="collision" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="243" name="collision" x="905.235" y="1376.19" width="70.7815" height="15.2976">
+  <object id="243" name="collision" x="1641.24" y="1856.19" width="70.7815" height="15.2976">
    <properties>
     <property name="collision" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="244" name="collision" x="1040.94" y="1378.42" width="159.036" height="10.3726">
+  <object id="244" name="collision" x="1776.94" y="1858.42" width="159.036" height="10.3726">
    <properties>
     <property name="collision" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="245" name="collision" x="1261.95" y="1378.76" width="36.0347" height="9.9918">
+  <object id="245" name="collision" x="1997.95" y="1858.76" width="36.0347" height="9.9918">
    <properties>
     <property name="collision" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="246" name="collision" x="1291.14" y="1339.47" width="12.978" height="48.0338">
+  <object id="246" name="collision" x="2027.14" y="1819.47" width="12.978" height="48.0338">
    <properties>
     <property name="collision" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="247" name="collision" x="1297.86" y="1227.13" width="34.8743" height="49.2365">
+  <object id="247" name="collision" x="2033.86" y="1707.13" width="34.8743" height="49.2365">
    <properties>
     <property name="collision" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="248" name="collision" x="913.886" y="1223.8" width="33.5434" height="55.2257">
+  <object id="248" name="collision" x="1649.89" y="1703.8" width="33.5434" height="55.2257">
    <properties>
     <property name="collision" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="249" name="collision" x="946.494" y="1161.25" width="347.645" height="170.021">
+  <object id="249" name="collision" x="1682.49" y="1641.25" width="347.645" height="170.021">
    <properties>
     <property name="collision" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="250" name="collision" x="783.233" y="929.043" width="17.3437" height="28.5557">
+  <object id="250" name="collision" x="1519.23" y="1409.04" width="17.3437" height="28.5557">
    <properties>
     <property name="collision" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="251" name="collision" x="426.189" y="1142.19" width="21.1081" height="242.712">
+  <object id="251" name="collision" x="1162.19" y="1622.19" width="21.1081" height="242.712">
    <properties>
     <property name="collision" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="252" name="collision" x="837.311" y="1105.71" width="20.5068" height="281.668">
+  <object id="252" name="collision" x="1573.31" y="1585.71" width="20.5068" height="281.668">
    <properties>
     <property name="collision" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="253" name="collision" x="472.308" y="1088.27" width="374.686" height="17.0858">
+  <object id="253" name="collision" x="1208.31" y="1568.27" width="374.686" height="17.0858">
    <properties>
     <property name="collision" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="254" name="collision" x="524.81" y="1376.3" width="195.12" height="11.6838">
+  <object id="254" name="collision" x="1260.81" y="1856.3" width="195.12" height="11.6838">
    <properties>
     <property name="collision" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="255" name="collision" x="780.14" y="1374.5" width="63.8478" height="17.0858">
+  <object id="255" name="collision" x="1516.14" y="1854.5" width="63.8478" height="17.0858">
    <properties>
     <property name="collision" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="256" name="collision" x="429.915" y="1378.11" width="39.0149" height="8.24624">
+  <object id="256" name="collision" x="1165.91" y="1858.11" width="39.0149" height="8.24624">
    <properties>
     <property name="collision" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="257" name="collision" x="423.085" y="1139.77" width="58.9914" height="17.0858">
+  <object id="257" name="collision" x="1159.09" y="1619.77" width="58.9914" height="17.0858">
    <properties>
     <property name="collision" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="258" name="collision" x="470.204" y="1100.9" width="10.2842" height="37.5308">
+  <object id="258" name="collision" x="1206.2" y="1580.9" width="10.2842" height="37.5308">
    <properties>
     <property name="collision" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="259" name="collision" x="716.746" y="1253.03" width="74.6258" height="71.8749">
+  <object id="259" name="collision" x="1452.75" y="1733.03" width="74.6258" height="71.8749">
    <properties>
     <property name="collision" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="260" name="collision" x="681.268" y="1123.75" width="74.6258" height="88.0419">
+  <object id="260" name="collision" x="1417.27" y="1603.75" width="74.6258" height="88.0419">
    <properties>
     <property name="collision" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="261" name="collision" x="490.047" y="1127.36" width="74.6258" height="47.1519">
+  <object id="261" name="collision" x="1226.05" y="1607.36" width="74.6258" height="47.1519">
    <properties>
     <property name="collision" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="262" name="collision" x="459.367" y="1259.64" width="74.6258" height="65.5061">
+  <object id="262" name="collision" x="1195.37" y="1746.16" width="73.5386" height="58.9829">
    <properties>
     <property name="collision" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="263" name="collision" x="471.406" y="1157.42" width="39.1477" height="40.2932">
+  <object id="263" name="collision" x="1207.41" y="1637.42" width="39.1477" height="40.2932">
    <properties>
     <property name="collision" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="264" name="collision" x="545.369" y="1158.62" width="31.3306" height="41.273">
+  <object id="264" name="collision" x="1281.37" y="1638.62" width="31.3306" height="41.273">
    <properties>
     <property name="collision" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="265" name="collision" x="1299.08" y="852.311" width="42.4519" height="15.9345">
+  <object id="265" name="collision" x="2035.08" y="1332.31" width="42.4519" height="15.9345">
    <properties>
     <property name="collision" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="266" name="exit" gid="4021" x="512.121" y="1222.15" width="32" height="45.2275"/>
-  <object id="267" name="collision" x="926.184" y="1092.79" width="362.699" height="18.4138">
+  <object id="266" name="exit" gid="4021" x="1248.12" y="1688.02" width="26.564" height="31.094"/>
+  <object id="267" name="collision" x="1662.18" y="1572.79" width="362.699" height="18.4138">
    <properties>
     <property name="collision" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="268" name="collision" x="1283.67" y="1097.41" width="13.2784" height="80.5163">
+  <object id="268" name="collision" x="2019.67" y="1577.41" width="13.2784" height="80.5163">
    <properties>
     <property name="collision" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="269" name="collision" x="921.531" y="1090.68" width="11.782" height="57.3214">
+  <object id="269" name="collision" x="1657.53" y="1570.68" width="11.782" height="57.3214">
+   <properties>
+    <property name="collision" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="270" name="collision" x="1242.11" y="462.719" width="697.996" height="13.8959">
+   <properties>
+    <property name="collision" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="271" name="collision" x="1222.54" y="481.202" width="86.9937" height="22.5935">
+   <properties>
+    <property name="collision" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="272" name="collision" x="1881.38" y="481.202" width="53.2908" height="24.7679">
    <properties>
     <property name="collision" type="bool" value="true"/>
    </properties>

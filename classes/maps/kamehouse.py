@@ -29,7 +29,7 @@ class Kamehouse:
 
     def while_kamehouse(self):
         """ Boucle sur la map Kamehouse """
-        tilemap = tmx.load('ressources/maps/world/map.tmx', self.screen.get_size())  # Import de la map
+        tilemap = tmx.load('ressources/maps/kamehouse/island/map.tmx', self.screen.get_size())  # Import de la map
         collision_total = tilemap.layers['evenements'].find('collision')  # Récupère toutes les collisions
 
         exit_lvl = tilemap.layers['evenements'].find('exit')  # Récupère toutes les collisions pour quitter le niveau
