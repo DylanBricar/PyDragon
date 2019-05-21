@@ -9,6 +9,8 @@ from niveau import Niveau      # Import de la class Niveau
 sys.path.append(os.getcwd() + "/classes/maps")  # Ajout du chemin pour éviter les bugs Windows
 from kamehouse import Kamehouse      # Import de la class Kamehouse
 from kamehousein import KamehouseIn  # Import de la class KamehouseIn
+from worldtown import WorldTown  # Import de la class WorldTown
+from worldtownin import WorldTownIn  # Import de la class WorldTownIn
 
 
 class Game:
@@ -43,3 +45,9 @@ class Game:
             elif Niveau.LVL == 'while_map_kamehouse_in':
                 map_kamehouse_in = KamehouseIn(self.width, self.height, screen, clock, self.fps, self.avancer)
                 map_kamehouse_in.while_kamehouse_in()  # Boucle sur la map
+            elif Niveau.LVL == 'while_map_town':
+                map_world = WorldTown(self.width, self.height, screen, clock, self.fps, self.avancer)
+                map_world.while_town()  # Boucle sur la map
+            elif Niveau.LVL == 'while_map_town_in':
+                map_world = WorldTownIn(self.width, self.height, screen, clock, self.fps, self.avancer)
+                map_world.while_town_in()  # Boucle sur la map
