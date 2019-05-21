@@ -1,10 +1,10 @@
 # PyDragon
 
-![Image de jeu](https://nsa40.casimages.com/img/2019/05/20/190520064246960457.png "image de jeu")
+![Image de jeu](https://nsa40.casimages.com/img/2019/05/21/190521105547247473.png "image de jeu")
 
 ### **Concept du jeu :**
 
-Création d'un jeu au design du manga Dragon Ball avec Python (PyGame). Le concept du jeu est de voyager dans une carte en 2D où il y a des personnages avec lesquels on peut interagir. Un système basique de combat est mis en place entre deux personnages. Il est possible de découvrir des objets dans la carte.
+Création d'un jeu au design du manga Dragon Ball avec Python (PyGame). Le concept du jeu est de voyager dans une carte en 2D où il y a des personnages avec lesquels on peut interagir. Il est possible de découvrir des objets dans la carte et remplir des missions.
 
 ### **Fonctionnalités :**
 - Système de map 2D
@@ -41,13 +41,12 @@ Création d'un jeu au design du manga Dragon Ball avec Python (PyGame). Le conce
 - Création de la map :
     - Monde général
     - Kamé House
-    - Capitale de l'Ouest
 - Ajout des collisions
 - Importation des maps + personnages
 - Ajout du moyen de discussion
 - Ajout des musiques
 - Création de l'histoire
-- Recherche d'objet dans la carte
+- Recherche d'objets dans la carte
 - Menu de démarrage
 - Sauvegarde de l'évolution du jeu en base de données
 
