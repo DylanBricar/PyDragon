@@ -10,6 +10,7 @@ from sprite import *  # Import de la class Sprite et des composantes liées
 from move import *    # Import de la class Move et des composantes liées
 from niveau import *  # Import de la class Niveau et des composantes liées
 from worldtown import *  # Import de la class Niveau et des composantes liées
+from inventory import *  # Import de la class Inventory et des composantes liées
 
 
 class Kamehouse:
@@ -43,6 +44,7 @@ class Kamehouse:
         img_perso = Sprite()  # Défini la classe s'occupant des images des personnages
         player = Player(tilemap, self.width, self.height, img_perso, old_pos_sprite)  # Appelle la class du joueur
         deplacer = Move(player, self.avancer, collision_total)  # Appelle la class de déplacement
+        inventory = Inventory(self.screen)  # Défini la classe de l'inventaire
         pygame.time.set_timer(pygame.USEREVENT, 300)  # Temps de mise à jour des Sprites (300 ms)
 
         if Niveau.COORDONNEE:  # S'il y a des données enregistrées (= sort de la maison)
@@ -111,9 +113,11 @@ class Kamehouse:
                 move = None  # Arrêt de déplacement du personnage
 
             self.clock.tick(self.fps)  # Restreint les FPS
-
             tilemap.set_focus(player.player.x, player.player.y)  # Coordonnées du joueur par rapport aux bords
             tilemap.draw(self.screen)  # Affiche le fond
             self.screen.blit(player.sprite_player, (player.x, player.y))  # Affiche le joueur sur le fond
+
+            if Niveau.INVENTORY:  # Si l'inventaire n'est pas vide
+                inventory.show_item()  # Affiche l'inventaire du joueur
 
             pygame.display.flip()  # Met à jour l'écran

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.2" tiledversion="1.2.0" orientation="orthogonal" renderorder="right-down" width="90" height="80" tilewidth="32" tileheight="32" infinite="0" nextlayerid="51" nextobjectid="274">
- <tileset firstgid="1" source="ressources/maps/world/tiles.tsx"/>
- <tileset firstgid="4019" source="ressources/maps/world/triggers.tsx"/>
- <tileset firstgid="4025" source="ressources/maps/world/Kamehouse.tsx"/>
- <tileset firstgid="4409" source="ressources/maps/world/alltiles.tsx"/>
+ <tileset firstgid="1" source="ressources/maps/worldtown/world/tiles.tsx"/>
+ <tileset firstgid="4019" source="ressources/maps/worldtown/world/triggers.tsx"/>
+ <tileset firstgid="4025" source="ressources/maps/worldtown/world/Kamehouse.tsx"/>
+ <tileset firstgid="4409" source="ressources/maps/worldtown/world/alltiles.tsx"/>
  <tileset firstgid="8427" source="ressources/maps/kamehouse/island/Kamehouse.tsx"/>
  <layer id="49" name="Tile Layer 16" width="90" height="80">
   <data encoding="base64" compression="zlib">

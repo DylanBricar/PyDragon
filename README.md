@@ -81,7 +81,7 @@ Création d'un jeu au design du manga Dragon Ball avec Python (PyGame). Le conce
 - [16/05/19] : Boucle sur les interfaces, sauvegarde des coordonnées, ajustement du personnage au niveau des sprites, division du code en plusieurs fichiers et ajout de commentaires.
 - [17/05/19] : Ajout de la musique, d'un personnage, système d'interaction et première mission.
 - [20/05/19] : Optimisation du code, ajout du personnage qui parle, transparence de la map et arrêt du sprite.
-- [21/05/19] : Création d'une nouvelle map, collision et maison pour la mission n°1, appel des différentes maps et réaction.
+- [21/05/19] : Création d'une nouvelle map, collision et maison pour la mission n°1, appel des différentes maps et réaction, possibilité de discuter, optimisation du code, ajout de l'inventaire et mission 1 terminée.
 
 
 ### **Informations :**

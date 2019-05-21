@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.2" tiledversion="1.2.0" orientation="orthogonal" renderorder="right-down" width="50" height="50" tilewidth="32" tileheight="32" infinite="0" nextlayerid="23" nextobjectid="190">
+ <tileset firstgid="1" source="ressources/maps/worldtown/house/tiles.tsx"/>
+ <tileset firstgid="2" source="ressources/maps/worldtown/house/triggers.tsx"/>
+ <tileset firstgid="8" source="ressources/maps/worldtown/house/Kamehouse.tsx"/>
+ <layer id="18" name="background" width="50" height="50">
+  <data encoding="base64" compression="zlib">
+   eJztzzENACAQALGXzYxyXJAjdKiArplZcMl+gEeLR4tHi0eLR4tHi0eLR4tHi0eLR4tHi0eLR4tHi0eLR4tHy08PAPjBAWLH0Pk=
+  </data>
+ </layer>
+ <layer id="19" name="house" width="50" height="50">
+  <data encoding="base64" compression="zlib">
+   eJztzrdOAmAYRmHuAEFlpDtKdZQijBSBkc6ISBmlCCMIyDVzbuFPSL6QvCd59uPxKKWUUkoppZRSt8mLB/jgxyOe8IyA4ZdrQYQQRgRRxBDHi92Wc69IIIkU0sggizfDL9fekUMeBRTxgRLKdlvOVVBFDXV8ooEmWoZfrrXRQRc99DHAECO7LefG+MIE35hihjkWhl+u/WCJFdbY4Bdb7Ay/XNvjgD8cccIZ/7gYfimllFJKKaWUUkqp++sKxHwWFQ==
+  </data>
+ </layer>
+ <layer id="21" name="user" width="50" height="50" visible="0">
+  <data encoding="base64" compression="zlib">
+   eJztzjENAAAIA7Bd+JeMioWDVkETAAAA4JO5DgAAAAAAQMkCsSgABw==
+  </data>
+ </layer>
+ <layer id="22" name="user" width="50" height="50">
+  <data encoding="base64" compression="zlib">
+   eJztzjENAAAIA7B9+HeMjEHSKmgCAAAA8Mu0AwAAAAAAnLTC0AAI
+  </data>
+ </layer>
+ <objectgroup color="#a40b00" id="2" name="evenements" visible="0">
+  <properties>
+   <property name="platform" value=""/>
+  </properties>
+  <object id="1" name="bord_gauche" x="0" y="32" width="32" height="1536">
+   <properties>
+    <property name="collision" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="2" name="bord_droit" x="1568" y="32" width="32" height="1536">
+   <properties>
+    <property name="collision" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="3" name="bord_haut" x="32" y="0" width="1536" height="32">
+   <properties>
+    <property name="collision" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="4" name="bord_bas" x="32" y="1568" width="1536" height="32">
+   <properties>
+    <property name="collision" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="22" name="player" gid="2" x="779.464" y="734.517" width="32" height="32"/>
+  <object id="167" name="collision" x="903.619" y="578.733" width="25.0462" height="66">
+   <properties>
+    <property name="collision" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="169" name="collision_person" x="830.269" y="673.639" width="34.086" height="31.0679">
+   <properties>
+    <property name="collision_person" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="171" name="collision" x="686.255" y="583.342" width="241.576" height="17.6462">
+   <properties>
+    <property name="collision" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="173" name="collision" x="762.852" y="609.342" width="15.8157" height="53.2005">
+   <properties>
+    <property name="collision" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="174" name="collision" x="911.871" y="566.321" width="19.0057" height="215.836">
+   <properties>
+    <property name="collision" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="176" name="collision" x="701.284" y="758.959" width="192.056" height="19.3473">
+   <properties>
+    <property name="collision" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="177" name="collision" x="892.183" y="676.764" width="25.2306" height="39.5918">
+   <properties>
+    <property name="collision" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="178" name="collision" x="889.295" y="741.369" width="26.2125" height="26.3452">
+   <properties>
+    <property name="collision" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="185" name="leave_lvl" gid="4" x="775.025" y="772.448" width="39.5342" height="23.0896"/>
+  <object id="187" name="collision" x="696.11" y="598.557" width="15.41" height="159.578">
+   <properties>
+    <property name="collision" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="188" name="collision" x="811.58" y="599.614" width="115.447" height="59.0353">
+   <properties>
+    <property name="collision" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="189" name="collision" x="835.605" y="680.462" width="19.7866" height="19.1768">
+   <properties>
+    <property name="collision" type="bool" value="true"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>

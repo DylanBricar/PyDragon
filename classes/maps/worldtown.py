@@ -9,6 +9,7 @@ from player import *  # Import de la class Player et des composantes liées
 from sprite import *  # Import de la class Sprite et des composantes liées
 from move import *    # Import de la class Move et des composantes liées
 from niveau import *  # Import de la class Niveau et des composantes liées
+from inventory import *  # Import de la class Inventory et des composantes liées
 
 
 class WorldTown:
@@ -30,18 +31,19 @@ class WorldTown:
 
     def while_town(self):
         """ Boucle sur la map WorldTown """
-        tilemap = tmx.load('ressources/maps/world/map.tmx', self.screen.get_size())  # Import de la map
+        tilemap = tmx.load('ressources/maps/worldtown/world/map.tmx', self.screen.get_size())  # Import de la map
         collision_total = tilemap.layers['evenements'].find('collision')  # Récupère toutes les collisions
 
         # Récupère toutes les collisions pour quitter le niveau
         exit_lvl = tilemap.layers['evenements'].find('exit')  # Intérieur de la maison
-        goto_kamehouse = tilemap.layers['evenements'].find('exit_gotokamehouse')  # Vers l'ile
+        goto_kamehouse = tilemap.layers['evenements'].find('exit_gotokamehouse')  # Vers l'île
 
         move = None  # Aucun déplacement n'est demandé par défaut
         old_pos_sprite = 'Down'  # Position par défaut du personnage (vers le bas)
         img_perso = Sprite()  # Défini la classe s'occupant des images des personnages
         player = Player(tilemap, self.width, self.height, img_perso, old_pos_sprite)  # Appelle la class du joueur
         deplacer = Move(player, self.avancer, collision_total)  # Appelle la class de déplacement
+        inventory = Inventory(self.screen)  # Défini la classe de l'inventaire
         pygame.time.set_timer(pygame.USEREVENT, 300)  # Temps de mise à jour des Sprites (300 ms)
 
         if Niveau.COORDONNEE_TOWN:  # S'il y a des données enregistrées (= sort de la maison)
@@ -54,7 +56,7 @@ class WorldTown:
                 self.while_map_town = False  # Arrête la boucle de la map Kamehouse
                 self.while_map_town_in = True  # Permet de lancer la boucle de la map Kamehouse_in
                 Niveau.LVL = 'while_map_town_in'  # Nouvelle map appellée
-                Niveau.COORDONNEE_TOWN = [1250, 1700]  # Localisation d'apparaission être sorti de la maison
+                Niveau.COORDONNEE_TOWN = [1250, 1700]  # Localisation d'apparition après être sorti de la maison
 
             collide_goto_world = CollisionController(player, goto_kamehouse)  # Appelle la class de collision pour quitter le niveau
             if collide_goto_world.collision():  # Si la collision avec la porte a lieu
@@ -110,9 +112,11 @@ class WorldTown:
                 move = None  # Arrêt de déplacement du personnage
 
             self.clock.tick(self.fps)  # Restreint les FPS
-
             tilemap.set_focus(player.player.x, player.player.y)  # Coordonnées du joueur par rapport aux bords
             tilemap.draw(self.screen)  # Affiche le fond
             self.screen.blit(player.sprite_player, (player.x, player.y))  # Affiche le joueur sur le fond
+
+            if Niveau.INVENTORY:  # Si l'inventaire n'est pas vide
+                inventory.show_item()  # Affiche l'inventaire du joueur
 
             pygame.display.flip()  # Met à jour l'écran
