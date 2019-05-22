@@ -31,4 +31,4 @@ class Sprite:
                         self.current_position = 1  # Met à jour la valeur de marche
                         new_img_sprite = self.select_sprite(self.direction[i][1][0], self.direction[i][1][1])
 
-        return new_img_sprite # Retourne le nouveau Sprite
+        return new_img_sprite  # Retourne le nouveau Sprite

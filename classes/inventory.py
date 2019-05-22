@@ -15,7 +15,6 @@ class Inventory:
 
     def show_item(self):
         """ Affiche les items du joueur en haut de l'écran """
-
         y = 40
         if Niveau.INVENTORY:  # Dans le cas où l'inventaire n'est pas vide
             for i in range(6):

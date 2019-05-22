@@ -1,7 +1,7 @@
 import os      # Import OS
 import sys     # Import SYS
 import pygame  # Import PyGame
-import pygame.gfxdraw
+import pygame.gfxdraw  # Import les rectanges avec l'alpha de PyGame
 
 sys.path.append(os.getcwd() + "/classes")  # Ajout du chemin pour éviter les bugs Windows
 from niveau import Niveau  # Import de la class Niveau
@@ -47,7 +47,7 @@ class MainMenu:
 
         while self.while_main_menu:  # Boucle infinie du menu
             pygame.gfxdraw.box(self.screen, lancer_rect, (51, 153, 255, 255))  # Défini le rectangle lancer_rect sans survol
-            pygame.gfxdraw.box(self.screen, son_rect, (51, 153, 255, 255))  # Défini le rectangle son_rect sans survol
+            pygame.gfxdraw.box(self.screen, son_rect, (51, 153, 255, 255))     # Défini le rectangle son_rect sans survol
 
             for event in pygame.event.get():      # Vérifie toutes les actions du joueur
                 if event.type == pygame.QUIT:     # Clique pour quitter le jeu

@@ -50,3 +50,5 @@ class Game:
             elif Niveau.LVL == 'while_map_town_in':
                 map_world = WorldTownIn(self.width, self.height, screen, clock, self.fps, self.avancer)
                 map_world.while_town_in()  # Boucle sur la map
+
+        pygame.quit()  # Arrête le processus de PyGame

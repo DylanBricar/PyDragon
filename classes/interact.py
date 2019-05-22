@@ -15,7 +15,6 @@ class Interact:
 
     def show_box(self, text):
         """ Affiche la boite de message ainsi que la personne qui dit le message """
-
         dialogue_bg = pygame.image.load('ressources/images/dialogue.png').convert_alpha()  # Récupère le canvas
         self.screen.blit(dialogue_bg, (0, 0))  # Affiche le canvas
 
