@@ -29,15 +29,14 @@ class Game:
         screen = pygame.display.set_mode((self.width, self.height))  # Crée la fenêtre
         pygame.display.set_caption('PyDragon v0.4')  # Donne un nom à la fenêtre
         pygame.display.set_icon(pygame.image.load(self.favicon))  # Favicon du jeu
-        son = pygame.mixer.Sound("ressources/sounds/DBZFighter.wav")  # Défini le son du jeu
-        son.play(loops=-1, maxtime=0, fade_ms=0)  # Lance la boucle de son à l'infini
-        son.set_volume(0.3)  # Permet de diminuer le son par défaut du jeu
+        self.son = pygame.mixer.Sound("ressources/sounds/DBZFighter.wav")  # Défini le son du jeu
+        self.son.set_volume(0.3)  # Permet de diminuer le son par défaut du jeu
 
         clock = pygame.time.Clock()  # Calcule le temps de départ pour les FPS
 
         while Niveau.WHILE_GAME:  # Boucle principale qui sert aux importations de maps
             if Niveau.LVL == 'while_main_menu':  # Nom défini qui orchestre tous les imports liés
-                main_menu = MainMenu(screen, clock, self.fps)  # Instancie la class qui affiche le menu de départ
+                main_menu = MainMenu(screen, clock, self.fps, self.son)  # Instancie la class qui affiche le menu de départ
                 main_menu.while_menu()  # Boucle sur le menu
             elif Niveau.LVL == 'while_map_kamehouse':
                 map_kamehouse = Kamehouse(self.width, self.height, screen, clock, self.fps, self.avancer)

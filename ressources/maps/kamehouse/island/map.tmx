@@ -2,7 +2,7 @@
 <map version="1.2" tiledversion="1.2.0" orientation="orthogonal" renderorder="right-down" width="60" height="60" tilewidth="32" tileheight="32" infinite="0" nextlayerid="24" nextobjectid="175">
  <tileset firstgid="1" source="ressources/maps/kamehouse/island/tiles.tsx"/>
  <tileset firstgid="2" source="ressources/maps/kamehouse/island/triggers.tsx"/>
- <tileset firstgid="8" source="ressources/maps/kamehouse/island/Kamehouse.tsx"/>
+ <tileset firstgid="8" source="ressources/maps/kamehouse/island/island.tsx"/>
  <layer id="23" name="Tile Layer 6" width="60" height="60">
   <data encoding="base64" compression="zlib">
    eJztwwEJAAAMBKEL+f2zrMdQcNVUVVVVVVVVVVVVVVVV1VcPtlmdfQ==

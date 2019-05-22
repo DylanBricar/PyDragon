@@ -68,7 +68,6 @@ class WorldTownIn:
                         Niveau.DIALOGUE = True  # On défini la variable pour l'afficher
                 elif event.type == pygame.KEYDOWN and event.key == pygame.K_SPACE and Niveau.DIALOGUE:
                     # Si la touche espace est préssée et qu'il n'y a une boite de dialogue affichée
-                    # Si la touche espace est préssée et qu'il n'y a une boite de dialogue affichée
                     if Niveau.MISSION_01 == 0:
                         calcul = ceil(len(txt_mission01_02) / 4)  # Calcul le nombre de page en fonction du dialogue
                     elif Niveau.MISSION_01 == 50:
