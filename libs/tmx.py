@@ -69,7 +69,7 @@ class Tileset(object):
 
         tileset = cls(name, tile_width, tile_height, firstgid)
 
-        for c in tag.getchildren():
+        for c in list(tag):
             if c.tag == "image":
                 # create a tileset
                 tileset.add_image(c.attrib['source'])
@@ -187,6 +187,9 @@ class LayerIterator(object):
         self.i += 1
         return value
 
+    # Rétrocompatibilité pour Python 2.x
+    next = __next__
+
 
 class Layer(object):
     '''A 2d grid of Cells.
@@ -250,7 +253,7 @@ class Layer(object):
         data = data.encode() # Convert to bytes
         # Decode from base 64 and decompress via zlib 
         data = decompress(b64decode(data)) 
-        data = struct.unpack('<%di' % (len(data)/4,), data)
+        data = struct.unpack('<%di' % (len(data)//4,), data)
         assert len(data) == layer.width * layer.height
         for i, gid in enumerate(data):
             if gid < 1: continue   # not set

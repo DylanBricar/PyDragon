@@ -9,3 +9,4 @@ class Niveau:
     MISSION_01 = 0           # Regarde si la mission_01 est en cours [0 - 100%]
     PAGE = 1                 # Page par défaut en cas d'un dialogue
     INVENTORY = []           # Inventaire du personnage
+    SPRITE_TYPE = 0          # Type de sprite du joueur (0: Goku, 1: Super Saiyan, 2: Vegeta)

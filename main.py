@@ -1,7 +1,11 @@
 import os   # Import OS
 import sys  # Import SYS
+from pathlib import Path  # Import Path pour une meilleure gestion des chemins
 
-sys.path.append(os.getcwd() + "/classes")  # Ajout du chemin pour éviter les bugs Windows
+# Ajout des chemins absolus pour éviter les problèmes d'importation
+base_path = Path(__file__).parent.absolute()
+sys.path.append(str(base_path / "classes"))
+
 from game import Game  # Import de la class Game
 
 if __name__ == '__main__':

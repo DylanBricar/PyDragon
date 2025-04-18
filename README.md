@@ -1,5 +1,3 @@
-# PyDragon
-
 ![Image de jeu](https://nsa40.casimages.com/img/2019/05/21/190521105547247473.png "image de jeu")
 
 ### **Concept du jeu :**

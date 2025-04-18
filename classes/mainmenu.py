@@ -2,9 +2,14 @@ import os      # Import OS
 import sys     # Import SYS
 import pygame  # Import PyGame
 import pygame.gfxdraw  # Import les rectanges avec l'alpha de PyGame
+from pathlib import Path  # Import Path pour une meilleure gestion des chemins
 
-sys.path.append(os.getcwd() + "/classes")  # Ajout du chemin pour éviter les bugs Windows
+# Ajout des chemins absolus pour éviter les problèmes d'importation
+base_path = Path(__file__).parent.absolute()
+sys.path.append(str(base_path))
+
 from niveau import Niveau  # Import de la class Niveau
+import settings  # Import du module settings
 
 
 class MainMenu:
@@ -16,10 +21,16 @@ class MainMenu:
         self.fps = fps  # Récupère les fps de la class FPS
         self.clock = clock  # Récupère la limitation d'FPS de la class Game
         self.son = son  # Récupère le son du jeu
+        self.hovered_button = None  # Bouton survolé par la souris
 
-        self.son_menu = pygame.mixer.Sound("ressources/sounds/Menu.wav")  # Défini le son du menu
-        self.son_menu.play(loops=-1, maxtime=0, fade_ms=0)  # Lance la boucle de son à l'infini
-        self.son_menu.set_volume(0.3)  # Permet de diminuer le son par défaut du jeu
+        # Amélioration de la gestion de la lecture sonore avec gestion d'erreurs
+        try:
+            self.son_menu = pygame.mixer.Sound("ressources/sounds/Menu.wav")  # Défini le son du menu
+            self.son_menu.play(loops=-1)  # Lance la boucle de son à l'infini (simplification de l'API)
+            self.son_menu.set_volume(0.3)  # Permet de diminuer le son par défaut du jeu
+        except pygame.error:
+            print("Attention: Impossible de charger ou jouer le son du menu")
+            self.son_menu = None
 
         self.while_map_kamehouse = False  # N'appelle par défaut pas la boucle de cette route
         self.while_options = False  # N'appelle par défaut pas la boucle sur cette route
@@ -31,7 +42,8 @@ class MainMenu:
         self.screen.blit(pygame.image.load('ressources/images/background_menu.png').convert_alpha(), (0, 0))  # Récupère le fond du menu
 
         font = pygame.font.Font("ressources/fonts/BebasNeue.ttf", 26)  # Défini la police d'écriture du menu
-        volume = 'OFF'  # Permet de gérer l'activation ou non du volume
+        # Initialiser l'état du volume en fonction de la variable globale
+        volume = 'ON' if not settings.SOUND_ENABLED else 'OFF'
 
         rect_global = pygame.rect.Rect(80, 180, 328, 185)  # Défini le rectangle du bouton
         pygame.gfxdraw.box(self.screen, rect_global, (255, 255, 255, 220))  # Défini le rectangle son_rect sans survol
@@ -45,9 +57,29 @@ class MainMenu:
         ombre_musique = pygame.rect.Rect(108, 280, 280, 65)  # Défini le rectangle de l'ombre_musique
         pygame.gfxdraw.box(self.screen, ombre_musique, (0, 0, 204, 255))  # Défini le rectangle ombre_musique sans survol
 
+        # Réinitialiser le curseur au démarrage
+        pygame.mouse.set_cursor(pygame.SYSTEM_CURSOR_ARROW)
+
         while self.while_main_menu:  # Boucle infinie du menu
-            pygame.gfxdraw.box(self.screen, lancer_rect, (51, 153, 255, 255))  # Défini le rectangle lancer_rect sans survol
-            pygame.gfxdraw.box(self.screen, son_rect, (51, 153, 255, 255))     # Défini le rectangle son_rect sans survol
+            # Couleurs des boutons en fonction du survol
+            lancer_color = (0, 128, 255, 255) if self.hovered_button == "lancer" else (51, 153, 255, 255)
+            son_color = (0, 128, 255, 255) if self.hovered_button == "son" else (51, 153, 255, 255)
+            
+            pygame.gfxdraw.box(self.screen, lancer_rect, lancer_color)  # Défini le rectangle lancer_rect
+            pygame.gfxdraw.box(self.screen, son_rect, son_color)     # Défini le rectangle son_rect
+
+            # Gestion du survol des boutons avec la souris
+            mouse_pos = pygame.mouse.get_pos()
+            
+            if lancer_rect.collidepoint(mouse_pos):
+                self.hovered_button = "lancer"
+                pygame.mouse.set_cursor(pygame.SYSTEM_CURSOR_HAND)
+            elif son_rect.collidepoint(mouse_pos):
+                self.hovered_button = "son"
+                pygame.mouse.set_cursor(pygame.SYSTEM_CURSOR_HAND)
+            else:
+                self.hovered_button = None
+                pygame.mouse.set_cursor(pygame.SYSTEM_CURSOR_ARROW)
 
             for event in pygame.event.get():      # Vérifie toutes les actions du joueur
                 if event.type == pygame.QUIT:     # Clique pour quitter le jeu
@@ -58,28 +90,32 @@ class MainMenu:
                     survol = 'son'  # Survol le bouton lié au son
                     if event.type == pygame.MOUSEBUTTONUP: # Clique gauche avec la souris
                         if volume == 'ON':  # Cas où le son veut être à ON
-                            self.son.set_volume(0.3)  # Permet de diminuer le son par défaut du jeu
-                            self.son_menu.set_volume(0.3)  # Permet de diminuer le son par défaut du jeu
+                            # Gestion des erreurs potentielles
+                            if self.son:
+                                self.son.set_volume(0.3)  # Permet de diminuer le son par défaut du jeu
+                            if self.son_menu:
+                                self.son_menu.set_volume(0.3)  # Permet de diminuer le son par défaut du jeu
                             volume = 'OFF'  # Défini la prochaine action avec le son à OFF
+                            settings.SOUND_ENABLED = True  # Mise à jour de l'état global du son
                         else:  # Le son veut être désactivé
-                            self.son.set_volume(0.0)  # Permet de diminuer le son par défaut du jeu
-                            self.son_menu.set_volume(0.0)
+                            if self.son:
+                                self.son.set_volume(0.0)  # Permet de diminuer le son par défaut du jeu
+                            if self.son_menu:
+                                self.son_menu.set_volume(0.0)
                             volume = 'ON'  # Défini la prochaine action avec le son à ON
+                            settings.SOUND_ENABLED = False  # Mise à jour de l'état global du son
                 elif lancer_rect.collidepoint(pygame.mouse.get_pos()):  # Touche le bouton de lancement
                     survol = 'lancer'  # Survol le bouton lié au lancement du jeu
                     if event.type == pygame.MOUSEBUTTONUP:  # Clique gauche avec la souris
-                        self.son_menu.stop()  # Arrête la musique du menu
-                        self.son.play(loops=-1, maxtime=0, fade_ms=0)  # Lance la boucle de son à l'infini
+                        if self.son_menu:
+                            self.son_menu.stop()  # Arrête la musique du menu
+                        if self.son:
+                            self.son.play(loops=-1)  # Lance la boucle de son à l'infini (simplification de l'API)
                         self.while_main_menu = False  # Arrête la boucle du menu
                         self.while_map_kamehouse = True  # Permet de lancer la boucle sur la map choisie
                         Niveau.LVL = 'while_map_kamehouse'  # Permet de lancer la nouvelle carte
                 else:  # Aucun survol
                     survol = None
-
-            if survol == 'son':  # Bouton survolé est le "son"
-                pygame.gfxdraw.box(self.screen, son_rect,  (0, 128, 255, 255))  # Défini la couleur du rectangle son_rect survolé
-            elif survol == 'lancer':  # Bouton survolé est le "lancement"
-                pygame.gfxdraw.box(self.screen, lancer_rect,  (0, 128, 255, 255))  # Défini la couleur du rectangle lancer_rect survolé
 
             if volume == 'ON':  # Volume souhaité est à ON
                 son_text = font.render('Activer la musique', 1, (255, 255, 255))  # Défini le texte du bouton
