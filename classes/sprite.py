@@ -1,156 +1,146 @@
-import pygame  # Import PyGame
+import pygame
 
 
 class Sprite:
-    """ Gestion des sprites et de ses animations """
+    """ Sprite and animation management """
 
-    # Variable de classe pour contrôler les logs de débogage
     DEBUG_LOGGING = False
-    # Variable pour contrôler les avertissements de limites de sprite
+
     SHOW_BOUNDARY_WARNINGS = False
 
     def __init__(self):
-        self.sprite_type = 0  # Type de sprite (0: Goku normal, 1: Goku transformé, 2: Vegeta)
+        self.sprite_type = 0
         try:
             self.sprite_selected = pygame.image.load('ressources/sprites/characters/goku.png').convert_alpha()
             sprite_width = self.sprite_selected.get_width()
             sprite_height = self.sprite_selected.get_height()
             if Sprite.DEBUG_LOGGING:
-                print(f"Sprite de Goku chargé: dimensions {sprite_width}x{sprite_height} pixels")
-            
-            # On va forcer l'utilisation d'un offset fixe pour Super Saiyan car nous savons que
-            # les 3 premières colonnes sont Goku normal et les 3 suivantes sont Super Saiyan
-            self.goku_transformed_offset_x = 3 * 32  # Décalage pour accéder à Goku transformé
-            
+                print(f"Goku sprite loaded: dimensions {sprite_width}x{sprite_height} pixels")
+
+            self.goku_transformed_offset_x = 3 * 32
+
             if Sprite.DEBUG_LOGGING:
-                print("Info: Offset pour Goku transformé défini à", self.goku_transformed_offset_x)
+                print("Info: Transformed Goku offset set to", self.goku_transformed_offset_x)
         except Exception as e:
-            print(f"Erreur lors du chargement du sprite de Goku: {e}")
-            # Créer un sprite par défaut en cas d'erreur
+            print(f"Error loading Goku sprite: {e}")
+
             self.sprite_selected = pygame.Surface((96, 140))
             self.sprite_selected.fill((255, 0, 0))
             self.goku_transformed_offset_x = 0
-        
-        # Direction => Marche 1 | Marche 2 | Arret
+
         self.direction = {'Down': [[0, 0], [2, 0], [1, 0]], 'Up': [[0, 3], [2, 3], [1, 3]],
                           'Left': [[0, 1], [2, 1], [1, 1]], 'Right': [[0, 2], [2, 2], [1, 2]]}
-        self.current_position = 1  # Direction de marche par défaut
-        # Variable pour limiter l'affichage des messages de débogage
+        self.current_position = 1
+
         self.last_debug_message = ""
-        # Compter les erreurs pour ne pas les répéter sans cesse
+
         self.error_count = 0
 
     def change_sprite(self, sprite_type):
-        """ Change le sprite du personnage """
+        """ Change character sprite """
         self.sprite_type = sprite_type
-        
-        if sprite_type == 0:  # Goku normal
+
+        if sprite_type == 0:
             try:
                 self.sprite_selected = pygame.image.load('ressources/sprites/characters/goku.png').convert_alpha()
                 if Sprite.DEBUG_LOGGING:
-                    print(f"Sprite de Goku normal chargé: dimensions {self.sprite_selected.get_width()}x{self.sprite_selected.get_height()} pixels")
-                # Réinitialiser le décalage
+                    print(
+                        f"Normal Goku sprite loaded: dimensions {self.sprite_selected.get_width()}x{self.sprite_selected.get_height()} pixels")
+
                 self.goku_transformed_offset_x = 0
             except Exception as e:
-                print(f"Erreur lors du chargement du sprite de Goku normal: {e}")
-        elif sprite_type == 1:  # Goku transformé
+                print(f"Error loading normal Goku sprite: {e}")
+        elif sprite_type == 1:
             try:
-                # Pour Goku transformé, nous utilisons le même fichier mais la partie droite
+
                 self.sprite_selected = pygame.image.load('ressources/sprites/characters/goku.png').convert_alpha()
                 if Sprite.DEBUG_LOGGING:
                     sprite_width = self.sprite_selected.get_width()
                     sprite_height = self.sprite_selected.get_height()
-                    print(f"Sprite de Goku transformé: dimensions {sprite_width}x{sprite_height} pixels")
-                
-                # Forcer l'utilisation d'un offset fixe pour Super Saiyan
+                    print(f"Transformed Goku sprite: dimensions {sprite_width}x{sprite_height} pixels")
+
                 self.goku_transformed_offset_x = 3 * 32
                 if Sprite.DEBUG_LOGGING:
-                    print(f"Offset pour Super Saiyan défini à {self.goku_transformed_offset_x}")
+                    print(f"Super Saiyan offset set to {self.goku_transformed_offset_x}")
             except Exception as e:
-                print(f"Erreur lors du chargement du sprite de Goku transformé: {e}")
+                print(f"Error loading transformed Goku sprite: {e}")
                 self.sprite_type = 0
                 self.goku_transformed_offset_x = 0
-        elif sprite_type == 2:  # Vegeta
+        elif sprite_type == 2:
             try:
                 self.sprite_selected = pygame.image.load('ressources/sprites/characters/vegeta.png').convert_alpha()
                 if Sprite.DEBUG_LOGGING:
-                    print(f"Sprite de Vegeta chargé: dimensions {self.sprite_selected.get_width()}x{self.sprite_selected.get_height()} pixels")
-                # Pas de décalage nécessaire pour Vegeta
+                    print(
+                        f"Vegeta sprite loaded: dimensions {self.sprite_selected.get_width()}x{self.sprite_selected.get_height()} pixels")
+
                 self.goku_transformed_offset_x = 0
             except Exception as e:
-                print(f"Erreur lors du chargement du sprite de Vegeta: {e}")
-        
-        # Réinitialiser le compteur d'erreurs lors d'un changement de sprite
-        self.error_count = 0        
+                print(f"Error loading Vegeta sprite: {e}")
+
+        self.error_count = 0
         return self.sprite_type
 
-    def select_sprite(self, ligne, colonne, pixel_ligne=32, pixel_colonne=35):
-        """ Selectionne une case du sprite """
-        # Calculer les coordonnées en fonction du type de sprite
-        if self.sprite_type == 1:  # Goku transformé - utiliser le décalage horizontal
-            x = self.goku_transformed_offset_x + (pixel_ligne * ligne)
+    def select_sprite(self, line, column, pixel_line=32, pixel_column=35):
+        """ Select a sprite frame """
+
+        if self.sprite_type == 1:
+            x = self.goku_transformed_offset_x + (pixel_line * line)
         else:
-            x = pixel_ligne * ligne
-            
-        y = pixel_colonne * colonne
-            
-        # Vérifier que les coordonnées sont valides
+            x = pixel_line * line
+
+        y = pixel_column * column
+
         sprite_width = self.sprite_selected.get_width()
         sprite_height = self.sprite_selected.get_height()
-        
-        # Créer un message de débogage
+
         debug_msg = f"type={self.sprite_type}, coords=({x}, {y})"
-        
-        # Afficher les coordonnées pour débogage uniquement si nécessaire et pas répétitif
-        if Sprite.DEBUG_LOGGING and ligne == 1 and colonne == 0 and debug_msg != self.last_debug_message:
-            print(f"Sélection de sprite: {debug_msg}, taille_sprite=({sprite_width}, {sprite_height})")
+
+        if Sprite.DEBUG_LOGGING and line == 1 and column == 0 and debug_msg != self.last_debug_message:
+            print(f"Sprite selection: {debug_msg}, sprite_size=({sprite_width}, {sprite_height})")
             self.last_debug_message = debug_msg
-        
-        # Vérifier et ajuster les coordonnées pour éviter les dépassements
-        if x + pixel_ligne > sprite_width:
-            x = sprite_width - pixel_ligne
+
+        if x + pixel_line > sprite_width:
+            x = sprite_width - pixel_line
             if Sprite.SHOW_BOUNDARY_WARNINGS and self.error_count % 50 == 0:
-                print(f"Ajustement X: ({x}, {y}), limites: ({sprite_width}, {sprite_height})")
+                print(f"X adjustment: ({x}, {y}), limits: ({sprite_width}, {sprite_height})")
             self.error_count += 1
-        
-        if y + pixel_colonne > sprite_height:
-            y = sprite_height - pixel_colonne
+
+        if y + pixel_column > sprite_height:
+            y = sprite_height - pixel_column
             if Sprite.SHOW_BOUNDARY_WARNINGS and self.error_count % 50 == 0:
-                print(f"Ajustement Y: ({x}, {y}), limites: ({sprite_width}, {sprite_height})")
+                print(f"Y adjustment: ({x}, {y}), limits: ({sprite_width}, {sprite_height})")
             self.error_count += 1
-        
+
         try:
-            return self.sprite_selected.subsurface(x, y, pixel_ligne, pixel_colonne)
+            return self.sprite_selected.subsurface(x, y, pixel_line, pixel_column)
         except ValueError as e:
-            # En cas d'erreur, revenir à Goku normal et réessayer
-            if self.error_count % 50 == 0:  # Limiter les messages d'erreur
-                print(f"Erreur lors de la sélection du sprite: {e}. Retour à Goku normal.")
+
+            if self.error_count % 50 == 0:
+                print(f"Error selecting sprite: {e}. Reverting to normal Goku.")
             self.error_count += 1
             self.sprite_type = 0
             self.goku_transformed_offset_x = 0
-            x = pixel_ligne * ligne
-            y = pixel_colonne * colonne
-            
-            # S'assurer que les coordonnées sont valides
-            x = min(x, sprite_width - pixel_ligne)
-            y = min(y, sprite_height - pixel_colonne)
-            
-            return self.sprite_selected.subsurface(x, y, pixel_ligne, pixel_colonne)
+            x = pixel_line * line
+            y = pixel_column * column
+
+            x = min(x, sprite_width - pixel_line)
+            y = min(y, sprite_height - pixel_column)
+
+            return self.sprite_selected.subsurface(x, y, pixel_line, pixel_column)
 
     def animate_sprite(self, move, old_pos_sprite):
-        """ Animation de marche du personnage """
-        # Sprite par défaut
+        """ Character walking animation """
+
         new_img_sprite = self.select_sprite(self.direction[old_pos_sprite][2][0], self.direction[old_pos_sprite][2][1])
 
-        # Cas où le déplacement n'est pas demandé
         if move is not None:
-            for i in {'Down', 'Up', 'Left', 'Right'}:  # Liste des possibilités de déplacement
+            for i in {'Down', 'Up', 'Left', 'Right'}:
                 if move == i:
-                    if self.current_position == 1:  # Premier Sprite de marche
+                    if self.current_position == 1:
                         new_img_sprite = self.select_sprite(self.direction[i][0][0], self.direction[i][0][1])
-                        self.current_position = 2  # Met à jour la valeur de marche
-                    elif self.current_position == 2:  # Deuxième Sprite de marche
-                        self.current_position = 1  # Met à jour la valeur de marche
+                        self.current_position = 2
+                    elif self.current_position == 2:
+                        self.current_position = 1
                         new_img_sprite = self.select_sprite(self.direction[i][1][0], self.direction[i][1][1])
 
-        return new_img_sprite  # Retourne le nouveau Sprite
+        return new_img_sprite

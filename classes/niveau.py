@@ -1,12 +1,12 @@
 class Niveau:
-    """ Ensemble des informations sur la carte """
+    """ Map information and game state """
 
-    LVL = 'while_main_menu'  # Niveau par défaut
-    WHILE_GAME = True        # Boucle de jeu
-    COORDONNEE = []          # Sauvegarde de la position du joueur dans la map Kamehouse
-    COORDONNEE_TOWN = []     # Sauvegarde de la position du joueur dans la map WorldTown
-    DIALOGUE = False         # Boolen en cas de dialogue
-    MISSION_01 = 0           # Regarde si la mission_01 est en cours [0 - 100%]
-    PAGE = 1                 # Page par défaut en cas d'un dialogue
-    INVENTORY = []           # Inventaire du personnage
-    SPRITE_TYPE = 0          # Type de sprite du joueur (0: Goku, 1: Super Saiyan, 2: Vegeta)
+    LVL = 'while_main_menu'
+    WHILE_GAME = True
+    COORDINATES = []
+    COORDINATES_TOWN = []
+    DIALOGUE = False
+    MISSION_01 = 0
+    PAGE = 1
+    INVENTORY = []
+    SPRITE_TYPE = 0

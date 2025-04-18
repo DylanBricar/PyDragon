@@ -1,83 +1,158 @@
-![Image de jeu](https://nsa40.casimages.com/img/2019/05/21/190521105547247473.png "image de jeu")
+# PyDragon
 
-### **Concept du jeu :**
+![Start](https://github.com/DylanBricar/PyDragon/blob/master/ressources/images/screens/start.png "Start")
+![Game](https://github.com/DylanBricar/PyDragon/blob/master/ressources/images/screens/game.png "Game")
+![Menu](https://github.com/DylanBricar/PyDragon/blob/master/ressources/images/screens/menu.png "Menu")
 
-Création d'un jeu au design du manga Dragon Ball avec Python (PyGame). Le concept du jeu est de voyager dans une carte en 2D où il y a des personnages avec lesquels on peut interagir. Il est possible de découvrir des objets dans la carte et remplir des missions.
+## 🎮 Game Concept
 
-### **Fonctionnalités :**
-- Système de map 2D
-- Interaction avec d'autres entités
-- Menu de démarrage
-- Animation des personnages
-- Histoire basique
-- Son de fond lors du jeu
-- Trouver des objets dans la carte
+**PyDragon** is a 2D adventure game inspired by the *Dragon Ball* universe, developed in Python using the PyGame library. The game lets you explore a 2D world filled with characters you can interact with, hidden items to find, and missions to complete.
 
-### **Problèmes :**
-- Manque de connaissance sur PyGame
-- Collision dans la carte
-- Sauvegarde de l'avancement du personnage
-- Animation du personnage.
-- Changement d'une map à une autre map.
-- Meilleure possibilité de maintenir un code PyGame
-- Interaction avec les personnages
-- Placement des interfaces
+---
 
-### **Acquis :**
-- Image des animations (sprites) récupérée
-- Musique récupérée
-- Logiciel de création de la map 2D
+## ✨ Features
 
-### **Technologie :**
-- PyGame
+- 2D map system  
+- Interactions with NPCs  
+- Startup menu  
+- Character animations  
+- Simple storyline  
+- Background music during gameplay  
+- Item discovery system  
+- **NEW 2025**: Escape menu to switch characters  
+- **NEW 2025**: Hold SHIFT to run  
+- **NEW 2025**: Movement support for both ZQSD and arrow keys  
+- **NEW 2025**: Fixed compatibility issues and improved virtual environment setup  
 
-### **Par où commencer :**
-- Idée de l'histoire
-- Se renseigner PyGame et l'import d'une map avec Tiled Map Editor
-- Création de la map :
-    - Monde général
-    - Kamé House
-- Ajout des collisions
-- Importation des maps + personnages
-- Ajout du moyen de discussion
-- Ajout des musiques
-- Création de l'histoire
-- Recherche d'objets dans la carte
-- Menu de démarrage
+---
 
-### **Avancement :**
-- [11/10/18] : Création de l'objectif du projet.
-- [18/10/18] : Tester le module TMX + test des collisions + renseignements sur PyGame (tutoriels).
-- [25/10/18] : Exercices sur PyGame et fin des tutoriels basiques.
-- [31/10/18] : Première carte, gestion des collisions + squelette d'une MAP (Player (sprites) + événements).
-- [08/11/18] : Vérification des fonctionnalités sur Windows + adaptations.
-- [15/11/18] : Renseignement sur les sockets.
-- [18/11/18] : Map moins carrée, commentaires ajoutés + collisions V0.1.
-- [22/11/18] : Recherche sur les différences de traitements du CPU + les différences avec Windows.
-- [27/11/18] : Refonte du système de collision, librairie TMX modifiée, chemins des fichiers adaptés.
-- [28/11/18] : Refactoring (class), gestion des collisions, optimisation des images, mise en place de fonctions, commentaires ajoutés, favicon + titre du jeu et gestion des FPS en fonction du CPU.
-- [09/01/19] : Collisions totalement fonctionnelles + totalité du code modifié et optimisé.
-- [16/01/19] : Nouvelles conditions d'importation des librairies sous Windows.
-- [23/01/19] : Corrections liées aux FPS sous Windows qui se traitaient différemment.
-- [30/01/19] : Renseignements sur le passage d'une map à l'autre.
-- [06/02/19] : Demande d'aide auprès de développeurs Python pour adopter une nouvelle logique de code.
-- [13/02/19] : Conception schématique des nouvelles informations à prendre en compte pour le transfert d'entités.
-- [20/02/19] : Redéveloppement des traitements mis en place sur le disque public (inaccessible).
-- [27/02/19] : Fin du développement des informations mises en place sur le disque public (toujours inaccessible).
-- [03/03/19] : Mise en place des Sprites animés lors de la marche, intérieur de la maison + collisions.
-- [06/03/19] : Corrections de bugs liés à l'importation des sprites sur Windows.
-- [13/03/19] : Plan de recherche sur la gestion du multimap et les informations qui y sont liées.
-- [20/03/19] : Correction de la deuxième map au niveau des importations (globalisation du path).
-- [27/03/19] : Demande d'aide auprès de développeurs Python pour le transfert de map.
-- [24/04/19] : Relance de la demande d'aide auprès de développeurs.
-- [08/05/19] : Projet de révision du jeu et nouvelle direction adoptée.
-- [15/05/19] : Gestion des interfaces (menu), division en plusieurs class et ajout de collisions.
-- [16/05/19] : Boucle sur les interfaces, sauvegarde des coordonnées, ajustement du personnage au niveau des sprites, division du code en plusieurs fichiers et ajout de commentaires.
-- [17/05/19] : Ajout de la musique, d'un personnage, système d'interaction et première mission.
-- [20/05/19] : Optimisation du code, ajout du personnage qui parle, transparence de la map et arrêt du sprite.
-- [21/05/19] : Création d'une nouvelle map, collision et maison pour la mission n°1, appel des différentes maps et réaction, possibilité de discuter, optimisation du code, ajout de l'inventaire et mission 1 terminée.
-- [22/05/19] : Ajout du menu de démarrage, modification de collisions dans la map, ajouts de commentaires, vérifications pour windows et respect PEP8.
+## ⚠️ Development Challenges
 
+- Limited initial knowledge of PyGame  
+- Collision detection on the map  
+- Saving character progression  
+- Character animation system  
+- Transition between maps  
+- Maintaining PyGame code effectively  
+- Creating character interaction logic  
+- Interface placement and management  
 
-### **Informations :**
-Ce projet a été développé en sixième année secondaire dans le cadre du cours d'informatique de monsieur Bertocchi (http://explore-photo.com/) du Collège Roi Baudouin.
+---
+
+## ✅ Achievements
+
+- Collected sprite animations  
+- Implemented background music  
+- Designed a custom 2D map using a map editor  
+
+---
+
+## 🧪 Technology Used
+
+- Python  
+- PyGame  
+
+---
+
+## 🚀 Getting Started
+
+1. Define a story and objectives  
+2. Learn PyGame and how to import maps from Tiled Map Editor  
+3. Design your maps:
+   - Main world  
+   - Kame House  
+4. Add collisions  
+5. Import maps and characters  
+6. Implement character dialogue  
+7. Add music  
+8. Create and integrate the storyline  
+9. Add item discovery mechanics  
+10. Build the start menu  
+
+---
+
+## 📅 Development Timeline
+
+> A detailed log of project milestones:
+
+- **11/10/2018**: Project goal defined  
+- **18/10/2018**: TMX module tested, initial collision experiments, PyGame research  
+- **25/10/2018**: PyGame exercises and basic tutorials completed  
+- **31/10/2018**: First map created with basic collisions and player event handling  
+- **08/11/2018**: Functionality verified and adapted for Windows  
+- **15/11/2018**: Socket research  
+- **18/11/2018**: Map redesign, added comments, collisions v0.1  
+- **22/11/2018**: CPU processing behavior and OS differences researched  
+- **27/11/2018**: Collision system overhaul, TMX library customized  
+- **28/11/2018**: Major code refactor (OOP), collision handling, FPS control  
+- **09/01/2019**: Fully functional collisions, optimized and cleaned codebase  
+- **16/01/2019**: Improved Windows-specific import logic  
+- **23/01/2019**: FPS management issues on Windows resolved  
+- **30/01/2019**: Research on map transitions  
+- **06/02/2019**: Sought coding guidance from Python developers  
+- **13/02/2019**: Diagram planning for entity transitions  
+- **20/02/2019**: Redesign of processing systems (on inaccessible shared drive)  
+- **27/02/2019**: Finished work on the new systems (still inaccessible)  
+- **03/03/2019**: Animated walking sprites, house interior with collisions  
+- **06/03/2019**: Fixed sprite import issues on Windows  
+- **13/03/2019**: Multimap management strategy planning  
+- **20/03/2019**: Fixed global path issues in second map  
+- **27/03/2019**: Requested help for implementing map transfers  
+- **24/04/2019**: Follow-up request for support  
+- **08/05/2019**: Game revamp, new development direction  
+- **15/05/2019**: UI system added, code split into classes, new collisions  
+- **16/05/2019**: Interface loop, coordinate saving, character sprite adjustments  
+- **17/05/2019**: Music and dialogue system implemented, first mission added  
+- **20/05/2019**: Code optimization, character interaction, map transparency  
+- **21/05/2019**: New map + mission 1 house, interactions, inventory system  
+- **22/05/2019**: Start menu, collision tweaks, comments, Windows checks, PEP8 compliance  
+- **18/04/2025**: New features: character switch menu, sprinting, ZQSD/arrow keys, environment fixes  
+
+---
+
+## 🏫 Background
+
+This project was developed during the final year of secondary school as part of the computer science course taught by Mr. Bertocchi at Collège Roi Baudouin.  
+Website: [http://explore-photo.com/](http://explore-photo.com/)
+
+---
+
+## 🛠️ Installation
+
+### Requirements
+
+- Python 3.8 or later  
+- pip (Python package installer)  
+
+### Virtual Environment Setup
+
+1. **Clone the repository**  
+   ```bash
+   git clone https://github.com/your-username/PyDragon.git
+   cd PyDragon
+   ```
+
+2. **Create a virtual environment**  
+   ```bash
+   python -m venv venv
+   ```
+
+3. **Activate the virtual environment**  
+   - On **Windows**:
+     ```bash
+     venv\Scripts\activate
+     ```
+   - On **macOS/Linux**:
+     ```bash
+     source venv/bin/activate
+     ```
+
+4. **Install the dependencies**  
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+5. **Run the game**  
+   ```bash
+   python main.py
+   ```

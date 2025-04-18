@@ -1,180 +1,173 @@
-import os      # Import OS
-import sys     # Import SYS
-from math import ceil  # Import ceil
+import os
+import sys
+from math import ceil
 
-sys.path.append(os.getcwd() + "/libs")  # Ajout du chemin pour éviter les bugs Windows
-import tmx  # Libraire TMX (bypass pour Python 2)
+sys.path.append(os.getcwd() + "/libs")
+import tmx
 
-sys.path.append(os.getcwd() + "/classes")  # Ajout du chemin pour éviter les bugs Windows
-from player import *  # Import de la class Player et des composantes liées
-from sprite import *  # Import de la class Sprite et des composantes liées
-from move import *    # Import de la class Move et des composantes liées
-from niveau import *  # Import de la class Niveau et des composantes liées
-from interact import *  # Import de la class Interact et des composantes liées
-from inventory import *  # Import de la class Inventory et des composantes liées
-from escapemenu import *  # Import de la class EscapeMenu et des composantes liées
+sys.path.append(os.getcwd() + "/classes")
+from player import *
+from sprite import *
+from move import *
+from niveau import *
+from interact import *
+from inventory import *
+from escapemenu import *
 
-sys.path.append(os.getcwd() + "/ressources")  # Ajout du chemin pour éviter les bugs Windows
-from missions import *  # Import des variables de textes des missions
+sys.path.append(os.getcwd() + "/ressources")
+from missions import *
 
 
 class WorldTownIn:
-    """ Gestion liée à l'extérieur de la map WorldTownIn """
+    """ Management related to the interior of the WorldTown map """
 
-    def __init__(self, width, height, screen, clock, fps, avancer):
-        """ Récupère les variables importantes depuis la class Game """
+    def __init__(self, width, height, screen, clock, fps, move_speed):
+        """ Gets important variables from the Game class """
         self.width = width
         self.height = height
         self.screen = screen
         self.fps = fps
         self.clock = clock
-        self.avancer = avancer
-        self.son = None  # Initialisation du son à None
+        self.move_speed = move_speed
+        self.sound = None
 
-        self.while_map_town = False  # N'appelle par défaut pas la boucle de cette route
+        self.while_map_town = False
 
-        self.while_map_town_in = True  # Boucle sur la carte à afficher à l'utilisateur
+        self.while_map_town_in = True
 
-    def while_town_in(self, son=None):
-        """ Boucle sur la map WorldTownIn """
-        self.son = son  # Récupère le son du jeu depuis Game
-        tilemap = tmx.load('ressources/maps/worldtown/house/map.tmx', self.screen.get_size())  # Import de la map
-        collision_total = tilemap.layers['evenements'].find('collision')  # Récupère toutes les collisions
-        collision_person = tilemap.layers['evenements'].find('collision_person')  # Récupère les collisions avec le personnage
-        exit_lvl = tilemap.layers['evenements'].find('exit')  # Quitte la maison
+    def while_town_in(self, sound=None):
+        """ Loop on the WorldTownIn map """
+        self.sound = sound
+        tilemap = tmx.load('ressources/maps/worldtown/house/map.tmx', self.screen.get_size())
+        collision_total = tilemap.layers['evenements'].find('collision')
+        collision_person = tilemap.layers['evenements'].find('collision_person')
+        exit_lvl = tilemap.layers['evenements'].find('exit')
 
-        move = None  # Aucun déplacement n'est demandé par défaut
-        old_pos_sprite = 'Down'  # Position par défaut du personnage (vers le bas)
-        img_perso = Sprite()  # Défini la classe s'occupant des images des personnages
-        
-        # Utiliser le type de sprite sauvegardé globalement
+        move_direction = None
+        old_pos_sprite = 'Down'
+        character_img = Sprite()
+
         if Niveau.SPRITE_TYPE != 0:
-            img_perso.change_sprite(Niveau.SPRITE_TYPE)
-            
-        player = Player(tilemap, self.width, self.height, img_perso, old_pos_sprite)  # Appelle la class du joueur
-        deplacer = Move(player, self.avancer, collision_total)  # Appelle la class de déplacement
-        dialogue = Interact(self.screen)  # Défini la classe de dialogue
-        inventory = Inventory(self.screen)  # Défini la classe de l'inventaire
-        escape_menu = EscapeMenu(self.screen, self.son)  # Initialisation du menu d'échappement avec le son
-        pygame.time.set_timer(pygame.USEREVENT, 300)  # Temps de mise à jour des Sprites (300 ms)
-        
-        # Réinitialiser le curseur
+            character_img.change_sprite(Niveau.SPRITE_TYPE)
+
+        player = Player(tilemap, self.width, self.height, character_img, old_pos_sprite)
+        movement = Move(player, self.move_speed, collision_total)
+        dialogue = Interact(self.screen)
+        inventory = Inventory(self.screen)
+        escape_menu = EscapeMenu(self.screen, self.sound)
+        pygame.time.set_timer(pygame.USEREVENT, 300)
+
         pygame.mouse.set_cursor(pygame.SYSTEM_CURSOR_ARROW)
 
-        while self.while_map_town_in:  # Boucle infinie du jeu
-            collide_exit = CollisionController(player, exit_lvl)  # Class de collision pour quitter le niveau
-            collide_person = CollisionController(player, collision_person)  # Class de collision pour parler avec le personnage
-            if collide_exit.collision():  # Si la collision avec la porte a lieu
-                self.while_map_town_in = False  # Arrête la boucle de la map Kamehouse
-                self.while_map_town = True  # Permet de lancer la boucle de la map Kamehouse_in
-                Niveau.LVL = 'while_map_town'  # Nouvelle map appellée
+        while self.while_map_town_in:
+            collide_exit = CollisionController(player, exit_lvl)
+            collide_person = CollisionController(player, collision_person)
+            if collide_exit.collision():
+                self.while_map_town_in = False
+                self.while_map_town = True
+                Niveau.LVL = 'while_map_town'
 
-            for event in pygame.event.get():  # Vérifie toutes les actions du joueur
-                if event.type == pygame.QUIT:  # Clique pour quitter le jeu
-                    self.while_map_town_in = False  # Quitte le processus python
-                    Niveau.WHILE_GAME = False  # Ferme la boucle d'importation
-                elif event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE:  # Touche Echap
-                    escape_menu.toggle()  # Active/désactive le menu d'échappement
-                elif event.type == pygame.USEREVENT:  # Déplacement du joueur
-                    player.sprite_player = img_perso.animate_sprite(move, old_pos_sprite)  # Anime le joueur
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    self.while_map_town_in = False
+                    Niveau.WHILE_GAME = False
+                elif event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE:
+                    escape_menu.toggle()
+                elif event.type == pygame.USEREVENT:
+                    player.sprite_player = character_img.animate_sprite(move_direction, old_pos_sprite)
                 elif event.type == pygame.KEYDOWN and event.key == pygame.K_SPACE and collide_person.collision() and not Niveau.DIALOGUE:
-                    # Si la touche espace est préssée, qu'il y a une collision et qu'il n'y a pas de boite de dialogue
-                        Niveau.DIALOGUE = True  # On défini la variable pour l'afficher
+                    Niveau.DIALOGUE = True
                 elif event.type == pygame.KEYDOWN and event.key == pygame.K_SPACE and Niveau.DIALOGUE:
-                    # Si la touche espace est préssée et qu'il n'y a une boite de dialogue affichée
+
                     if Niveau.MISSION_01 == 0:
-                        calcul = ceil(len(txt_mission01_02) / 4)  # Calcul le nombre de page en fonction du dialogue
+                        calcul = ceil(len(txt_mission01_02) / 4)
                     elif Niveau.MISSION_01 == 50:
-                        calcul = ceil(len(txt_mission01_05) / 4)  # Calcul le nombre de page en fonction du dialogue
+                        calcul = ceil(len(txt_mission01_05) / 4)
                     elif Niveau.MISSION_01 == 100:
-                        calcul = ceil(len(txt_mission01_06) / 4)  # Calcul le nombre de page en fonction du dialogue
+                        calcul = ceil(len(txt_mission01_06) / 4)
 
-                    if Niveau.PAGE == calcul:  # Nombre de page maximum des dialogues est atteint
-                        Niveau.DIALOGUE = False  # On ferme la boite de dialogue
-                        Niveau.PAGE = 1  # Redéfini la page à 1
+                    if Niveau.PAGE == calcul:
+                        Niveau.DIALOGUE = False
+                        Niveau.PAGE = 1
 
-                        if Niveau.MISSION_01 == 0:  # Si la mission est à 0%
-                            Niveau.MISSION_01 = 50  # Évolue l'état de la mission 1 à 50% achevée
-                            Niveau.INVENTORY.append('boulecristal')  # Ajoute l'objet obtenu
-                    else:  # Pas encore toutes les pages sont lues
-                        Niveau.PAGE = Niveau.PAGE + 1  # Ajoute +1 aux pages
-                
-                # Gestion des clics dans le menu d'échappement
+                        if Niveau.MISSION_01 == 0:
+                            Niveau.MISSION_01 = 50
+                            Niveau.INVENTORY.append('boulecristal')
+                    else:
+                        Niveau.PAGE = Niveau.PAGE + 1
+
                 sprite_choice = escape_menu.handle_event(event)
                 if sprite_choice is not None:
-                    img_perso.change_sprite(sprite_choice)  # Change le sprite du personnage
-                    player.sprite_player = img_perso.select_sprite(1, 0)  # Met à jour le sprite avec la nouvelle apparence
-                    # Sauvegarder le choix de sprite globalement
+                    character_img.change_sprite(sprite_choice)
+                    player.sprite_player = character_img.select_sprite(1, 0)
+
                     Niveau.SPRITE_TYPE = sprite_choice
 
-            # Mettre à jour l'état de survol du menu d'échappement
             if escape_menu.menu_active:
                 escape_menu.update_hover_state()
 
-            # Si une boite de dialogue est affichée ou le menu d'échappement est ouvert, ne pas traiter les déplacements
             if not Niveau.DIALOGUE and not escape_menu.menu_active:
-                # Détermine si la touche SHIFT est pressée pour le sprint
-                sprint_multiplier = 3.0 if pygame.key.get_pressed()[pygame.K_LSHIFT] or pygame.key.get_pressed()[pygame.K_RSHIFT] else 1.0
-                vitesse = self.avancer * sprint_multiplier
-                
+
+                sprint_multiplier = 3.0 if pygame.key.get_pressed()[pygame.K_LSHIFT] or pygame.key.get_pressed()[
+                    pygame.K_RSHIFT] else 1.0
+                speed = self.move_speed * sprint_multiplier
+
                 if pygame.key.get_pressed()[pygame.K_DOWN] or pygame.key.get_pressed()[pygame.K_s]:
-                    # Premier déplacement du personnage : il n'y a pas encore de mouvement ou la touche ne correspond pas
-                    direction_deplacement = 'Down'  # Variable de modification rapide
-                    if move is None or move != direction_deplacement:
-                        player.sprite_player = img_perso.select_sprite(1, 0)  # Mise à jour première du Sprite
-                        move = direction_deplacement  # Actualisation de la variable déplacement
-                    if Move.COLLIDED: move = None  # Empêche le déplacement du Sprite s'il y a une collision
-                    old_pos_sprite = direction_deplacement  # Ancienne position du joueur pour quand il s'arrêtera
-                    deplacer.move_player(player.player.copy(), [0, vitesse], direction_deplacement)  # Déplacement
+                    movement_direction = 'Down'
+                    if move_direction is None or move_direction != movement_direction:
+                        player.sprite_player = character_img.select_sprite(1, 0)
+                        move_direction = movement_direction
+                    if Move.COLLIDED: move_direction = None
+                    old_pos_sprite = movement_direction
+                    movement.move_player(player.player.copy(), [0, speed], movement_direction)
 
                 elif pygame.key.get_pressed()[pygame.K_UP] or pygame.key.get_pressed()[pygame.K_z]:
-                    direction_deplacement = 'Up'
-                    if move is None or move != direction_deplacement:
-                        player.sprite_player = img_perso.select_sprite(1, 3)
-                        move = direction_deplacement
-                    if Move.COLLIDED: move = None  # Empêche le déplacement du Sprite s'il y a une collision
-                    old_pos_sprite = direction_deplacement
-                    deplacer.move_player(player.player.copy(), [0, -vitesse], direction_deplacement)
+                    movement_direction = 'Up'
+                    if move_direction is None or move_direction != movement_direction:
+                        player.sprite_player = character_img.select_sprite(1, 3)
+                        move_direction = movement_direction
+                    if Move.COLLIDED: move_direction = None
+                    old_pos_sprite = movement_direction
+                    movement.move_player(player.player.copy(), [0, -speed], movement_direction)
 
                 elif pygame.key.get_pressed()[pygame.K_LEFT] or pygame.key.get_pressed()[pygame.K_q]:
-                    direction_deplacement = 'Left'
-                    if move is None or move != direction_deplacement:
-                        player.sprite_player = img_perso.select_sprite(1, 1)
-                        move = direction_deplacement
-                    if Move.COLLIDED: move = None  # Empêche le déplacement du Sprite s'il y a une collision
-                    old_pos_sprite = direction_deplacement
-                    deplacer.move_player(player.player.copy(), [-vitesse, 0], direction_deplacement)
+                    movement_direction = 'Left'
+                    if move_direction is None or move_direction != movement_direction:
+                        player.sprite_player = character_img.select_sprite(1, 1)
+                        move_direction = movement_direction
+                    if Move.COLLIDED: move_direction = None
+                    old_pos_sprite = movement_direction
+                    movement.move_player(player.player.copy(), [-speed, 0], movement_direction)
 
                 elif pygame.key.get_pressed()[pygame.K_RIGHT] or pygame.key.get_pressed()[pygame.K_d]:
-                    direction_deplacement = 'Right'
-                    if move is None or move != direction_deplacement:
-                        player.sprite_player = img_perso.select_sprite(1, 2)
-                        move = direction_deplacement
-                    if Move.COLLIDED: move = None  # Empêche le déplacement du Sprite s'il y a une collision
-                    old_pos_sprite = direction_deplacement
-                    deplacer.move_player(player.player.copy(), [vitesse, 0], direction_deplacement)
+                    movement_direction = 'Right'
+                    if move_direction is None or move_direction != movement_direction:
+                        player.sprite_player = character_img.select_sprite(1, 2)
+                        move_direction = movement_direction
+                    if Move.COLLIDED: move_direction = None
+                    old_pos_sprite = movement_direction
+                    movement.move_player(player.player.copy(), [speed, 0], movement_direction)
                 else:
-                    move = None  # Arrêt de déplacement du personnage
-            else:  # Une boite de dialogue est affichée ou menu d'échappement ouvert
-                move = None  # Arrêt de déplacement du personnage
+                    move_direction = None
+            else:
+                move_direction = None
 
-            self.clock.tick(self.fps)  # Restreint les FPS
-            tilemap.set_focus(player.player.x, player.player.y)  # Coordonnées du joueur par rapport aux bords
-            tilemap.draw(self.screen)  # Affiche le fond
-            self.screen.blit(player.sprite_player, (player.x, player.y))  # Affiche le joueur sur le fond
+            self.clock.tick(self.fps)
+            tilemap.set_focus(player.player.x, player.player.y)
+            tilemap.draw(self.screen)
+            self.screen.blit(player.sprite_player, (player.x, player.y))
 
-            if Niveau.DIALOGUE:  # Si la variable de dialogue est définie
-                if Niveau.MISSION_01 == 0:  # La mission n'a pas encore commencée
-                    dialogue.show_box(txt_mission01_02)  # Affiche le dialogue pour la mission 1
+            if Niveau.DIALOGUE:
+                if Niveau.MISSION_01 == 0:
+                    dialogue.show_box(txt_mission01_02)
                 elif Niveau.MISSION_01 == 50:
-                    dialogue.show_box(txt_mission01_05)  # Affiche le dialogue pour la mission 1
+                    dialogue.show_box(txt_mission01_05)
                 elif Niveau.MISSION_01 == 100:
-                    dialogue.show_box(txt_mission01_06)  # Affiche le dialogue pour la mission 1
+                    dialogue.show_box(txt_mission01_06)
 
-            if Niveau.INVENTORY:  # Si l'inventaire n'est pas vide
-                inventory.show_item()  # Affiche l'inventaire du joueur
-                
-            # Affiche le menu d'échappement si actif
+            if Niveau.INVENTORY:
+                inventory.show_item()
+
             escape_menu.draw()
 
-            pygame.display.flip()  # Met à jour l'écran
+            pygame.display.flip()

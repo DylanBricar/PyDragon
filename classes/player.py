@@ -1,26 +1,25 @@
-import pygame  # Import PyGame
+import pygame
 
 
 class Player:
-    """ Gestion du joueur """
+    """ Player management """
 
-    def __init__(self, tilemap, width, height, img_perso, old_pos_sprite):
-        self.tilemap = tilemap  # Récupère la map
+    def __init__(self, tilemap, width, height, img_character, old_pos_sprite):
+        self.tilemap = tilemap
 
-        # Récupère la position du joueur pour afficher le sprite par défaut
         if old_pos_sprite == 'up':
-            self.sprite_player = img_perso.select_sprite(1, 3)  # Génère le sprite de base
+            self.sprite_player = img_character.select_sprite(1, 3)
         elif old_pos_sprite == 'left':
-            self.sprite_player = img_perso.select_sprite(1, 1)  # Génère le sprite de base
+            self.sprite_player = img_character.select_sprite(1, 1)
         elif old_pos_sprite == 'right':
-            self.sprite_player = img_perso.select_sprite(1, 2)  # Génère le sprite de base
+            self.sprite_player = img_character.select_sprite(1, 2)
         else:
-            self.sprite_player = img_perso.select_sprite(1, 0)  # Génère le sprite de base
+            self.sprite_player = img_character.select_sprite(1, 0)
 
-        joueur_pos = self.tilemap.layers['evenements'].find('player')[0]  # Trouve le joueur depuis la map
-        self.player = pygame.rect.Rect((joueur_pos.px, joueur_pos.py), self.sprite_player.get_size())  # Crée son rectangle
+        player_pos = self.tilemap.layers['evenements'].find('player')[0]
+        self.player = pygame.rect.Rect((player_pos.px, player_pos.py), self.sprite_player.get_size())
 
-        self.div_x_map = width/2   # Taille de la map en longueur divisée en deux
-        self.div_y_map = height/2  # Taille de la map en largeur divisée en deux
-        self.y = self.div_y_map    # Utilisé pour positionner le joueur (au centre vertical par défaut)
-        self.x = self.div_x_map    # Utilisé pour positionner le joueur (au centre horizontal par défaut)
+        self.half_width = width / 2
+        self.half_height = height / 2
+        self.y = self.half_height
+        self.x = self.half_width

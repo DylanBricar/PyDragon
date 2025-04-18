@@ -1,7 +1,6 @@
 """
-Module de paramètres globaux pour le jeu.
-Contient les variables partagées entre les différents modules.
+Global settings module for the game.
+Contains variables shared between different modules.
 """
 
-# État global du son (True = activé, False = désactivé)
-SOUND_ENABLED = True 
+SOUND_ENABLED = True

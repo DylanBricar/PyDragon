@@ -1,4 +1,3 @@
-# Textes pour les missions du jeu
 txt_mission01_01 = ("Hey Son Goku, j'espère que tu vas bien ça faisait longtemps ! | tortue",
                     "Ça tombe bien que tu sois là, j'aurais un petit service à te demander.",
                     "J'ai oublié une boule de cristal dans une maison en ville, pourrais-tu la récupérer ?",
