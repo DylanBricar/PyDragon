@@ -23,16 +23,37 @@ class Game:
         self.width = width
         self.height = height
         self.favicon = 'ressources/favicon.png'
-        self.fps = 24
+        self.fps = 60
         self.move_speed = 8.0
         self.sound = None
+        self.sound_icons = {'on': None, 'off': None}
+        self.resource_cache = {}
+
+    def load_resource(self, path, convert_alpha=True):
+        """Loads and caches resources to avoid repeated loading."""
+        if path in self.resource_cache:
+            return self.resource_cache[path]
+
+        try:
+            if convert_alpha:
+                resource = pygame.image.load(path).convert_alpha()
+            else:
+                resource = pygame.image.load(path).convert()
+            self.resource_cache[path] = resource
+            return resource
+        except Exception as e:
+            print(f"Error loading resource {path}: {e}")
+            return None
 
     def main(self):
         """ Game launch """
         pygame.init()
         screen = pygame.display.set_mode((self.width, self.height))
         pygame.display.set_caption('PyDragon v0.5')
-        pygame.display.set_icon(pygame.image.load(self.favicon))
+
+        favicon = self.load_resource(self.favicon)
+        if favicon:
+            pygame.display.set_icon(favicon)
 
         try:
             self.sound = pygame.mixer.Sound("ressources/sounds/DBZFighter.wav")
@@ -43,29 +64,7 @@ class Game:
 
         clock = pygame.time.Clock()
 
-        try:
-            sound_dir = Path('ressources/images')
-            sound_dir.mkdir(parents=True, exist_ok=True)
-
-            sound_on_path = sound_dir / 'sound_on.png'
-            sound_off_path = sound_dir / 'sound_off.png'
-
-            if not sound_on_path.exists() or not sound_off_path.exists():
-                sound_on = pygame.Surface((30, 30), pygame.SRCALPHA)
-                sound_off = pygame.Surface((30, 30), pygame.SRCALPHA)
-
-                pygame.draw.circle(sound_on, (255, 255, 255), (15, 15), 10)
-                pygame.draw.circle(sound_on, (0, 0, 0), (15, 15), 8)
-                pygame.draw.circle(sound_on, (255, 255, 255), (15, 15), 5)
-
-                pygame.draw.circle(sound_off, (255, 255, 255), (15, 15), 10)
-                pygame.draw.circle(sound_off, (0, 0, 0), (15, 15), 8)
-                pygame.draw.line(sound_off, (255, 0, 0), (5, 5), (25, 25), 3)
-
-                pygame.image.save(sound_on, str(sound_on_path))
-                pygame.image.save(sound_off, str(sound_off_path))
-        except Exception as e:
-            print(f"Error creating sound icons: {e}")
+        self.create_sound_icons()
 
         while Niveau.WHILE_GAME:
             if Niveau.LVL == 'while_main_menu':
@@ -84,4 +83,37 @@ class Game:
                 map_world = WorldTownIn(self.width, self.height, screen, clock, self.fps, self.move_speed)
                 map_world.while_town_in(self.sound)
 
+        self.resource_cache.clear()
         pygame.quit()
+
+    def create_sound_icons(self):
+        """Creates sound icons in an optimized way."""
+        try:
+            sound_dir = Path('ressources/images')
+            sound_dir.mkdir(parents=True, exist_ok=True)
+
+            sound_on_path = sound_dir / 'sound_on.png'
+            sound_off_path = sound_dir / 'sound_off.png'
+
+            if sound_on_path.exists() and sound_off_path.exists():
+                self.sound_icons['on'] = self.load_resource(str(sound_on_path))
+                self.sound_icons['off'] = self.load_resource(str(sound_off_path))
+            else:
+                sound_on = pygame.Surface((30, 30), pygame.SRCALPHA)
+                sound_off = pygame.Surface((30, 30), pygame.SRCALPHA)
+
+                pygame.draw.circle(sound_on, (255, 255, 255), (15, 15), 10)
+                pygame.draw.circle(sound_on, (0, 0, 0), (15, 15), 8)
+                pygame.draw.circle(sound_on, (255, 255, 255), (15, 15), 5)
+
+                pygame.draw.circle(sound_off, (255, 255, 255), (15, 15), 10)
+                pygame.draw.circle(sound_off, (0, 0, 0), (15, 15), 8)
+                pygame.draw.line(sound_off, (255, 0, 0), (5, 5), (25, 25), 3)
+
+                pygame.image.save(sound_on, str(sound_on_path))
+                pygame.image.save(sound_off, str(sound_off_path))
+
+                self.sound_icons['on'] = sound_on
+                self.sound_icons['off'] = sound_off
+        except Exception as e:
+            print(f"Error creating sound icons: {e}")

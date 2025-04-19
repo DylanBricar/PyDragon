@@ -11,6 +11,7 @@ from move import *
 from niveau import *
 from inventory import *
 from escapemenu import *
+from settings import *
 
 
 class Kamehouse:
@@ -28,10 +29,17 @@ class Kamehouse:
         self.while_map_kamehouse_in = False
         self.while_map_town = False
         self.while_map_kamehouse = True
+        self.last_time = 0
+        self.frame_count = 0
+        self.fps_font = None
+
+        if SHOW_FPS:
+            self.fps_font = pygame.font.SysFont('Arial', 16)
 
     def while_kamehouse(self, sound=None):
         """ Loop on the Kamehouse map """
         self.sound = sound
+
         tilemap = tmx.load('ressources/maps/kamehouse/island/map.tmx', self.screen.get_size())
         collision_total = tilemap.layers['evenements'].find('collision')
 
@@ -56,8 +64,13 @@ class Kamehouse:
             player.player.y = Niveau.COORDINATES[1]
 
         pygame.mouse.set_cursor(pygame.SYSTEM_CURSOR_ARROW)
+        last_time = pygame.time.get_ticks()
 
         while self.while_map_kamehouse:
+            current_time = pygame.time.get_ticks()
+            dt = (current_time - last_time) / 1000.0
+            last_time = current_time
+
             collide_exit = CollisionController(player, exit_lvl)
             if collide_exit.collision():
                 self.while_map_kamehouse = False
@@ -95,7 +108,8 @@ class Kamehouse:
 
                 sprint_multiplier = 3.0 if pygame.key.get_pressed()[pygame.K_LSHIFT] or pygame.key.get_pressed()[
                     pygame.K_RSHIFT] else 1.0
-                speed = self.move_speed * sprint_multiplier
+
+                speed = self.move_speed * sprint_multiplier * SPEED_ADJUSTMENT
 
                 if pygame.key.get_pressed()[pygame.K_DOWN] or pygame.key.get_pressed()[pygame.K_s]:
 
@@ -145,4 +159,10 @@ class Kamehouse:
                 inventory.show_item()
 
             escape_menu.draw()
+
+            if SHOW_FPS:
+                current_fps = self.clock.get_fps()
+                fps_text = self.fps_font.render(f"FPS: {int(current_fps)}", True, (255, 255, 0))
+                self.screen.blit(fps_text, (10, 10))
+
             pygame.display.flip()

@@ -13,6 +13,7 @@ from niveau import *
 from interact import *
 from inventory import *
 from escapemenu import *
+from settings import *
 
 sys.path.append(os.getcwd() + "/ressources")
 from missions import *
@@ -30,10 +31,11 @@ class WorldTownIn:
         self.clock = clock
         self.move_speed = move_speed
         self.sound = None
-
+        self.while_map_town_in = True
         self.while_map_town = False
 
-        self.while_map_town_in = True
+        if SHOW_FPS:
+            self.fps_font = pygame.font.SysFont('Arial', 16)
 
     def while_town_in(self, sound=None):
         """ Loop on the WorldTownIn map """
@@ -107,10 +109,10 @@ class WorldTownIn:
                 escape_menu.update_hover_state()
 
             if not Niveau.DIALOGUE and not escape_menu.menu_active:
-
                 sprint_multiplier = 3.0 if pygame.key.get_pressed()[pygame.K_LSHIFT] or pygame.key.get_pressed()[
                     pygame.K_RSHIFT] else 1.0
-                speed = self.move_speed * sprint_multiplier
+
+                speed = self.move_speed * sprint_multiplier * SPEED_ADJUSTMENT
 
                 if pygame.key.get_pressed()[pygame.K_DOWN] or pygame.key.get_pressed()[pygame.K_s]:
                     movement_direction = 'Down'

@@ -11,6 +11,7 @@ from move import *
 from niveau import *
 from inventory import *
 from escapemenu import *
+from settings import *
 
 
 class WorldTown:
@@ -25,11 +26,12 @@ class WorldTown:
         self.clock = clock
         self.move_speed = move_speed
         self.sound = None
-
+        self.while_map_town = True
         self.while_map_kamehouse = False
         self.while_map_town_in = False
 
-        self.while_map_town = True
+        if SHOW_FPS:
+            self.fps_font = pygame.font.SysFont('Arial', 16)
 
     def while_town(self, sound=None):
         """ Loop on the WorldTown map """
@@ -94,10 +96,10 @@ class WorldTown:
                 escape_menu.update_hover_state()
 
             if not escape_menu.menu_active:
-
                 sprint_multiplier = 3.0 if pygame.key.get_pressed()[pygame.K_LSHIFT] or pygame.key.get_pressed()[
                     pygame.K_RSHIFT] else 1.0
-                speed = self.move_speed * sprint_multiplier
+
+                speed = self.move_speed * sprint_multiplier * SPEED_ADJUSTMENT
 
                 if pygame.key.get_pressed()[pygame.K_DOWN] or pygame.key.get_pressed()[pygame.K_s]:
 
